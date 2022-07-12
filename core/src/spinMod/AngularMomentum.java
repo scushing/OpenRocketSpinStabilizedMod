@@ -2,9 +2,9 @@ package spinMod;
 
 public class AngularMomentum {
 
-    double magnitude;
-    double inertialMoment;
-    double angularVelocity;
+    private double magnitude;
+    private double inertialMoment;
+    private double angularVelocity;
 
     public AngularMomentum(double angularVelocity, double mass, double radius) {
         this.angularVelocity = angularVelocity;
@@ -26,7 +26,18 @@ public class AngularMomentum {
 
 
     public void setXYInertialMoment(double mass, double radius, double arm) {
-        inertialMoment = (1.0/4.0 * mass * radius * radius) + (1.0/3.0 * mass * arm * arm);
+        inertialMoment = (1.0/4.0 * mass * radius * radius) + (1.0/12.0 * mass * arm * arm);
+    }
+
+
+    public void updateMagnitude(double torque, double time) {
+        magnitude = magnitude + (torque/time);
+        updateAngularVelocity();
+    }
+
+
+    private void updateAngularVelocity() {
+        angularVelocity = magnitude/inertialMoment;
     }
 
 

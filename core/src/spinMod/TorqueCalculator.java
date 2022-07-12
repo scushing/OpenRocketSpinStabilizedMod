@@ -2,10 +2,10 @@ package spinMod;
 
 public class TorqueCalculator {
 
-    TorqueVector spin;
-    TorqueVector drag;
-    TorqueVector wind;
-    TorqueVector net;
+    private TorqueVector spin;
+    private TorqueVector drag;
+    private TorqueVector wind;
+    private TorqueVector net;
 
     public TorqueCalculator(TorqueVector spin, TorqueVector drag, TorqueVector wind) {
         this.spin = spin;
@@ -20,6 +20,11 @@ public class TorqueCalculator {
         net.i = spin.i + drag.i + wind.i;
         net.j = spin.j + drag.j + wind.j;
         net.k = spin.k + drag.k + wind.j;
+    }
+
+
+    public TorqueVector getNet() {
+        return net;
     }
 
 }
