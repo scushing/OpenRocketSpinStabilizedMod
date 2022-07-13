@@ -6,6 +6,7 @@ public class Rocket {
     AngularMomentum ySpin;
     AngularMomentum zSpin;
     OrientationVector orientation;
+    VelocityVector v;
     TorqueVector spin;
     TorqueVector drag;
     TorqueVector wind;
@@ -21,6 +22,7 @@ public class Rocket {
     double maxTime;
 
     public Rocket(double mass, double cgArm, double radius, double baseSpin, double maxTime) {
+        this.v = new VelocityVector();
         this.mass = mass;
         this.cgArm = cgArm;
         this.radius = radius;

@@ -35,10 +35,12 @@ public class TorqueVector implements Vector {
     }
 
 
-    public void setMagnitudeS() {
-        becomeUnitVector();
-        //TODO: FILL WITH FORMULA
-        updateIJK();
+    public void setMagnitudeS(AngularMomentum x, AngularMomentum y, AngularMomentum z) {
+        i = x.getMagnitude() + (y.getAngularVelocity()*z.getMagnitude()) - (z.getAngularVelocity()*y.getMagnitude());
+        j = y.getMagnitude() + (z.getAngularVelocity()*x.getMagnitude()) - (x.getAngularVelocity()*z.getMagnitude());
+        k = z.getMagnitude() + (x.getAngularVelocity()*y.getMagnitude()) - (y.getAngularVelocity()*x.getMagnitude());
+        calculateMagnitude();
+
     }
 
 
