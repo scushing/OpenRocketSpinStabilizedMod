@@ -38,4 +38,9 @@ public class Rocket {
         NetTorqueCalculator = new TorqueCalculator(spin, drag, wind);
     }
 
+
+    public void update() {
+
+    }
+
 }

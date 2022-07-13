@@ -1,6 +1,6 @@
 package spinMod;
 
-public class OrientationVector implements Vector {
+public class VelocityVector implements Vector {
 
     double i;
     double j;
@@ -8,7 +8,7 @@ public class OrientationVector implements Vector {
 
     double magnitude;
 
-    public OrientationVector(){
+    public VelocityVector(){
         this.i = 0;
         this.j = 0;
         this.k = 0;
@@ -16,7 +16,7 @@ public class OrientationVector implements Vector {
     }
 
 
-    public OrientationVector(double i, double j, double k) {
+    public VelocityVector(double i, double j, double k) {
         this.i = i;
         this.j = j;
         this.k = k;
