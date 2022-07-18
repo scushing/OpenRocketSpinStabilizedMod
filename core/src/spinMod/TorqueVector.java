@@ -40,7 +40,6 @@ public class TorqueVector implements Vector {
         j = y.getMagnitude() + (z.getAngularVelocity()*x.getMagnitude()) - (x.getAngularVelocity()*z.getMagnitude());
         k = z.getMagnitude() + (x.getAngularVelocity()*y.getMagnitude()) - (y.getAngularVelocity()*x.getMagnitude());
         calculateMagnitude();
-
     }
 
 

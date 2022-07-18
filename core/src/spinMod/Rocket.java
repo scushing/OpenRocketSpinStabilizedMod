@@ -1,16 +1,24 @@
 package spinMod;
 
+import net.sf.openrocket.util.ArrayList;
+
 public class Rocket {
 
     AngularMomentum xSpin;
     AngularMomentum ySpin;
     AngularMomentum zSpin;
+    PositionVector position;
     OrientationVector orientation;
-    VelocityVector v;
+    VelocityVector velocity;
     TorqueVector spin;
     TorqueVector drag;
     TorqueVector wind;
     TorqueCalculator NetTorqueCalculator;
+
+    double airDensity;
+    double dragCoefficient;
+    double sideArea;
+    double topArea;
 
     double mass;
     double cgArm;
@@ -22,7 +30,8 @@ public class Rocket {
     double maxTime;
 
     public Rocket(double mass, double cgArm, double radius, double baseSpin, double maxTime) {
-        this.v = new VelocityVector();
+        this.position = new PositionVector();
+        this.velocity = new VelocityVector();
         this.mass = mass;
         this.cgArm = cgArm;
         this.radius = radius;
@@ -41,8 +50,9 @@ public class Rocket {
     }
 
 
-    public void update() {
-
+    public void update(VelocityVector windVelocity) {
+        this.spin.setMagnitudeS(xSpin, ySpin, zSpin);
+        this.wind.setMagnitudeD();
     }
 
 }

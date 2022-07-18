@@ -21,7 +21,31 @@ public class OrientationVector implements Vector {
         this.j = j;
         this.k = k;
         calculateMagnitude();
+        becomeUnitVector();
     }
+
+
+    private void becomeUnitVector() {
+        this.i = i/magnitude;
+        this.j = j/magnitude;
+        this.k = k/magnitude;
+    }
+
+
+    public double getXAxisAngle() {
+        return Math.atan(j/k);
+    }
+
+
+    public double getYAxisAngle() {
+        return Math.atan(i/k);
+    }
+
+
+    public double getZAxisAngle() {
+        return Math.atan(j/i);
+    }
+
 
     @Override
     public void setI(double i) {
@@ -47,6 +71,7 @@ public class OrientationVector implements Vector {
         this.j = j;
         this.k = k;
         calculateMagnitude();
+        becomeUnitVector();
     }
 
     @Override
