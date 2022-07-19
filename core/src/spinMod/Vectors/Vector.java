@@ -1,27 +1,25 @@
-package spinMod;
+package spinMod.Vectors;
 
-public class OrientationVector implements Vector {
+public class Vector implements VectorMethods {
 
     double i;
     double j;
     double k;
-
     double magnitude;
 
-    public OrientationVector(){
-        this.i = 0;
-        this.j = 0;
-        this.k = 0;
-        calculateMagnitude();
+    public Vector() {
+        i = 0;
+        j = 0;
+        k = 0;
+        magnitude = getMagnitude();
     }
 
 
-    public OrientationVector(double i, double j, double k) {
+    public Vector(double i, double j, double k) {
         this.i = i;
         this.j = j;
         this.k = k;
-        calculateMagnitude();
-        becomeUnitVector();
+        magnitude = getMagnitude();
     }
 
 
@@ -32,37 +30,34 @@ public class OrientationVector implements Vector {
     }
 
 
-    public double getXAxisAngle() {
-        return Math.atan(j/k);
+    public void setMagnitude(double magnitude) {
+        becomeUnitVector();
+        i *= magnitude;
+        j *= magnitude;
+        k *= magnitude;
     }
 
 
-    public double getYAxisAngle() {
-        return Math.atan(i/k);
-    }
-
-
-    public double getZAxisAngle() {
-        return Math.atan(j/i);
+    public void crossProduct(Vector a, Vector b) {
+        setI((a.getJ() * b.getK()) - (a.getK() * b.getJ()));
+        setJ((a.getK() * b.getI()) - (a.getI() * b.getK()));
+        setK((a.getI() * b.getJ()) - (a.getJ() * b.getI()));
     }
 
 
     @Override
     public void setI(double i) {
         this.i = i;
-        calculateMagnitude();
     }
 
     @Override
     public void setJ(double j) {
         this.j = j;
-        calculateMagnitude();
     }
 
     @Override
     public void setK(double k) {
         this.k = k;
-        calculateMagnitude();
     }
 
     @Override
@@ -70,8 +65,6 @@ public class OrientationVector implements Vector {
         this.i = i;
         this.j = j;
         this.k = k;
-        calculateMagnitude();
-        becomeUnitVector();
     }
 
     @Override
@@ -91,11 +84,6 @@ public class OrientationVector implements Vector {
 
     @Override
     public double getMagnitude() {
-        return magnitude;
-    }
-
-
-    private void calculateMagnitude() {
-        this.magnitude = Math.sqrt(Math.pow(i,2) + Math.pow(j,2) + Math.pow(k,2));
+        return Math.sqrt(Math.pow(i, 2) + Math.pow(j, 2) + Math.pow(k, 2));
     }
 }

@@ -1,6 +1,6 @@
-package spinMod;
+package spinMod.Vectors;
 
-public interface Vector {
+public interface VectorMethods {
 
     void setI(double i);
 
