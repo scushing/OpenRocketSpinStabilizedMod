@@ -16,12 +16,14 @@ public class StabilitySim {
     static double dragCPArm;
     static double windCPArm;
 
+    static double thrust;
+
     static double maxTime;
     static int stepMax;
 
     public StabilitySim(double mass, double cgArm, double radius, double baseSpin, double topDragCoefficient,
                         double sideDragCoefficient, double sideArea, double topArea, double dragCPArm, double windCPArm,
-                        double maxTime, int stepMax) {
+                        double thrust, double maxTime, int stepMax) {
         this.mass = mass;
         this.cgArm = cgArm;
         this.radius = radius;
@@ -31,6 +33,7 @@ public class StabilitySim {
         this.topArea = topArea;
         this.dragCPArm = dragCPArm;
         this.windCPArm = windCPArm;
+        this.thrust = thrust;
 
         this.baseSpin = baseSpin;
         this.maxTime = maxTime;
@@ -48,9 +51,20 @@ public class StabilitySim {
 
         ArrayList<Gust> gusts = windVelocities(startAlt, endAlt, v);
         int step = 0;
+        int index = 0;
 
         while (time < maxTime) {
-            rocket.update(gusts.get(step), inc);
+            Vector wind = new Vector();
+            if (gusts.get(index).getStartAlt() < rocket.getPosition().getK() && gusts.get(index).getEndAlt() > rocket.getPosition().getK()) {
+                wind = gusts.get(index).getWind();
+            }
+            try {
+                while (gusts.get(index).getEndAlt() < rocket.getPosition().getK()) {
+                    wind.setAll(0, 0, 0);
+                    index++;
+                }
+            } catch (IndexOutOfBoundsException e) {}
+            rocket.update(wind, inc, thrust);
             step++;
             time += inc;
             vectors.add(rocket.getVelocity());

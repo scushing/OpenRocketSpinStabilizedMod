@@ -61,14 +61,14 @@ public class Rocket {
     }
 
 
-    public void update(Gust gust, double stepTime, double thrust) {
+    public void update(Vector extWind, double stepTime, double thrust) {
         //Linear Force vectors
         Vector Grav = new Vector(0, 0, ForceCalculator.calcG(mass));
-        Vector Wind = new Vector(gust.getWind().getI(), gust.getWind().getJ(), 0);
+        Vector Wind = new Vector(extWind.getI(), extWind.getJ(), 0);
         Vector Drag = new Vector(-orientation.getI(), -orientation.getJ(), -orientation.getK());
         Vector Thrust = new Vector(orientation.getI(), orientation.getJ(), orientation.getK());
 
-        Wind.setMagnitude(ForceCalculator.calcD(airDensity, gust.getWind().getMagnitude(), sideDragCoefficient, sideArea));
+        Wind.setMagnitude(ForceCalculator.calcD(airDensity, extWind.getMagnitude(), sideDragCoefficient, sideArea));
         Drag.setMagnitude(ForceCalculator.calcD(airDensity, velocity.getMagnitude(), topDragCoefficient, topArea));
         Thrust.setMagnitude(thrust);
 
@@ -79,13 +79,13 @@ public class Rocket {
         arm.setMagnitude(cgArm);
         gravity.crossProduct(Grav, arm);
         spin.setMagnitudeS(xSpin, ySpin, zSpin);
-        wind.setI(-gust.getWind().getJ());
-        wind.setJ(gust.getWind().getI());
+        wind.setI(-extWind.getJ());
+        wind.setJ(extWind.getI());
         wind.becomeUnitVector();
         drag.setI(wind.getI());
         drag.setJ(wind.getJ());
         drag.becomeUnitVector();
-        wind.setMagnitudeD(airDensity, gust.getWind().getMagnitude(), sideDragCoefficient, sideArea, windCPArm);
+        wind.setMagnitudeD(airDensity, extWind.getMagnitude(), sideDragCoefficient, sideArea, windCPArm);
         drag.setMagnitudeD(airDensity, this.velocity.getMagnitude(), topDragCoefficient, topArea, dragCPArm);
         netTorqueCalculator.findNet();
 
@@ -102,6 +102,11 @@ public class Rocket {
 
         updateVelocity(NetForce, stepTime);
         updatePosition(stepTime);
+    }
+
+
+    public Vector getPosition() {
+        return position;
     }
 
 
