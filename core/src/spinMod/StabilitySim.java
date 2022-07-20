@@ -21,6 +21,21 @@ public class StabilitySim {
     static double maxTime;
     static int stepMax;
 
+
+    public static void main(String args[]) {
+        StabilitySim sim = new StabilitySim(0.5, 0.13, 0.023, 200, 0.2,
+                0.3, 0.0016, 0.000075, 0.07, 0.08, 44, 8, 1000);
+        int[] startAlt = new int[1];
+        startAlt[0] = 100;
+        int[] endAlt = new int[1];
+        endAlt[0] = 200;
+        Vector[] v = new Vector[1];
+        v[0] = new Vector(5, 0, 0);
+        ArrayList<Vector> data = stabilitySim(startAlt, endAlt, v);
+        System.out.println(data);
+    }
+
+
     public StabilitySim(double mass, double cgArm, double radius, double baseSpin, double topDragCoefficient,
                         double sideDragCoefficient, double sideArea, double topArea, double dragCPArm, double windCPArm,
                         double thrust, double maxTime, int stepMax) {

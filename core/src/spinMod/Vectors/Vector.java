@@ -45,6 +45,11 @@ public class Vector implements VectorMethods {
     }
 
 
+    public String toString() {
+        return "< " + i + ", " + j + ", " + k + " >";
+    }
+
+
     @Override
     public void setI(double i) {
         this.i = i;
