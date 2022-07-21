@@ -58,44 +58,47 @@ public class StabilitySim {
 
     public static ArrayList<Vector> stabilitySim(int[] startAlt, int[] endAlt, Vector[] v) {
         ArrayList<Vector> vectors = new ArrayList<>(stepMax);
-        Rocket rocket = new Rocket(mass, cgArm, radius, baseSpin, topDragCoefficient, sideDragCoefficient, sideArea,
+        Rocket rocket = new Rocket(mass, cgArm, radius, rpmToRad(baseSpin), topDragCoefficient, sideDragCoefficient, sideArea,
                 topArea, dragCPArm, windCPArm);
 
         double inc = maxTime/stepMax;
         double time = 0;
 
-        ArrayList<Gust> gusts = windVelocities(startAlt, endAlt, v);
+        //ArrayList<Gust> gusts = windVelocities(startAlt, endAlt, v);
         int step = 0;
         int index = 0;
 
-        while (time < maxTime) {
-            Vector wind = new Vector();
-            if (gusts.get(index).getStartAlt() < rocket.getPosition().getK() && gusts.get(index).getEndAlt() > rocket.getPosition().getK()) {
-                wind = gusts.get(index).getWind();
-            }
-            try {
-                while (gusts.get(index).getEndAlt() < rocket.getPosition().getK()) {
-                    wind.setAll(0, 0, 0);
-                    index++;
-                }
-            } catch (IndexOutOfBoundsException e) {}
-            rocket.update(wind, inc, thrust);
-            step++;
-            time += inc;
-            vectors.add(rocket.getVelocity());
-        }
+//        while (time < maxTime) {
+//            Vector wind = new Vector();
+//            if (index < gusts.size()) {
+//                if (gusts.get(index).getStartAlt() < rocket.getPosition().getK() && gusts.get(index).getEndAlt() > rocket.getPosition().getK()) {
+//                    wind = gusts.get(index).getWind();
+//                }else if (gusts.get(index).getEndAlt() < rocket.getPosition().getK()) {
+//                    wind.setAll(0, 0, 0);
+//                    index++;
+//                }
+//            }
+//            wind.setAll(5, 0, 0);
+//            rocket.update(wind, inc, thrust);
+//            step++;
+//            time += inc;
+//            vectors.add(rocket.getVelocity());
+//        }
+        rocket.update(new Vector(1, 0, 0), 1,44);
+        System.out.println(rocket.getPosition());
+        System.out.println(rocket.getVelocity());
 
         return vectors;
     }
 
 
-    private static ArrayList<Gust> windVelocities(int[] startAlt, int[] endAlt, Vector[] v) {
-        ArrayList<Gust> list = new ArrayList<>(stepMax);
-        for (int i = 0; i < stepMax; i++) {
-            list.add(new Gust(v[i], startAlt[i], endAlt[i]));
-        }
-        return list;
-    }
+//    private static ArrayList<Gust> windVelocities(int[] startAlt, int[] endAlt, Vector[] v) {
+//        ArrayList<Gust> list = new ArrayList<Gust>(stepMax);
+//        for (int i = 0; i < stepMax; i++) {
+//            list.add(new Gust(v[i], startAlt[i], endAlt[i]));
+//        }
+//        return list;
+//    }
 
 
     private static double rpmToRad(double rpm) {

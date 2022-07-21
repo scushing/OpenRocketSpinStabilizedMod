@@ -35,13 +35,6 @@ public class OrientationVector extends Vector {
     }
 
 
-    private void becomeUnitVector() {
-        this.i = i/magnitude;
-        this.j = j/magnitude;
-        this.k = k/magnitude;
-    }
-
-
     public double getXAxisAngle() {
         return xAngle;
     }

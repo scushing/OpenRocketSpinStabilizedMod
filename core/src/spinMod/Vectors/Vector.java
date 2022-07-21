@@ -23,14 +23,21 @@ public class Vector implements VectorMethods {
     }
 
 
-    private void becomeUnitVector() {
-        this.i = i/magnitude;
-        this.j = j/magnitude;
-        this.k = k/magnitude;
+    void becomeUnitVector() {
+        if (magnitude != 0) {
+            this.i = i / magnitude;
+            this.j = j / magnitude;
+            this.k = k / magnitude;
+        } else {
+            i = 0;
+            j = 0;
+            k = 0;
+        }
     }
 
 
     public void setMagnitude(double magnitude) {
+        this.magnitude = magnitude;
         becomeUnitVector();
         i *= magnitude;
         j *= magnitude;

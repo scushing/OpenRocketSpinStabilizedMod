@@ -63,10 +63,15 @@ public class Rocket {
 
     public void update(Vector extWind, double stepTime, double thrust) {
         //Linear Force vectors
+        System.out.println(orientation);
         Vector Grav = new Vector(0, 0, ForceCalculator.calcG(mass));
         Vector Wind = new Vector(extWind.getI(), extWind.getJ(), 0);
+        System.out.println(Wind);
         Vector Drag = new Vector(-orientation.getI(), -orientation.getJ(), -orientation.getK());
+        System.out.println(Drag);
         Vector Thrust = new Vector(orientation.getI(), orientation.getJ(), orientation.getK());
+        System.out.println(Thrust);
+        System.out.println();
 
         Wind.setMagnitude(ForceCalculator.calcD(airDensity, extWind.getMagnitude(), sideDragCoefficient, sideArea));
         Drag.setMagnitude(ForceCalculator.calcD(airDensity, velocity.getMagnitude(), topDragCoefficient, topArea));
@@ -86,7 +91,7 @@ public class Rocket {
         drag.setJ(wind.getJ());
         drag.becomeUnitVector();
         wind.setMagnitudeD(airDensity, extWind.getMagnitude(), sideDragCoefficient, sideArea, windCPArm);
-        drag.setMagnitudeD(airDensity, this.velocity.getMagnitude(), topDragCoefficient, topArea, dragCPArm);
+        drag.setMagnitudeD(airDensity, velocity.getMagnitude(), topDragCoefficient, topArea, dragCPArm);
         netTorqueCalculator.findNet();
 
         //Calculating angular momentum
@@ -102,6 +107,26 @@ public class Rocket {
 
         updateVelocity(NetForce, stepTime);
         updatePosition(stepTime);
+
+        System.out.println(Grav);
+        System.out.println(Wind);
+        System.out.println(Drag);
+        System.out.println(Thrust);
+        System.out.println(NetForce);
+        System.out.println();
+        System.out.println(gravity);
+        System.out.println(spin);
+        System.out.println(wind);
+        System.out.println(drag);
+        System.out.println(netTorqueCalculator.getNet());
+        System.out.println();
+        System.out.println(xSpin.getMagnitude());
+        System.out.println(xSpin.getAngularVelocity());
+        System.out.println(ySpin.getMagnitude());
+        System.out.println(ySpin.getAngularVelocity());
+        System.out.println(zSpin.getMagnitude());
+        System.out.println(zSpin.getAngularVelocity());
+        System.out.println();
     }
 
 
