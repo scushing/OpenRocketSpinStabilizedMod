@@ -24,6 +24,7 @@ public class Vector implements VectorMethods {
 
 
     void becomeUnitVector() {
+        magnitude = getMagnitude();
         if (magnitude != 0) {
             this.i = i / magnitude;
             this.j = j / magnitude;

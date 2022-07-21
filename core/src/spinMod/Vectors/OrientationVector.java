@@ -2,35 +2,21 @@ package spinMod.Vectors;
 
 public class OrientationVector extends Vector {
 
-    double i;
-    double j;
-    double k;
-
     double xAngle;
     double yAngle;
     double zAngle;
 
-    double magnitude;
 
     public OrientationVector(){
-        this.i = 0;
-        this.j = 0;
-        this.k = 0;
-        xAngle = 0;
-        yAngle = 0;
-        zAngle = 0;
-        magnitude = this.getMagnitude();
+        new OrientationVector(0, 0, 0);
     }
 
 
     public OrientationVector(double i, double j, double k) {
-        this.i = i;
-        this.j = j;
-        this.k = k;
+        super(i, j, k);
         xAngle = 0;
         yAngle = 0;
         zAngle = 0;
-        magnitude = this.getMagnitude();
         becomeUnitVector();
     }
 
