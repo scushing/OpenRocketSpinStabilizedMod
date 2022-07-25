@@ -43,11 +43,12 @@ public class OrientationVector extends Vector {
 
         double mag = Math.sqrt(Math.pow(Math.sin(xAngle), 2) + Math.pow(Math.sin(yAngle), 2));
         double theta = Math.atan(Math.sin(xAngle) / Math.sin(yAngle));
-        i = mag * Math.cos(theta);
-        j = mag * Math.sin(theta);
 
-        //TODO: FIX THIS METHOD
-        k = Math.sqrt(1 - Math.pow(mag, 2));
+        i = Math.sin(theta) * mag;
+        j = Math.cos(theta) * mag;
+        double temp = Math.abs(1 - Math.pow(mag, 2));
+        k = Math.sqrt(temp) * ((1 - Math.pow(mag, 2) / temp));
+        becomeUnitVector();
 
         return getMagnitude() == 1;
     }

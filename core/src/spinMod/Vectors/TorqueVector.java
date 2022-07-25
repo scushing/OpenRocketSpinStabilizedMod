@@ -33,9 +33,9 @@ public class TorqueVector extends Vector {
 
 
     public void setMagnitudeS(AngularMomentum x, AngularMomentum y, AngularMomentum z) {
-        setI(x.getMagnitude() + (y.getAngularVelocity()*z.getMagnitude()) - (z.getAngularVelocity()*y.getMagnitude()));
-        setJ(y.getMagnitude() + (z.getAngularVelocity()*x.getMagnitude()) - (x.getAngularVelocity()*z.getMagnitude()));
-        setK(z.getMagnitude() + (x.getAngularVelocity()*y.getMagnitude()) - (y.getAngularVelocity()*x.getMagnitude()));
+        setI(-(x.getMagnitude() + ((y.getAngularVelocity()*z.getMagnitude()) - (z.getAngularVelocity()*y.getMagnitude()))));
+        setJ(-(y.getMagnitude() + ((z.getAngularVelocity()*x.getMagnitude()) - (x.getAngularVelocity()*z.getMagnitude()))));
+        setK(-(z.getMagnitude() + ((x.getAngularVelocity()*y.getMagnitude()) - (y.getAngularVelocity()*x.getMagnitude()))));
         calculateMagnitude();
     }
 

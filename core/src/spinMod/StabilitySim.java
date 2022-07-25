@@ -31,9 +31,9 @@ public class StabilitySim {
         int[] endAlt = new int[1];
         endAlt[0] = 200;
         Vector[] v = new Vector[1];
-        v[0] = new Vector(0, 0, 0);
+        v[0] = new Vector(1, 0, 0);
         ArrayList<Vector> data = stabilitySim(startAlt, endAlt, v);
-        System.out.println(data);
+        //System.out.println(data);
     }
 
 
@@ -84,8 +84,9 @@ public class StabilitySim {
             if (time > 1) {
                 thrust = 0;
             }
-            wind.setAll(5, 0, 0);
+            wind.setAll(0.001, 0, 0);
             rocket.update(wind, inc, thrust);
+            System.out.println(time);
             step++;
             time += inc;
             vectors.add(rocket.getVelocity());
