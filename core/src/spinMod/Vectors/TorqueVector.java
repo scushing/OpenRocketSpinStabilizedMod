@@ -32,14 +32,6 @@ public class TorqueVector extends Vector {
     }
 
 
-    public void setMagnitudeD(double airDensity, double linearVelocity, double dragCoefficient, double area, double arm) {
-        becomeUnitVector();
-        double dragForce = ForceCalculator.calcD(airDensity, linearVelocity, dragCoefficient, area);
-        magnitude = dragForce * arm;
-        updateIJK();
-    }
-
-
     public void setMagnitudeS(AngularMomentum x, AngularMomentum y, AngularMomentum z) {
         setI(x.getMagnitude() + (y.getAngularVelocity()*z.getMagnitude()) - (z.getAngularVelocity()*y.getMagnitude()));
         setJ(y.getMagnitude() + (z.getAngularVelocity()*x.getMagnitude()) - (x.getAngularVelocity()*z.getMagnitude()));

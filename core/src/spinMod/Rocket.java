@@ -32,7 +32,7 @@ public class Rocket {
     double windCPArm;
     double radius;
 
-    public Rocket(double mass, double cgArm, double radius, double baseSpin, double topDragCoefficient,
+    public Rocket(double mass, double cgArm, double radius, double baseSpin, double airDensity, double topDragCoefficient,
                   double sideDragCoefficient, double sideArea, double topArea, double dragCPArm, double windCPArm) {
 
         this.position = new Vector();
@@ -47,6 +47,7 @@ public class Rocket {
         this.topArea = topArea;
         this.dragCPArm = dragCPArm;
         this.windCPArm = windCPArm;
+        this.airDensity = airDensity;
 
         xSpin = new AngularMomentum(0, mass, radius, cgArm);
         ySpin = new AngularMomentum(0, mass, radius, cgArm);
@@ -63,15 +64,10 @@ public class Rocket {
 
     public void update(Vector extWind, double stepTime, double thrust) {
         //Linear Force vectors
-        System.out.println(orientation);
-        Vector Grav = new Vector(0, 0, ForceCalculator.calcG(mass));
+        Vector Grav = new Vector(0, 0, -ForceCalculator.calcG(mass));
         Vector Wind = new Vector(extWind.getI(), extWind.getJ(), 0);
-        System.out.println(Wind);
-        Vector Drag = new Vector(-orientation.getI(), -orientation.getJ(), -orientation.getK());
-        System.out.println(Drag);
+        Vector Drag = new Vector(-velocity.getI(), -velocity.getJ(), -velocity.getK());
         Vector Thrust = new Vector(orientation.getI(), orientation.getJ(), orientation.getK());
-        System.out.println(Thrust);
-        System.out.println();
 
         Wind.setMagnitude(ForceCalculator.calcD(airDensity, extWind.getMagnitude(), sideDragCoefficient, sideArea));
         Drag.setMagnitude(ForceCalculator.calcD(airDensity, velocity.getMagnitude(), topDragCoefficient, topArea));
@@ -80,18 +76,16 @@ public class Rocket {
         Vector NetForce = ForceCalculator.getNet(Grav, Thrust, Drag, Wind);
 
         //Torque vectors
-        Vector arm = new Vector(orientation.getI(), orientation.getJ(), orientation.getK());
-        arm.setMagnitude(cgArm);
-        gravity.crossProduct(Grav, arm);
+        Vector cgArm = new Vector(orientation.getI(), orientation.getJ(), orientation.getK());
+        cgArm.setMagnitude(this.cgArm);
+        Vector dragCPArm = new Vector(orientation.getI(), orientation.getJ(), orientation.getK());
+        dragCPArm.setMagnitude(this.cgArm-this.dragCPArm);
+        Vector windCPArm = new Vector(orientation.getI(), orientation.getJ(), orientation.getK());
+        windCPArm.setMagnitude(this.cgArm - this.windCPArm);
+        gravity.crossProduct(Grav, cgArm);
         spin.setMagnitudeS(xSpin, ySpin, zSpin);
-        wind.setI(-extWind.getJ());
-        wind.setJ(extWind.getI());
-        wind.becomeUnitVector();
-        drag.setI(wind.getI());
-        drag.setJ(wind.getJ());
-        drag.becomeUnitVector();
-        wind.setMagnitudeD(airDensity, extWind.getMagnitude(), sideDragCoefficient, sideArea, windCPArm);
-        drag.setMagnitudeD(airDensity, velocity.getMagnitude(), topDragCoefficient, topArea, dragCPArm);
+        wind.crossProduct(Wind, windCPArm);
+        drag.crossProduct(Drag, dragCPArm);
         netTorqueCalculator.findNet();
 
         //Calculating angular momentum

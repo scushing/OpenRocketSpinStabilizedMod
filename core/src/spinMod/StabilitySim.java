@@ -9,6 +9,7 @@ public class StabilitySim {
     static double cgArm;
     static double radius;
     static double baseSpin;
+    static double airDensity;
     static double topDragCoefficient;
     static double sideDragCoefficient;
     static double sideArea;
@@ -23,7 +24,7 @@ public class StabilitySim {
 
 
     public static void main(String args[]) {
-        StabilitySim sim = new StabilitySim(0.5, 0.13, 0.023, 200, 0.2,
+        StabilitySim sim = new StabilitySim(0.5, 0.13, 0.023, 200, 1.33,0.2,
                 0.3, 0.0016, 0.000075, 0.07, 0.08, 44, 8, 1000);
         int[] startAlt = new int[1];
         startAlt[0] = 100;
@@ -36,7 +37,7 @@ public class StabilitySim {
     }
 
 
-    public StabilitySim(double mass, double cgArm, double radius, double baseSpin, double topDragCoefficient,
+    public StabilitySim(double mass, double cgArm, double radius, double baseSpin, double airDensity, double topDragCoefficient,
                         double sideDragCoefficient, double sideArea, double topArea, double dragCPArm, double windCPArm,
                         double thrust, double maxTime, int stepMax) {
         this.mass = mass;
@@ -51,6 +52,7 @@ public class StabilitySim {
         this.thrust = thrust;
 
         this.baseSpin = baseSpin;
+        this.airDensity = airDensity;
         this.maxTime = maxTime;
         this.stepMax = stepMax;
     }
@@ -58,7 +60,7 @@ public class StabilitySim {
 
     public static ArrayList<Vector> stabilitySim(int[] startAlt, int[] endAlt, Vector[] v) {
         ArrayList<Vector> vectors = new ArrayList<>(stepMax);
-        Rocket rocket = new Rocket(mass, cgArm, radius, rpmToRad(baseSpin), topDragCoefficient, sideDragCoefficient, sideArea,
+        Rocket rocket = new Rocket(mass, cgArm, radius, rpmToRad(baseSpin), airDensity, topDragCoefficient, sideDragCoefficient, sideArea,
                 topArea, dragCPArm, windCPArm);
 
         double inc = maxTime/stepMax;
