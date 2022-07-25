@@ -78,9 +78,9 @@ public class Rocket {
         //Torque vectors
         Vector cgArm = new Vector(orientation.getI(), orientation.getJ(), orientation.getK());
         cgArm.setMagnitude(this.cgArm);
-        Vector dragCPArm = new Vector(orientation.getI(), orientation.getJ(), orientation.getK());
+        Vector dragCPArm = new Vector(-orientation.getI(), -orientation.getJ(), -orientation.getK());
         dragCPArm.setMagnitude(this.cgArm-this.dragCPArm);
-        Vector windCPArm = new Vector(orientation.getI(), orientation.getJ(), orientation.getK());
+        Vector windCPArm = new Vector(-orientation.getI(), -orientation.getJ(), -orientation.getK());
         windCPArm.setMagnitude(this.cgArm - this.windCPArm);
         gravity.crossProduct(Grav, cgArm);
         spin.setMagnitudeS(xSpin, ySpin, zSpin);
@@ -104,6 +104,7 @@ public class Rocket {
 
         System.out.println();
         System.out.println("New Iteration");
+        System.out.println();
         System.out.println(Grav);
         System.out.println(Wind);
         System.out.println(Drag);
