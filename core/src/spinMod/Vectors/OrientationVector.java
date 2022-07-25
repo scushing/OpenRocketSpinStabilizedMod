@@ -41,8 +41,8 @@ public class OrientationVector extends Vector {
         yAngle = (yAngle + yRot) % (2 * Math.PI);
         zAngle = (zAngle + zRot) % (2 * Math.PI);
 
-        double mag = Math.sqrt(Math.pow(Math.cos(xAngle), 2) + Math.pow(Math.cos(yAngle), 2));
-        double theta = Math.atan(Math.cos(xAngle) / Math.cos(yAngle));
+        double mag = Math.sqrt(Math.pow(Math.sin(xAngle), 2) + Math.pow(Math.sin(yAngle), 2));
+        double theta = Math.atan(Math.sin(xAngle) / Math.sin(yAngle));
         i = mag * Math.cos(theta);
         j = mag * Math.sin(theta);
 

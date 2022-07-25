@@ -31,7 +31,7 @@ public class AngularMomentum {
 
 
     public void updateMagnitude(double torque, double time) {
-        magnitude = magnitude + (torque/time);
+        magnitude = magnitude + (torque * time);
         updateAngularVelocity();
     }
 

@@ -66,7 +66,7 @@ public class StabilitySim {
         double inc = maxTime/stepMax;
         double time = 0;
 
-        //ArrayList<Gust> gusts = windVelocities(startAlt, endAlt, v);
+        ArrayList<Gust> gusts = windVelocities(startAlt, endAlt, v);
         int step = 0;
         int index = 0;
 
@@ -86,7 +86,10 @@ public class StabilitySim {
 //            time += inc;
 //            vectors.add(rocket.getVelocity());
 //        }
-        rocket.update(new Vector(1, 0, 0), 1,44);
+        rocket.update(new Vector(1, 0, 0), 0.01,44);
+        rocket.update(new Vector(1, 0, 0), 0.01,44);
+        rocket.update(new Vector(1, 0, 0), 0.01,44);
+        rocket.update(new Vector(1, 0, 0), 0.01,44);
         System.out.println(rocket.getPosition());
         System.out.println(rocket.getVelocity());
 
@@ -94,13 +97,13 @@ public class StabilitySim {
     }
 
 
-//    private static ArrayList<Gust> windVelocities(int[] startAlt, int[] endAlt, Vector[] v) {
-//        ArrayList<Gust> list = new ArrayList<Gust>(stepMax);
-//        for (int i = 0; i < stepMax; i++) {
-//            list.add(new Gust(v[i], startAlt[i], endAlt[i]));
-//        }
-//        return list;
-//    }
+    private static ArrayList<Gust> windVelocities(int[] startAlt, int[] endAlt, Vector[] v) {
+        ArrayList<Gust> list = new ArrayList<Gust>(v.length);
+        for (int i = 0; i < v.length; i++) {
+            list.add(new Gust(v[i], startAlt[i], endAlt[i]));
+        }
+        return list;
+    }
 
 
     private static double rpmToRad(double rpm) {

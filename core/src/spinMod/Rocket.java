@@ -94,14 +94,16 @@ public class Rocket {
         zSpin.updateMagnitude(netTorqueCalculator.getNet().getK(), stepTime);
 
         //Updating orientation vector
-        double xRot = xSpin.getAngularVelocity() / stepTime;
-        double yRot = ySpin.getAngularVelocity() / stepTime;
-        double zRot = zSpin.getAngularVelocity() / stepTime;
+        double xRot = xSpin.getAngularVelocity() * stepTime;
+        double yRot = ySpin.getAngularVelocity() * stepTime;
+        double zRot = zSpin.getAngularVelocity() * stepTime;
         orientation.update(xRot, yRot, zRot);
 
         updateVelocity(NetForce, stepTime);
         updatePosition(stepTime);
 
+        System.out.println();
+        System.out.println("New Iteration");
         System.out.println(Grav);
         System.out.println(Wind);
         System.out.println(Drag);
@@ -121,6 +123,9 @@ public class Rocket {
         System.out.println(zSpin.getMagnitude());
         System.out.println(zSpin.getAngularVelocity());
         System.out.println();
+        System.out.println(velocity);
+        System.out.println(orientation);
+        System.out.println();
     }
 
 
@@ -135,15 +140,15 @@ public class Rocket {
 
 
     private void updateVelocity(Vector netForce, double stepTime) {
-        velocity.setI(velocity.getI() + ((netForce.getI() / mass) / stepTime));
-        velocity.setJ(velocity.getJ() + ((netForce.getJ() / mass) / stepTime));
-        velocity.setK(velocity.getK() + ((netForce.getK() / mass) / stepTime));
+        velocity.setI(velocity.getI() + ((netForce.getI() / mass) * stepTime));
+        velocity.setJ(velocity.getJ() + ((netForce.getJ() / mass) * stepTime));
+        velocity.setK(velocity.getK() + ((netForce.getK() / mass) * stepTime));
     }
 
 
     private void updatePosition(double stepTime) {
-        position.setAll(position.getI() + (velocity.getI() / stepTime), position.getJ() + (velocity.getJ() / stepTime),
-                position.getK() + (velocity.getK() / stepTime));
+        position.setAll(position.getI() + (velocity.getI() * stepTime), position.getJ() + (velocity.getJ() * stepTime),
+                position.getK() + (velocity.getK() * stepTime));
     }
 
 }
