@@ -105,27 +105,8 @@ public class Rocket {
         System.out.println();
         System.out.println("New Iteration");
         System.out.println();
-        System.out.println(Grav);
-        System.out.println(Wind);
-        System.out.println(Drag);
-        System.out.println(Thrust);
-        System.out.println(NetForce);
-        System.out.println();
-        System.out.println(gravity);
-        System.out.println(spin);
-        System.out.println(wind);
-        System.out.println(drag);
-        System.out.println(netTorqueCalculator.getNet());
-        System.out.println();
-        System.out.println(xSpin.getMagnitude());
-        System.out.println(xSpin.getAngularVelocity());
-        System.out.println(ySpin.getMagnitude());
-        System.out.println(ySpin.getAngularVelocity());
-        System.out.println(zSpin.getMagnitude());
-        System.out.println(zSpin.getAngularVelocity());
-        System.out.println();
-        System.out.println(velocity);
-        System.out.println(orientation);
+        System.out.println("Velocity: " + velocity);
+        System.out.println("Orientation: " + orientation);
         System.out.println();
     }
 

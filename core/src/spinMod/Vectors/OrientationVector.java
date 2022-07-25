@@ -46,6 +46,7 @@ public class OrientationVector extends Vector {
         i = mag * Math.cos(theta);
         j = mag * Math.sin(theta);
 
+        //TODO: FIX THIS METHOD
         k = Math.sqrt(1 - Math.pow(mag, 2));
 
         return getMagnitude() == 1;

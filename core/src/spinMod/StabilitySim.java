@@ -31,7 +31,7 @@ public class StabilitySim {
         int[] endAlt = new int[1];
         endAlt[0] = 200;
         Vector[] v = new Vector[1];
-        v[0] = new Vector(5, 0, 0);
+        v[0] = new Vector(0, 0, 0);
         ArrayList<Vector> data = stabilitySim(startAlt, endAlt, v);
         System.out.println(data);
     }
@@ -70,8 +70,9 @@ public class StabilitySim {
         int step = 0;
         int index = 0;
 
-//        while (time < maxTime) {
-//            Vector wind = new Vector();
+        while (time < maxTime) {
+            Vector wind = new Vector();
+            //TODO: FIND BETTER WAY OF ADDING GUSTS
 //            if (index < gusts.size()) {
 //                if (gusts.get(index).getStartAlt() < rocket.getPosition().getK() && gusts.get(index).getEndAlt() > rocket.getPosition().getK()) {
 //                    wind = gusts.get(index).getWind();
@@ -80,16 +81,15 @@ public class StabilitySim {
 //                    index++;
 //                }
 //            }
-//            wind.setAll(5, 0, 0);
-//            rocket.update(wind, inc, thrust);
-//            step++;
-//            time += inc;
-//            vectors.add(rocket.getVelocity());
-//        }
-        rocket.update(new Vector(1, 0, 0), 0.01,44);
-        rocket.update(new Vector(1, 0, 0), 0.01,44);
-        rocket.update(new Vector(1, 0, 0), 0.01,44);
-        rocket.update(new Vector(1, 0, 0), 0.01,44);
+            if (time > 1) {
+                thrust = 0;
+            }
+            wind.setAll(5, 0, 0);
+            rocket.update(wind, inc, thrust);
+            step++;
+            time += inc;
+            vectors.add(rocket.getVelocity());
+        }
         System.out.println(rocket.getPosition());
         System.out.println(rocket.getVelocity());
 
