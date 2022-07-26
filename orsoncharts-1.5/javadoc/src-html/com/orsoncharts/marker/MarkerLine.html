@@ -1,0 +1,261 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span>/* ===========================================================<a name="line.1"></a>
+<span class="sourceLineNo">002</span> * Orson Charts : a 3D chart library for the Java(tm) platform<a name="line.2"></a>
+<span class="sourceLineNo">003</span> * ===========================================================<a name="line.3"></a>
+<span class="sourceLineNo">004</span> * <a name="line.4"></a>
+<span class="sourceLineNo">005</span> * (C)opyright 2013-2016, by Object Refinery Limited.  All rights reserved.<a name="line.5"></a>
+<span class="sourceLineNo">006</span> * <a name="line.6"></a>
+<span class="sourceLineNo">007</span> * http://www.object-refinery.com/orsoncharts/index.html<a name="line.7"></a>
+<span class="sourceLineNo">008</span> * <a name="line.8"></a>
+<span class="sourceLineNo">009</span> * This program is free software: you can redistribute it and/or modify<a name="line.9"></a>
+<span class="sourceLineNo">010</span> * it under the terms of the GNU General Public License as published by<a name="line.10"></a>
+<span class="sourceLineNo">011</span> * the Free Software Foundation, either version 3 of the License, or<a name="line.11"></a>
+<span class="sourceLineNo">012</span> * (at your option) any later version.<a name="line.12"></a>
+<span class="sourceLineNo">013</span> *<a name="line.13"></a>
+<span class="sourceLineNo">014</span> * This program is distributed in the hope that it will be useful,<a name="line.14"></a>
+<span class="sourceLineNo">015</span> * but WITHOUT ANY WARRANTY; without even the implied warranty of<a name="line.15"></a>
+<span class="sourceLineNo">016</span> * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the<a name="line.16"></a>
+<span class="sourceLineNo">017</span> * GNU General Public License for more details.<a name="line.17"></a>
+<span class="sourceLineNo">018</span> *<a name="line.18"></a>
+<span class="sourceLineNo">019</span> * You should have received a copy of the GNU General Public License<a name="line.19"></a>
+<span class="sourceLineNo">020</span> * along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.<a name="line.20"></a>
+<span class="sourceLineNo">021</span> * <a name="line.21"></a>
+<span class="sourceLineNo">022</span> * [Oracle and Java are registered trademarks of Oracle and/or its affiliates. <a name="line.22"></a>
+<span class="sourceLineNo">023</span> * Other names may be trademarks of their respective owners.]<a name="line.23"></a>
+<span class="sourceLineNo">024</span> * <a name="line.24"></a>
+<span class="sourceLineNo">025</span> * If you do not wish to be bound by the terms of the GPL, an alternative<a name="line.25"></a>
+<span class="sourceLineNo">026</span> * commercial license can be purchased.  For details, please see visit the<a name="line.26"></a>
+<span class="sourceLineNo">027</span> * Orson Charts home page:<a name="line.27"></a>
+<span class="sourceLineNo">028</span> * <a name="line.28"></a>
+<span class="sourceLineNo">029</span> * http://www.object-refinery.com/orsoncharts/index.html<a name="line.29"></a>
+<span class="sourceLineNo">030</span> * <a name="line.30"></a>
+<span class="sourceLineNo">031</span> */<a name="line.31"></a>
+<span class="sourceLineNo">032</span><a name="line.32"></a>
+<span class="sourceLineNo">033</span>package com.orsoncharts.marker;<a name="line.33"></a>
+<span class="sourceLineNo">034</span><a name="line.34"></a>
+<span class="sourceLineNo">035</span>import java.awt.geom.Point2D;<a name="line.35"></a>
+<span class="sourceLineNo">036</span><a name="line.36"></a>
+<span class="sourceLineNo">037</span>/**<a name="line.37"></a>
+<span class="sourceLineNo">038</span> * A data object that represents a line within a {@link MarkerData} structure.<a name="line.38"></a>
+<span class="sourceLineNo">039</span> * <a name="line.39"></a>
+<span class="sourceLineNo">040</span> * @since 1.2<a name="line.40"></a>
+<span class="sourceLineNo">041</span> */<a name="line.41"></a>
+<span class="sourceLineNo">042</span>public class MarkerLine {<a name="line.42"></a>
+<span class="sourceLineNo">043</span>    <a name="line.43"></a>
+<span class="sourceLineNo">044</span>    /** The relative position along the axis (in the range 0.0 to 1.0). */<a name="line.44"></a>
+<span class="sourceLineNo">045</span>    private double pos;<a name="line.45"></a>
+<span class="sourceLineNo">046</span><a name="line.46"></a>
+<span class="sourceLineNo">047</span>    /** <a name="line.47"></a>
+<span class="sourceLineNo">048</span>     * A flag indicating whether or not the line is pegged at the boundary of<a name="line.48"></a>
+<span class="sourceLineNo">049</span>     * the axis.  If the line is pegged, then it is not drawn (since it lies<a name="line.49"></a>
+<span class="sourceLineNo">050</span>     * outside the visible range of the chart.<a name="line.50"></a>
+<span class="sourceLineNo">051</span>     */<a name="line.51"></a>
+<span class="sourceLineNo">052</span>    private boolean pegged;<a name="line.52"></a>
+<span class="sourceLineNo">053</span>    <a name="line.53"></a>
+<span class="sourceLineNo">054</span>    /** The vertex index for the start of the line. */<a name="line.54"></a>
+<span class="sourceLineNo">055</span>    private int v0;<a name="line.55"></a>
+<span class="sourceLineNo">056</span>    <a name="line.56"></a>
+<span class="sourceLineNo">057</span>    /** The vertex index for the end of the line. */<a name="line.57"></a>
+<span class="sourceLineNo">058</span>    private int v1;<a name="line.58"></a>
+<span class="sourceLineNo">059</span>    <a name="line.59"></a>
+<span class="sourceLineNo">060</span>    /** The projected start point. */<a name="line.60"></a>
+<span class="sourceLineNo">061</span>    private Point2D startPoint;<a name="line.61"></a>
+<span class="sourceLineNo">062</span>    <a name="line.62"></a>
+<span class="sourceLineNo">063</span>    /** The projected end point. */<a name="line.63"></a>
+<span class="sourceLineNo">064</span>    private Point2D endPoint;<a name="line.64"></a>
+<span class="sourceLineNo">065</span>    <a name="line.65"></a>
+<span class="sourceLineNo">066</span>    /**<a name="line.66"></a>
+<span class="sourceLineNo">067</span>     * Creates a new marker line.<a name="line.67"></a>
+<span class="sourceLineNo">068</span>     * <a name="line.68"></a>
+<span class="sourceLineNo">069</span>     * @param pos  the relative position (in the range 0.0 to 1.0). <a name="line.69"></a>
+<span class="sourceLineNo">070</span>     * @param pegged  a flag indicating whether or not the line has been<a name="line.70"></a>
+<span class="sourceLineNo">071</span>     *     pegged to the end of the range.<a name="line.71"></a>
+<span class="sourceLineNo">072</span>     */<a name="line.72"></a>
+<span class="sourceLineNo">073</span>    public MarkerLine(double pos, boolean pegged) {<a name="line.73"></a>
+<span class="sourceLineNo">074</span>        this(pos, pegged, -1, -1);<a name="line.74"></a>
+<span class="sourceLineNo">075</span>    }<a name="line.75"></a>
+<span class="sourceLineNo">076</span>    <a name="line.76"></a>
+<span class="sourceLineNo">077</span>    /**<a name="line.77"></a>
+<span class="sourceLineNo">078</span>     * Creates a new marker line with vertex indices.<a name="line.78"></a>
+<span class="sourceLineNo">079</span>     * <a name="line.79"></a>
+<span class="sourceLineNo">080</span>     * @param pos  the relative position (in the range 0.0 to 1.0). <a name="line.80"></a>
+<span class="sourceLineNo">081</span>     * @param pegged  a flag indicating whether or not the line has been<a name="line.81"></a>
+<span class="sourceLineNo">082</span>     *     pegged to the end of the range.<a name="line.82"></a>
+<span class="sourceLineNo">083</span>     * @param v0  the index of the first vertex.<a name="line.83"></a>
+<span class="sourceLineNo">084</span>     * @param v1  the index of the second vertex.<a name="line.84"></a>
+<span class="sourceLineNo">085</span>     */<a name="line.85"></a>
+<span class="sourceLineNo">086</span>    public MarkerLine(double pos, boolean pegged, int v0, int v1) {<a name="line.86"></a>
+<span class="sourceLineNo">087</span>        this.pos = pos;<a name="line.87"></a>
+<span class="sourceLineNo">088</span>        this.pegged = pegged;<a name="line.88"></a>
+<span class="sourceLineNo">089</span>        this.v0 = v0;<a name="line.89"></a>
+<span class="sourceLineNo">090</span>        this.v1 = v1;<a name="line.90"></a>
+<span class="sourceLineNo">091</span>        this.startPoint = null;<a name="line.91"></a>
+<span class="sourceLineNo">092</span>        this.endPoint = null;<a name="line.92"></a>
+<span class="sourceLineNo">093</span>    }<a name="line.93"></a>
+<span class="sourceLineNo">094</span>    <a name="line.94"></a>
+<span class="sourceLineNo">095</span>    /**<a name="line.95"></a>
+<span class="sourceLineNo">096</span>     * Returns the relative position of the line along the axis.<a name="line.96"></a>
+<span class="sourceLineNo">097</span>     * <a name="line.97"></a>
+<span class="sourceLineNo">098</span>     * @return The relative position of the line along the axis.<a name="line.98"></a>
+<span class="sourceLineNo">099</span>     */<a name="line.99"></a>
+<span class="sourceLineNo">100</span>    public double getPos() {<a name="line.100"></a>
+<span class="sourceLineNo">101</span>        return this.pos;<a name="line.101"></a>
+<span class="sourceLineNo">102</span>    }<a name="line.102"></a>
+<span class="sourceLineNo">103</span>    <a name="line.103"></a>
+<span class="sourceLineNo">104</span>    /**<a name="line.104"></a>
+<span class="sourceLineNo">105</span>     * Returns {@code true} if the line is pegged, and {@code false}<a name="line.105"></a>
+<span class="sourceLineNo">106</span>     * otherwise.  This is used for range markers to indicate that the value<a name="line.106"></a>
+<span class="sourceLineNo">107</span>     * represented by the line falls outside the current axis range, so the<a name="line.107"></a>
+<span class="sourceLineNo">108</span>     * line has been moved to the nearest axis boundary ("pegged" to the axis<a name="line.108"></a>
+<span class="sourceLineNo">109</span>     * range).<a name="line.109"></a>
+<span class="sourceLineNo">110</span>     * <a name="line.110"></a>
+<span class="sourceLineNo">111</span>     * @return A boolean.<a name="line.111"></a>
+<span class="sourceLineNo">112</span>     */<a name="line.112"></a>
+<span class="sourceLineNo">113</span>    public boolean isPegged() {<a name="line.113"></a>
+<span class="sourceLineNo">114</span>        return this.pegged;<a name="line.114"></a>
+<span class="sourceLineNo">115</span>    }<a name="line.115"></a>
+<span class="sourceLineNo">116</span>    <a name="line.116"></a>
+<span class="sourceLineNo">117</span>    /**<a name="line.117"></a>
+<span class="sourceLineNo">118</span>     * Returns the index of the vertex for the start of the line.<a name="line.118"></a>
+<span class="sourceLineNo">119</span>     * <a name="line.119"></a>
+<span class="sourceLineNo">120</span>     * @return The index.<a name="line.120"></a>
+<span class="sourceLineNo">121</span>     */<a name="line.121"></a>
+<span class="sourceLineNo">122</span>    public int getV0() {<a name="line.122"></a>
+<span class="sourceLineNo">123</span>        return this.v0;<a name="line.123"></a>
+<span class="sourceLineNo">124</span>    }<a name="line.124"></a>
+<span class="sourceLineNo">125</span>    <a name="line.125"></a>
+<span class="sourceLineNo">126</span>    /**<a name="line.126"></a>
+<span class="sourceLineNo">127</span>     * Sets the index of the vertex for the start of the line.<a name="line.127"></a>
+<span class="sourceLineNo">128</span>     * <a name="line.128"></a>
+<span class="sourceLineNo">129</span>     * @param v0  the index. <a name="line.129"></a>
+<span class="sourceLineNo">130</span>     */<a name="line.130"></a>
+<span class="sourceLineNo">131</span>    public void setV0(int v0) {<a name="line.131"></a>
+<span class="sourceLineNo">132</span>        this.v0 = v0;<a name="line.132"></a>
+<span class="sourceLineNo">133</span>    }<a name="line.133"></a>
+<span class="sourceLineNo">134</span>    <a name="line.134"></a>
+<span class="sourceLineNo">135</span>    /**<a name="line.135"></a>
+<span class="sourceLineNo">136</span>     * Returns the index of the vertex for the end of the line.<a name="line.136"></a>
+<span class="sourceLineNo">137</span>     * <a name="line.137"></a>
+<span class="sourceLineNo">138</span>     * @return The index.<a name="line.138"></a>
+<span class="sourceLineNo">139</span>     */<a name="line.139"></a>
+<span class="sourceLineNo">140</span>    public int getV1() {<a name="line.140"></a>
+<span class="sourceLineNo">141</span>        return this.v1;<a name="line.141"></a>
+<span class="sourceLineNo">142</span>    }<a name="line.142"></a>
+<span class="sourceLineNo">143</span>    <a name="line.143"></a>
+<span class="sourceLineNo">144</span>    /**<a name="line.144"></a>
+<span class="sourceLineNo">145</span>     * Sets the index of the vertex for the end of the line.<a name="line.145"></a>
+<span class="sourceLineNo">146</span>     * <a name="line.146"></a>
+<span class="sourceLineNo">147</span>     * @param v1  the index. <a name="line.147"></a>
+<span class="sourceLineNo">148</span>     */<a name="line.148"></a>
+<span class="sourceLineNo">149</span>    public void setV1(int v1) {<a name="line.149"></a>
+<span class="sourceLineNo">150</span>        this.v1 = v1;<a name="line.150"></a>
+<span class="sourceLineNo">151</span>    }<a name="line.151"></a>
+<span class="sourceLineNo">152</span>    <a name="line.152"></a>
+<span class="sourceLineNo">153</span>    /**<a name="line.153"></a>
+<span class="sourceLineNo">154</span>     * Returns the projected starting point for the line.<a name="line.154"></a>
+<span class="sourceLineNo">155</span>     * <a name="line.155"></a>
+<span class="sourceLineNo">156</span>     * @return The projected starting point (possibly {@code null}). <a name="line.156"></a>
+<span class="sourceLineNo">157</span>     */<a name="line.157"></a>
+<span class="sourceLineNo">158</span>    Point2D getStartPoint() {<a name="line.158"></a>
+<span class="sourceLineNo">159</span>        return this.startPoint;<a name="line.159"></a>
+<span class="sourceLineNo">160</span>    }<a name="line.160"></a>
+<span class="sourceLineNo">161</span>    <a name="line.161"></a>
+<span class="sourceLineNo">162</span>    /**<a name="line.162"></a>
+<span class="sourceLineNo">163</span>     * Sets the projected starting point for the line.<a name="line.163"></a>
+<span class="sourceLineNo">164</span>     * <a name="line.164"></a>
+<span class="sourceLineNo">165</span>     * @param pt  the projected point.<a name="line.165"></a>
+<span class="sourceLineNo">166</span>     */<a name="line.166"></a>
+<span class="sourceLineNo">167</span>    public void setStartPoint(Point2D pt) {<a name="line.167"></a>
+<span class="sourceLineNo">168</span>        this.startPoint = pt;<a name="line.168"></a>
+<span class="sourceLineNo">169</span>    }<a name="line.169"></a>
+<span class="sourceLineNo">170</span>    <a name="line.170"></a>
+<span class="sourceLineNo">171</span>    /**<a name="line.171"></a>
+<span class="sourceLineNo">172</span>     * Returns the projected ending point for the line.<a name="line.172"></a>
+<span class="sourceLineNo">173</span>     * <a name="line.173"></a>
+<span class="sourceLineNo">174</span>     * @return The projected ending point (possibly {@code null}). <a name="line.174"></a>
+<span class="sourceLineNo">175</span>     */<a name="line.175"></a>
+<span class="sourceLineNo">176</span>    Point2D getEndPoint() {<a name="line.176"></a>
+<span class="sourceLineNo">177</span>        return this.endPoint;<a name="line.177"></a>
+<span class="sourceLineNo">178</span>    }<a name="line.178"></a>
+<span class="sourceLineNo">179</span>    <a name="line.179"></a>
+<span class="sourceLineNo">180</span>    /**<a name="line.180"></a>
+<span class="sourceLineNo">181</span>     * Sets the projected ending point for the line.<a name="line.181"></a>
+<span class="sourceLineNo">182</span>     * <a name="line.182"></a>
+<span class="sourceLineNo">183</span>     * @param pt  the projected point.<a name="line.183"></a>
+<span class="sourceLineNo">184</span>     */<a name="line.184"></a>
+<span class="sourceLineNo">185</span>    public void setEndPoint(Point2D pt) {<a name="line.185"></a>
+<span class="sourceLineNo">186</span>        this.endPoint = pt;<a name="line.186"></a>
+<span class="sourceLineNo">187</span>    }<a name="line.187"></a>
+<span class="sourceLineNo">188</span>   <a name="line.188"></a>
+<span class="sourceLineNo">189</span>}<a name="line.189"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</body>
+</html>
