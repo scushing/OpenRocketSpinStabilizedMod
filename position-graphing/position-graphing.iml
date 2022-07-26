@@ -61,5 +61,6 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="module" module-name="OpenRocket Core" />
   </component>
 </module>

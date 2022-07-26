@@ -84,12 +84,13 @@ public class StabilitySim {
             if (time > 1) {
                 thrust = 0;
             }
-            wind.setAll(0.001, 0, 0);
+            wind.setAll(1.5, 0, 0);
             rocket.update(wind, inc, thrust);
-            System.out.println(time);
-            step++;
+            System.out.println(rocket.getPosition());
+            //System.out.println(time);
             time += inc;
-            vectors.add(rocket.getVelocity());
+            vectors.add(step ,(new Vector(rocket.getPosition().getI(), rocket.getPosition().getJ(),rocket.getPosition().getK())));
+            step++;
         }
         System.out.println(rocket.getPosition());
         System.out.println(rocket.getVelocity());

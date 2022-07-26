@@ -4,6 +4,7 @@ import com.orsoncharts.data.xyz.XYZSeries;
 import com.orsoncharts.data.xyz.XYZSeriesCollection;
 import com.orsoncharts.plot.XYZPlot;
 import com.orsoncharts.renderer.xyz.LineXYZRenderer;
+import spinMod.Vectors.Vector;
 
 import javax.swing.*;
 import java.io.BufferedReader;
@@ -24,6 +25,9 @@ public class RocketGraphing {
     public static NumberAxis3D yAxis = new NumberAxis3D("y");
     public static NumberAxis3D zAxis = new NumberAxis3D("z");
 
+    public static double[] maxPositionValues = {1,1,1};
+    public static double[] minPositionValues = {-1,-1,-1};
+
     public static XYZPlot xyzPlot;
 
     public static Chart3D myChart;
@@ -31,9 +35,9 @@ public class RocketGraphing {
     public static Chart3DPanel myChartPanel;
 
     public static void setUpGraph(){
-        xAxis.setRange(new Range(-100, 1000));
-        yAxis.setRange(new Range(-10, 55));
-        zAxis.setRange(new Range(-1000, 20000));
+        xAxis.setRange(new Range(Math.floor(minPositionValues[0]), Math.ceil(maxPositionValues[0])));
+        yAxis.setRange(new Range(Math.floor(minPositionValues[1]), Math.ceil(maxPositionValues[1])));
+        zAxis.setRange(new Range(Math.floor(minPositionValues[2]), Math.ceil(maxPositionValues[2])));
 
         xyzPlot = new XYZPlot(myData, new LineXYZRenderer(), xAxis, yAxis, zAxis);
 
@@ -70,8 +74,11 @@ public class RocketGraphing {
 
     }
 
+
+
     public static void readTimeAccelerationXYZData(String fileName) {
         timeAccelerationXYZ.clear();
+
         try(BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName))) {
             String line = bufferedReader.readLine();
             String [] lineArray = new String[4];
@@ -140,18 +147,55 @@ public class RocketGraphing {
             currentPosition[2] = newPosition(currentPosition[2], currentVelocity[2], timeDifference,
                     currentAcceleration[2]);
 
+            if(minPositionValues[0] > currentPosition[0]){
+                minPositionValues[0] = currentPosition[0];
+            }
+            if(minPositionValues[1] > currentPosition[1]){
+                minPositionValues[1] = currentPosition[1];
+            }
+            if(minPositionValues[2] > currentPosition[2]){
+                minPositionValues[2] = currentPosition[2];
+            }
+
+            if(maxPositionValues[0] < currentPosition[0]){
+                maxPositionValues[0] = currentPosition[0];
+            }
+            if(maxPositionValues[1] < currentPosition[1]){
+                maxPositionValues[1] = currentPosition[1];
+            }
+            if(maxPositionValues[2] < currentPosition[2]){
+                maxPositionValues[2] = currentPosition[2];
+            }
+
             mySeries.add(currentPosition[0], currentPosition[1], currentPosition[2]);
         }
 
 
     }
 
-    public static void main(String [] args){
-        readTimeAccelerationXYZData("position-graphing/test-data/StraightLeftUpLeft.txt");
-        addPositionToSeries();
+    public static void addPositionToSeries(ArrayList<Vector> positionVectors){
+        for (int i = positionVectors.size() - 1; i >= 0; --i) {
+            if (minPositionValues[0] > positionVectors.get(i).getI()) {
+                minPositionValues[0] = positionVectors.get(i).getI();
+            }
+            if (minPositionValues[1] > positionVectors.get(i).getJ()) {
+                minPositionValues[1] = positionVectors.get(i).getJ();
+            }
+            if (minPositionValues[2] > positionVectors.get(i).getK()) {
+                minPositionValues[2] = positionVectors.get(i).getK();
+            }
 
-        setUpGraph();
-        setUpFrame();
+            if (maxPositionValues[0] < positionVectors.get(i).getI()) {
+                maxPositionValues[0] = positionVectors.get(i).getI();
+            }
+            if (maxPositionValues[1] < positionVectors.get(i).getJ()) {
+                maxPositionValues[1] = positionVectors.get(i).getJ();
+            }
+            if (maxPositionValues[2] < positionVectors.get(i).getK()) {
+                maxPositionValues[2] = positionVectors.get(i).getK();
+            }
 
+            mySeries.add(positionVectors.get(i).getI(), positionVectors.get(i).getJ(), positionVectors.get(i).getK());
+        }
     }
 }
