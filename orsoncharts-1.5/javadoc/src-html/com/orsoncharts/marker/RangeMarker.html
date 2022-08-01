@@ -1,0 +1,423 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span>/* ===========================================================<a name="line.1"></a>
+<span class="sourceLineNo">002</span> * Orson Charts : a 3D chart library for the Java(tm) platform<a name="line.2"></a>
+<span class="sourceLineNo">003</span> * ===========================================================<a name="line.3"></a>
+<span class="sourceLineNo">004</span> * <a name="line.4"></a>
+<span class="sourceLineNo">005</span> * (C)opyright 2013-2016, by Object Refinery Limited.  All rights reserved.<a name="line.5"></a>
+<span class="sourceLineNo">006</span> * <a name="line.6"></a>
+<span class="sourceLineNo">007</span> * http://www.object-refinery.com/orsoncharts/index.html<a name="line.7"></a>
+<span class="sourceLineNo">008</span> * <a name="line.8"></a>
+<span class="sourceLineNo">009</span> * This program is free software: you can redistribute it and/or modify<a name="line.9"></a>
+<span class="sourceLineNo">010</span> * it under the terms of the GNU General Public License as published by<a name="line.10"></a>
+<span class="sourceLineNo">011</span> * the Free Software Foundation, either version 3 of the License, or<a name="line.11"></a>
+<span class="sourceLineNo">012</span> * (at your option) any later version.<a name="line.12"></a>
+<span class="sourceLineNo">013</span> *<a name="line.13"></a>
+<span class="sourceLineNo">014</span> * This program is distributed in the hope that it will be useful,<a name="line.14"></a>
+<span class="sourceLineNo">015</span> * but WITHOUT ANY WARRANTY; without even the implied warranty of<a name="line.15"></a>
+<span class="sourceLineNo">016</span> * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the<a name="line.16"></a>
+<span class="sourceLineNo">017</span> * GNU General Public License for more details.<a name="line.17"></a>
+<span class="sourceLineNo">018</span> *<a name="line.18"></a>
+<span class="sourceLineNo">019</span> * You should have received a copy of the GNU General Public License<a name="line.19"></a>
+<span class="sourceLineNo">020</span> * along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.<a name="line.20"></a>
+<span class="sourceLineNo">021</span> * <a name="line.21"></a>
+<span class="sourceLineNo">022</span> * [Oracle and Java are registered trademarks of Oracle and/or its affiliates. <a name="line.22"></a>
+<span class="sourceLineNo">023</span> * Other names may be trademarks of their respective owners.]<a name="line.23"></a>
+<span class="sourceLineNo">024</span> * <a name="line.24"></a>
+<span class="sourceLineNo">025</span> * If you do not wish to be bound by the terms of the GPL, an alternative<a name="line.25"></a>
+<span class="sourceLineNo">026</span> * commercial license can be purchased.  For details, please see visit the<a name="line.26"></a>
+<span class="sourceLineNo">027</span> * Orson Charts home page:<a name="line.27"></a>
+<span class="sourceLineNo">028</span> * <a name="line.28"></a>
+<span class="sourceLineNo">029</span> * http://www.object-refinery.com/orsoncharts/index.html<a name="line.29"></a>
+<span class="sourceLineNo">030</span> * <a name="line.30"></a>
+<span class="sourceLineNo">031</span> */<a name="line.31"></a>
+<span class="sourceLineNo">032</span><a name="line.32"></a>
+<span class="sourceLineNo">033</span>package com.orsoncharts.marker;<a name="line.33"></a>
+<span class="sourceLineNo">034</span><a name="line.34"></a>
+<span class="sourceLineNo">035</span>import java.awt.Color;<a name="line.35"></a>
+<span class="sourceLineNo">036</span>import java.awt.Font;<a name="line.36"></a>
+<span class="sourceLineNo">037</span>import java.awt.Graphics2D;<a name="line.37"></a>
+<span class="sourceLineNo">038</span>import java.awt.geom.Line2D;<a name="line.38"></a>
+<span class="sourceLineNo">039</span>import java.awt.geom.Path2D;<a name="line.39"></a>
+<span class="sourceLineNo">040</span>import java.awt.geom.Point2D;<a name="line.40"></a>
+<span class="sourceLineNo">041</span>import java.io.Serializable;<a name="line.41"></a>
+<span class="sourceLineNo">042</span><a name="line.42"></a>
+<span class="sourceLineNo">043</span>import com.orsoncharts.Range;<a name="line.43"></a>
+<span class="sourceLineNo">044</span>import com.orsoncharts.util.Anchor2D;<a name="line.44"></a>
+<span class="sourceLineNo">045</span>import com.orsoncharts.util.ArgChecks;<a name="line.45"></a>
+<span class="sourceLineNo">046</span>import com.orsoncharts.util.ObjectUtils;<a name="line.46"></a>
+<span class="sourceLineNo">047</span><a name="line.47"></a>
+<span class="sourceLineNo">048</span>/**<a name="line.48"></a>
+<span class="sourceLineNo">049</span> * A marker that marks a range of values on an axis.<a name="line.49"></a>
+<span class="sourceLineNo">050</span> * &lt;br&gt;&lt;br&gt;<a name="line.50"></a>
+<span class="sourceLineNo">051</span> * For an example, please refer to the demo {@code RangeMarkerDemo1.java}.<a name="line.51"></a>
+<span class="sourceLineNo">052</span> * &lt;br&gt;&lt;br&gt;<a name="line.52"></a>
+<span class="sourceLineNo">053</span> * NOTE: This class is serializable, but the serialization format is subject <a name="line.53"></a>
+<span class="sourceLineNo">054</span> * to change in future releases and should not be relied upon for persisting <a name="line.54"></a>
+<span class="sourceLineNo">055</span> * instances of this class. <a name="line.55"></a>
+<span class="sourceLineNo">056</span> * <a name="line.56"></a>
+<span class="sourceLineNo">057</span> * @since 1.2<a name="line.57"></a>
+<span class="sourceLineNo">058</span> */<a name="line.58"></a>
+<span class="sourceLineNo">059</span>@SuppressWarnings("serial")<a name="line.59"></a>
+<span class="sourceLineNo">060</span>public class RangeMarker extends AbstractMarker implements ValueMarker, <a name="line.60"></a>
+<span class="sourceLineNo">061</span>        MarkerChangeListener, Serializable {<a name="line.61"></a>
+<span class="sourceLineNo">062</span>    <a name="line.62"></a>
+<span class="sourceLineNo">063</span>    /** The start of the range. */<a name="line.63"></a>
+<span class="sourceLineNo">064</span>    private NumberMarker start;<a name="line.64"></a>
+<span class="sourceLineNo">065</span>    <a name="line.65"></a>
+<span class="sourceLineNo">066</span>    /** The end of the range. */<a name="line.66"></a>
+<span class="sourceLineNo">067</span>    private NumberMarker end;<a name="line.67"></a>
+<span class="sourceLineNo">068</span><a name="line.68"></a>
+<span class="sourceLineNo">069</span>    /** The label for the marker (optional). */<a name="line.69"></a>
+<span class="sourceLineNo">070</span>    private String label;<a name="line.70"></a>
+<span class="sourceLineNo">071</span>    <a name="line.71"></a>
+<span class="sourceLineNo">072</span>    /** The font for the label. */<a name="line.72"></a>
+<span class="sourceLineNo">073</span>    private Font font;<a name="line.73"></a>
+<span class="sourceLineNo">074</span>    <a name="line.74"></a>
+<span class="sourceLineNo">075</span>    /** The color for the label. */<a name="line.75"></a>
+<span class="sourceLineNo">076</span>    private Color labelColor;<a name="line.76"></a>
+<span class="sourceLineNo">077</span>    <a name="line.77"></a>
+<span class="sourceLineNo">078</span>    /** The anchor for the label. */<a name="line.78"></a>
+<span class="sourceLineNo">079</span>    private Anchor2D labelAnchor;<a name="line.79"></a>
+<span class="sourceLineNo">080</span><a name="line.80"></a>
+<span class="sourceLineNo">081</span>    /** The color used to fill the band representing the marker range. */<a name="line.81"></a>
+<span class="sourceLineNo">082</span>    Color fillColor;<a name="line.82"></a>
+<span class="sourceLineNo">083</span>    <a name="line.83"></a>
+<span class="sourceLineNo">084</span>    /**<a name="line.84"></a>
+<span class="sourceLineNo">085</span>     * Creates a new range marker for the given bounds.<a name="line.85"></a>
+<span class="sourceLineNo">086</span>     * <a name="line.86"></a>
+<span class="sourceLineNo">087</span>     * @param lowerBound  the lower bound.<a name="line.87"></a>
+<span class="sourceLineNo">088</span>     * @param upperBound  the upper bound.<a name="line.88"></a>
+<span class="sourceLineNo">089</span>     */<a name="line.89"></a>
+<span class="sourceLineNo">090</span>    public RangeMarker(double lowerBound, double upperBound) {<a name="line.90"></a>
+<span class="sourceLineNo">091</span>        this(lowerBound, upperBound, null);<a name="line.91"></a>
+<span class="sourceLineNo">092</span>    }<a name="line.92"></a>
+<span class="sourceLineNo">093</span>    <a name="line.93"></a>
+<span class="sourceLineNo">094</span>    /**<a name="line.94"></a>
+<span class="sourceLineNo">095</span>     * Creates a new range marker for the given bounds.<a name="line.95"></a>
+<span class="sourceLineNo">096</span>     * <a name="line.96"></a>
+<span class="sourceLineNo">097</span>     * @param lowerBound  the lower bound.<a name="line.97"></a>
+<span class="sourceLineNo">098</span>     * @param upperBound  the upper bound.<a name="line.98"></a>
+<span class="sourceLineNo">099</span>     * @param label  the label ({@code null} permitted).<a name="line.99"></a>
+<span class="sourceLineNo">100</span>     */<a name="line.100"></a>
+<span class="sourceLineNo">101</span>    public RangeMarker(double lowerBound, double upperBound, String label) {<a name="line.101"></a>
+<span class="sourceLineNo">102</span>             super();<a name="line.102"></a>
+<span class="sourceLineNo">103</span>        this.start = new NumberMarker(lowerBound);<a name="line.103"></a>
+<span class="sourceLineNo">104</span>        this.start.addChangeListener(this);<a name="line.104"></a>
+<span class="sourceLineNo">105</span>        this.end = new NumberMarker(upperBound);<a name="line.105"></a>
+<span class="sourceLineNo">106</span>        this.end.addChangeListener(this);<a name="line.106"></a>
+<span class="sourceLineNo">107</span>        this.label = label;<a name="line.107"></a>
+<span class="sourceLineNo">108</span>        this.font = DEFAULT_MARKER_FONT;<a name="line.108"></a>
+<span class="sourceLineNo">109</span>        this.labelColor = DEFAULT_LABEL_COLOR;<a name="line.109"></a>
+<span class="sourceLineNo">110</span>        this.labelAnchor = Anchor2D.CENTER;<a name="line.110"></a>
+<span class="sourceLineNo">111</span>        this.fillColor = DEFAULT_FILL_COLOR;   <a name="line.111"></a>
+<span class="sourceLineNo">112</span>    }<a name="line.112"></a>
+<span class="sourceLineNo">113</span>    <a name="line.113"></a>
+<span class="sourceLineNo">114</span>    /**<a name="line.114"></a>
+<span class="sourceLineNo">115</span>     * Returns the starting point for the range marker.<a name="line.115"></a>
+<span class="sourceLineNo">116</span>     * <a name="line.116"></a>
+<span class="sourceLineNo">117</span>     * @return The starting point.<a name="line.117"></a>
+<span class="sourceLineNo">118</span>     */<a name="line.118"></a>
+<span class="sourceLineNo">119</span>    public NumberMarker getStart() {<a name="line.119"></a>
+<span class="sourceLineNo">120</span>        return this.start;<a name="line.120"></a>
+<span class="sourceLineNo">121</span>    }<a name="line.121"></a>
+<span class="sourceLineNo">122</span>    <a name="line.122"></a>
+<span class="sourceLineNo">123</span>    /**<a name="line.123"></a>
+<span class="sourceLineNo">124</span>     * Returns the ending point for the range marker.<a name="line.124"></a>
+<span class="sourceLineNo">125</span>     * <a name="line.125"></a>
+<span class="sourceLineNo">126</span>     * @return The ending point. <a name="line.126"></a>
+<span class="sourceLineNo">127</span>     */<a name="line.127"></a>
+<span class="sourceLineNo">128</span>    public NumberMarker getEnd() {<a name="line.128"></a>
+<span class="sourceLineNo">129</span>        return this.end;<a name="line.129"></a>
+<span class="sourceLineNo">130</span>    }<a name="line.130"></a>
+<span class="sourceLineNo">131</span>    <a name="line.131"></a>
+<span class="sourceLineNo">132</span>    /**<a name="line.132"></a>
+<span class="sourceLineNo">133</span>     * Returns the range of values for the marker.<a name="line.133"></a>
+<span class="sourceLineNo">134</span>     * <a name="line.134"></a>
+<span class="sourceLineNo">135</span>     * @return The range of values for the marker.<a name="line.135"></a>
+<span class="sourceLineNo">136</span>     */<a name="line.136"></a>
+<span class="sourceLineNo">137</span>    @Override<a name="line.137"></a>
+<span class="sourceLineNo">138</span>    public Range getRange() {<a name="line.138"></a>
+<span class="sourceLineNo">139</span>        return new Range(this.start.getValue(), this.end.getValue());<a name="line.139"></a>
+<span class="sourceLineNo">140</span>    }<a name="line.140"></a>
+<span class="sourceLineNo">141</span><a name="line.141"></a>
+<span class="sourceLineNo">142</span>    /**<a name="line.142"></a>
+<span class="sourceLineNo">143</span>     * Returns the label for the marker (if this is {@code null} then no<a name="line.143"></a>
+<span class="sourceLineNo">144</span>     * label is displayed).<a name="line.144"></a>
+<span class="sourceLineNo">145</span>     * <a name="line.145"></a>
+<span class="sourceLineNo">146</span>     * @return The label (possibly {@code null}). <a name="line.146"></a>
+<span class="sourceLineNo">147</span>     */<a name="line.147"></a>
+<span class="sourceLineNo">148</span>    public String getLabel() {<a name="line.148"></a>
+<span class="sourceLineNo">149</span>        return this.label;<a name="line.149"></a>
+<span class="sourceLineNo">150</span>    }<a name="line.150"></a>
+<span class="sourceLineNo">151</span>    <a name="line.151"></a>
+<span class="sourceLineNo">152</span>    /**<a name="line.152"></a>
+<span class="sourceLineNo">153</span>     * Sets the label and sends a change event to all registered listeners.  If<a name="line.153"></a>
+<span class="sourceLineNo">154</span>     * the label is set to {@code null} then no label is displayed for <a name="line.154"></a>
+<span class="sourceLineNo">155</span>     * the marker.<a name="line.155"></a>
+<span class="sourceLineNo">156</span>     * <a name="line.156"></a>
+<span class="sourceLineNo">157</span>     * @param label  the label ({@code null} permitted).<a name="line.157"></a>
+<span class="sourceLineNo">158</span>     */<a name="line.158"></a>
+<span class="sourceLineNo">159</span>    public void setLabel(String label) {<a name="line.159"></a>
+<span class="sourceLineNo">160</span>        this.label = label;<a name="line.160"></a>
+<span class="sourceLineNo">161</span>        fireChangeEvent();<a name="line.161"></a>
+<span class="sourceLineNo">162</span>    }<a name="line.162"></a>
+<span class="sourceLineNo">163</span>    <a name="line.163"></a>
+<span class="sourceLineNo">164</span>    /**<a name="line.164"></a>
+<span class="sourceLineNo">165</span>     * Returns the font for the label.  The default value is <a name="line.165"></a>
+<span class="sourceLineNo">166</span>     * {@link Marker#DEFAULT_MARKER_FONT}.<a name="line.166"></a>
+<span class="sourceLineNo">167</span>     * <a name="line.167"></a>
+<span class="sourceLineNo">168</span>     * @return The font (never {@code null}). <a name="line.168"></a>
+<span class="sourceLineNo">169</span>     */<a name="line.169"></a>
+<span class="sourceLineNo">170</span>    public Font getFont() {<a name="line.170"></a>
+<span class="sourceLineNo">171</span>        return this.font;<a name="line.171"></a>
+<span class="sourceLineNo">172</span>    }<a name="line.172"></a>
+<span class="sourceLineNo">173</span>    <a name="line.173"></a>
+<span class="sourceLineNo">174</span>    /**<a name="line.174"></a>
+<span class="sourceLineNo">175</span>     * Sets the font for the marker label and sends a change event to all <a name="line.175"></a>
+<span class="sourceLineNo">176</span>     * registered listeners.<a name="line.176"></a>
+<span class="sourceLineNo">177</span>     * <a name="line.177"></a>
+<span class="sourceLineNo">178</span>     * @param font  the font ({@code null} not permitted). <a name="line.178"></a>
+<span class="sourceLineNo">179</span>     */<a name="line.179"></a>
+<span class="sourceLineNo">180</span>    public void setFont(Font font) {<a name="line.180"></a>
+<span class="sourceLineNo">181</span>        ArgChecks.nullNotPermitted(font, "font");<a name="line.181"></a>
+<span class="sourceLineNo">182</span>        this.font = font;<a name="line.182"></a>
+<span class="sourceLineNo">183</span>        fireChangeEvent();<a name="line.183"></a>
+<span class="sourceLineNo">184</span>    }<a name="line.184"></a>
+<span class="sourceLineNo">185</span>    <a name="line.185"></a>
+<span class="sourceLineNo">186</span>    /**<a name="line.186"></a>
+<span class="sourceLineNo">187</span>     * Returns the label color.  The default value is <a name="line.187"></a>
+<span class="sourceLineNo">188</span>     * {@link Marker#DEFAULT_LABEL_COLOR}.<a name="line.188"></a>
+<span class="sourceLineNo">189</span>     * <a name="line.189"></a>
+<span class="sourceLineNo">190</span>     * @return The label color (never {@code null}).<a name="line.190"></a>
+<span class="sourceLineNo">191</span>     */<a name="line.191"></a>
+<span class="sourceLineNo">192</span>    public Color getLabelColor() {<a name="line.192"></a>
+<span class="sourceLineNo">193</span>        return this.labelColor;<a name="line.193"></a>
+<span class="sourceLineNo">194</span>    }<a name="line.194"></a>
+<span class="sourceLineNo">195</span>    <a name="line.195"></a>
+<span class="sourceLineNo">196</span>    /**<a name="line.196"></a>
+<span class="sourceLineNo">197</span>     * Sets the label color and sends a change event to all registered<a name="line.197"></a>
+<span class="sourceLineNo">198</span>     * listeners.<a name="line.198"></a>
+<span class="sourceLineNo">199</span>     * <a name="line.199"></a>
+<span class="sourceLineNo">200</span>     * @param color  the color ({@code null} not permitted). <a name="line.200"></a>
+<span class="sourceLineNo">201</span>     */<a name="line.201"></a>
+<span class="sourceLineNo">202</span>    public void setLabelColor(Color color) {<a name="line.202"></a>
+<span class="sourceLineNo">203</span>        ArgChecks.nullNotPermitted(color, "color");<a name="line.203"></a>
+<span class="sourceLineNo">204</span>        this.labelColor = color;<a name="line.204"></a>
+<span class="sourceLineNo">205</span>        fireChangeEvent();<a name="line.205"></a>
+<span class="sourceLineNo">206</span>    }<a name="line.206"></a>
+<span class="sourceLineNo">207</span>    <a name="line.207"></a>
+<span class="sourceLineNo">208</span>    /**<a name="line.208"></a>
+<span class="sourceLineNo">209</span>     * Returns the anchor for the label.  The default value is <a name="line.209"></a>
+<span class="sourceLineNo">210</span>     * {@link Anchor2D#CENTER}.<a name="line.210"></a>
+<span class="sourceLineNo">211</span>     * <a name="line.211"></a>
+<span class="sourceLineNo">212</span>     * @return The anchor for the label. <a name="line.212"></a>
+<span class="sourceLineNo">213</span>     */<a name="line.213"></a>
+<span class="sourceLineNo">214</span>    public Anchor2D getLabelAnchor() {<a name="line.214"></a>
+<span class="sourceLineNo">215</span>        return this.labelAnchor;<a name="line.215"></a>
+<span class="sourceLineNo">216</span>    }<a name="line.216"></a>
+<span class="sourceLineNo">217</span>    <a name="line.217"></a>
+<span class="sourceLineNo">218</span>    /**<a name="line.218"></a>
+<span class="sourceLineNo">219</span>     * Sets the anchor for the label and sends a change event to all registered<a name="line.219"></a>
+<span class="sourceLineNo">220</span>     * listeners.<a name="line.220"></a>
+<span class="sourceLineNo">221</span>     * <a name="line.221"></a>
+<span class="sourceLineNo">222</span>     * @param anchor  the anchor ({@code null} not permitted). <a name="line.222"></a>
+<span class="sourceLineNo">223</span>     */<a name="line.223"></a>
+<span class="sourceLineNo">224</span>    public void setLabelAnchor(Anchor2D anchor) {<a name="line.224"></a>
+<span class="sourceLineNo">225</span>        ArgChecks.nullNotPermitted(anchor, "anchor");<a name="line.225"></a>
+<span class="sourceLineNo">226</span>        this.labelAnchor = anchor;<a name="line.226"></a>
+<span class="sourceLineNo">227</span>        fireChangeEvent();<a name="line.227"></a>
+<span class="sourceLineNo">228</span>    }<a name="line.228"></a>
+<span class="sourceLineNo">229</span><a name="line.229"></a>
+<span class="sourceLineNo">230</span>    /**<a name="line.230"></a>
+<span class="sourceLineNo">231</span>     * Returns the color used to fill the band representing the range for <a name="line.231"></a>
+<span class="sourceLineNo">232</span>     * the marker.  The default value is {@link Marker#DEFAULT_FILL_COLOR}.<a name="line.232"></a>
+<span class="sourceLineNo">233</span>     * <a name="line.233"></a>
+<span class="sourceLineNo">234</span>     * @return The fill color (never {@code null}). <a name="line.234"></a>
+<span class="sourceLineNo">235</span>     */<a name="line.235"></a>
+<span class="sourceLineNo">236</span>    public Color getFillColor() {<a name="line.236"></a>
+<span class="sourceLineNo">237</span>        return this.fillColor;<a name="line.237"></a>
+<span class="sourceLineNo">238</span>    }<a name="line.238"></a>
+<span class="sourceLineNo">239</span>    <a name="line.239"></a>
+<span class="sourceLineNo">240</span>    /**<a name="line.240"></a>
+<span class="sourceLineNo">241</span>     * Sets the color used to fill the band representing the range for the<a name="line.241"></a>
+<span class="sourceLineNo">242</span>     * marker and sends a change event to all registered listeners.<a name="line.242"></a>
+<span class="sourceLineNo">243</span>     * <a name="line.243"></a>
+<span class="sourceLineNo">244</span>     * @param color  the color ({@code null} not permitted).<a name="line.244"></a>
+<span class="sourceLineNo">245</span>     */<a name="line.245"></a>
+<span class="sourceLineNo">246</span>    public void setFillColor(Color color) {<a name="line.246"></a>
+<span class="sourceLineNo">247</span>        ArgChecks.nullNotPermitted(color, "color");<a name="line.247"></a>
+<span class="sourceLineNo">248</span>        this.fillColor = color;<a name="line.248"></a>
+<span class="sourceLineNo">249</span>        fireChangeEvent();<a name="line.249"></a>
+<span class="sourceLineNo">250</span>    }<a name="line.250"></a>
+<span class="sourceLineNo">251</span>    <a name="line.251"></a>
+<span class="sourceLineNo">252</span>    @Override<a name="line.252"></a>
+<span class="sourceLineNo">253</span>    public void draw(Graphics2D g2, MarkerData markerData, boolean reverse) {<a name="line.253"></a>
+<span class="sourceLineNo">254</span>        MarkerLine startLine = markerData.getStartLine();<a name="line.254"></a>
+<span class="sourceLineNo">255</span>        Line2D l1 = new Line2D.Double(startLine.getStartPoint(), <a name="line.255"></a>
+<span class="sourceLineNo">256</span>                startLine.getEndPoint());<a name="line.256"></a>
+<span class="sourceLineNo">257</span>        MarkerLine endLine = markerData.getEndLine();<a name="line.257"></a>
+<span class="sourceLineNo">258</span>        Line2D l2 = new Line2D.Double(endLine.getStartPoint(), <a name="line.258"></a>
+<span class="sourceLineNo">259</span>                endLine.getEndPoint());<a name="line.259"></a>
+<span class="sourceLineNo">260</span><a name="line.260"></a>
+<span class="sourceLineNo">261</span>        Path2D path = new Path2D.Double();<a name="line.261"></a>
+<span class="sourceLineNo">262</span>        path.moveTo(l1.getX1(), l1.getY1());<a name="line.262"></a>
+<span class="sourceLineNo">263</span>        path.lineTo(l1.getX2(), l1.getY2());<a name="line.263"></a>
+<span class="sourceLineNo">264</span>        path.lineTo(l2.getX2(), l2.getY2());<a name="line.264"></a>
+<span class="sourceLineNo">265</span>        path.lineTo(l2.getX1(), l2.getY1());<a name="line.265"></a>
+<span class="sourceLineNo">266</span>        path.closePath();<a name="line.266"></a>
+<span class="sourceLineNo">267</span>        g2.setPaint(this.fillColor);<a name="line.267"></a>
+<span class="sourceLineNo">268</span>        g2.fill(path);<a name="line.268"></a>
+<span class="sourceLineNo">269</span><a name="line.269"></a>
+<span class="sourceLineNo">270</span>        if (!startLine.isPegged()) {<a name="line.270"></a>
+<span class="sourceLineNo">271</span>            g2.setPaint(this.start.getLineColor());<a name="line.271"></a>
+<span class="sourceLineNo">272</span>            g2.setStroke(this.start.getLineStroke());<a name="line.272"></a>
+<span class="sourceLineNo">273</span>            g2.draw(l1);<a name="line.273"></a>
+<span class="sourceLineNo">274</span>        }<a name="line.274"></a>
+<span class="sourceLineNo">275</span>        if (!endLine.isPegged()) {<a name="line.275"></a>
+<span class="sourceLineNo">276</span>            g2.setPaint(this.end.getLineColor());<a name="line.276"></a>
+<span class="sourceLineNo">277</span>            g2.setStroke(this.end.getLineStroke());<a name="line.277"></a>
+<span class="sourceLineNo">278</span>            g2.draw(l2);<a name="line.278"></a>
+<span class="sourceLineNo">279</span>        }<a name="line.279"></a>
+<span class="sourceLineNo">280</span>        <a name="line.280"></a>
+<span class="sourceLineNo">281</span>        Point2D labelPoint = markerData.getLabelPoint(); <a name="line.281"></a>
+<span class="sourceLineNo">282</span>        if (labelPoint != null) {<a name="line.282"></a>
+<span class="sourceLineNo">283</span>            g2.setFont(this.font);<a name="line.283"></a>
+<span class="sourceLineNo">284</span>            g2.setColor(this.labelColor);<a name="line.284"></a>
+<span class="sourceLineNo">285</span>            drawMarkerLabel(g2, this.label, labelPoint.getX(), <a name="line.285"></a>
+<span class="sourceLineNo">286</span>                    labelPoint.getY(), markerData.getLabelAnchor(), l1, l2,<a name="line.286"></a>
+<span class="sourceLineNo">287</span>                    reverse);<a name="line.287"></a>
+<span class="sourceLineNo">288</span>        }<a name="line.288"></a>
+<span class="sourceLineNo">289</span>    }<a name="line.289"></a>
+<span class="sourceLineNo">290</span><a name="line.290"></a>
+<span class="sourceLineNo">291</span>    /**<a name="line.291"></a>
+<span class="sourceLineNo">292</span>     * Receives notification of a change to the start or end marker for the<a name="line.292"></a>
+<span class="sourceLineNo">293</span>     * range.<a name="line.293"></a>
+<span class="sourceLineNo">294</span>     * <a name="line.294"></a>
+<span class="sourceLineNo">295</span>     * @param event  the event ({@code null} not permitted). <a name="line.295"></a>
+<span class="sourceLineNo">296</span>     */<a name="line.296"></a>
+<span class="sourceLineNo">297</span>    @Override<a name="line.297"></a>
+<span class="sourceLineNo">298</span>    public void markerChanged(MarkerChangeEvent event) {<a name="line.298"></a>
+<span class="sourceLineNo">299</span>        fireChangeEvent();<a name="line.299"></a>
+<span class="sourceLineNo">300</span>    }<a name="line.300"></a>
+<span class="sourceLineNo">301</span><a name="line.301"></a>
+<span class="sourceLineNo">302</span>    @Override<a name="line.302"></a>
+<span class="sourceLineNo">303</span>    public int hashCode() {<a name="line.303"></a>
+<span class="sourceLineNo">304</span>        int hash = 7;<a name="line.304"></a>
+<span class="sourceLineNo">305</span>        hash = 97 * hash + ObjectUtils.hashCode(this.start);<a name="line.305"></a>
+<span class="sourceLineNo">306</span>        hash = 97 * hash + ObjectUtils.hashCode(this.end);<a name="line.306"></a>
+<span class="sourceLineNo">307</span>        hash = 97 * hash + ObjectUtils.hashCode(this.label);<a name="line.307"></a>
+<span class="sourceLineNo">308</span>        return hash;<a name="line.308"></a>
+<span class="sourceLineNo">309</span>    }<a name="line.309"></a>
+<span class="sourceLineNo">310</span><a name="line.310"></a>
+<span class="sourceLineNo">311</span>    /**<a name="line.311"></a>
+<span class="sourceLineNo">312</span>     * Tests this marker for equality with an arbitrary object.<a name="line.312"></a>
+<span class="sourceLineNo">313</span>     * <a name="line.313"></a>
+<span class="sourceLineNo">314</span>     * @param obj  the object to test against ({@code null} permitted).<a name="line.314"></a>
+<span class="sourceLineNo">315</span>     * <a name="line.315"></a>
+<span class="sourceLineNo">316</span>     * @return A boolean. <a name="line.316"></a>
+<span class="sourceLineNo">317</span>     */<a name="line.317"></a>
+<span class="sourceLineNo">318</span>    @Override<a name="line.318"></a>
+<span class="sourceLineNo">319</span>    public boolean equals(Object obj) {<a name="line.319"></a>
+<span class="sourceLineNo">320</span>        if (obj == null) {<a name="line.320"></a>
+<span class="sourceLineNo">321</span>            return false;<a name="line.321"></a>
+<span class="sourceLineNo">322</span>        }<a name="line.322"></a>
+<span class="sourceLineNo">323</span>        if (getClass() != obj.getClass()) {<a name="line.323"></a>
+<span class="sourceLineNo">324</span>            return false;<a name="line.324"></a>
+<span class="sourceLineNo">325</span>        }<a name="line.325"></a>
+<span class="sourceLineNo">326</span>        final RangeMarker other = (RangeMarker) obj;<a name="line.326"></a>
+<span class="sourceLineNo">327</span>        if (!ObjectUtils.equals(this.start, other.start)) {<a name="line.327"></a>
+<span class="sourceLineNo">328</span>            return false;<a name="line.328"></a>
+<span class="sourceLineNo">329</span>        }<a name="line.329"></a>
+<span class="sourceLineNo">330</span>        if (!ObjectUtils.equals(this.end, other.end)) {<a name="line.330"></a>
+<span class="sourceLineNo">331</span>            return false;<a name="line.331"></a>
+<span class="sourceLineNo">332</span>        }<a name="line.332"></a>
+<span class="sourceLineNo">333</span>        if (!ObjectUtils.equals(this.label, other.label)) {<a name="line.333"></a>
+<span class="sourceLineNo">334</span>            return false;<a name="line.334"></a>
+<span class="sourceLineNo">335</span>        }<a name="line.335"></a>
+<span class="sourceLineNo">336</span>        if (!ObjectUtils.equals(this.font, other.font)) {<a name="line.336"></a>
+<span class="sourceLineNo">337</span>            return false;<a name="line.337"></a>
+<span class="sourceLineNo">338</span>        }<a name="line.338"></a>
+<span class="sourceLineNo">339</span>        if (!ObjectUtils.equals(this.labelColor, other.labelColor)) {<a name="line.339"></a>
+<span class="sourceLineNo">340</span>            return false;<a name="line.340"></a>
+<span class="sourceLineNo">341</span>        }<a name="line.341"></a>
+<span class="sourceLineNo">342</span>        if (!ObjectUtils.equals(this.labelAnchor, other.labelAnchor)) {<a name="line.342"></a>
+<span class="sourceLineNo">343</span>            return false;<a name="line.343"></a>
+<span class="sourceLineNo">344</span>        }<a name="line.344"></a>
+<span class="sourceLineNo">345</span>        if (!ObjectUtils.equals(this.fillColor, other.fillColor)) {<a name="line.345"></a>
+<span class="sourceLineNo">346</span>            return false;<a name="line.346"></a>
+<span class="sourceLineNo">347</span>        }<a name="line.347"></a>
+<span class="sourceLineNo">348</span>        return true;<a name="line.348"></a>
+<span class="sourceLineNo">349</span>    }<a name="line.349"></a>
+<span class="sourceLineNo">350</span>    <a name="line.350"></a>
+<span class="sourceLineNo">351</span>}<a name="line.351"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</body>
+</html>

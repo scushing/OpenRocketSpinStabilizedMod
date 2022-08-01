@@ -102,6 +102,7 @@ public class Rocket {
         updateVelocity(NetForce, stepTime);
         updatePosition(stepTime);
 
+        /*
         System.out.println();
         System.out.println("New Iteration");
         System.out.println();
@@ -118,6 +119,7 @@ public class Rocket {
         System.out.println("Velocity: " + velocity);
         System.out.println("Orientation: " + orientation);
         System.out.println();
+        */
     }
 
 

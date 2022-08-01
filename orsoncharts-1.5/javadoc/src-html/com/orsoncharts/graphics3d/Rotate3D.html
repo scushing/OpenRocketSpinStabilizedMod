@@ -1,0 +1,280 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span>/* ===========================================================<a name="line.1"></a>
+<span class="sourceLineNo">002</span> * Orson Charts : a 3D chart library for the Java(tm) platform<a name="line.2"></a>
+<span class="sourceLineNo">003</span> * ===========================================================<a name="line.3"></a>
+<span class="sourceLineNo">004</span> * <a name="line.4"></a>
+<span class="sourceLineNo">005</span> * (C)opyright 2013-2016, by Object Refinery Limited.  All rights reserved.<a name="line.5"></a>
+<span class="sourceLineNo">006</span> * <a name="line.6"></a>
+<span class="sourceLineNo">007</span> * http://www.object-refinery.com/orsoncharts/index.html<a name="line.7"></a>
+<span class="sourceLineNo">008</span> * <a name="line.8"></a>
+<span class="sourceLineNo">009</span> * This program is free software: you can redistribute it and/or modify<a name="line.9"></a>
+<span class="sourceLineNo">010</span> * it under the terms of the GNU General Public License as published by<a name="line.10"></a>
+<span class="sourceLineNo">011</span> * the Free Software Foundation, either version 3 of the License, or<a name="line.11"></a>
+<span class="sourceLineNo">012</span> * (at your option) any later version.<a name="line.12"></a>
+<span class="sourceLineNo">013</span> *<a name="line.13"></a>
+<span class="sourceLineNo">014</span> * This program is distributed in the hope that it will be useful,<a name="line.14"></a>
+<span class="sourceLineNo">015</span> * but WITHOUT ANY WARRANTY; without even the implied warranty of<a name="line.15"></a>
+<span class="sourceLineNo">016</span> * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the<a name="line.16"></a>
+<span class="sourceLineNo">017</span> * GNU General Public License for more details.<a name="line.17"></a>
+<span class="sourceLineNo">018</span> *<a name="line.18"></a>
+<span class="sourceLineNo">019</span> * You should have received a copy of the GNU General Public License<a name="line.19"></a>
+<span class="sourceLineNo">020</span> * along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.<a name="line.20"></a>
+<span class="sourceLineNo">021</span> * <a name="line.21"></a>
+<span class="sourceLineNo">022</span> * [Oracle and Java are registered trademarks of Oracle and/or its affiliates. <a name="line.22"></a>
+<span class="sourceLineNo">023</span> * Other names may be trademarks of their respective owners.]<a name="line.23"></a>
+<span class="sourceLineNo">024</span> * <a name="line.24"></a>
+<span class="sourceLineNo">025</span> * If you do not wish to be bound by the terms of the GPL, an alternative<a name="line.25"></a>
+<span class="sourceLineNo">026</span> * commercial license can be purchased.  For details, please see visit the<a name="line.26"></a>
+<span class="sourceLineNo">027</span> * Orson Charts home page:<a name="line.27"></a>
+<span class="sourceLineNo">028</span> * <a name="line.28"></a>
+<span class="sourceLineNo">029</span> * http://www.object-refinery.com/orsoncharts/index.html<a name="line.29"></a>
+<span class="sourceLineNo">030</span> * <a name="line.30"></a>
+<span class="sourceLineNo">031</span> */<a name="line.31"></a>
+<span class="sourceLineNo">032</span><a name="line.32"></a>
+<span class="sourceLineNo">033</span>package com.orsoncharts.graphics3d;<a name="line.33"></a>
+<span class="sourceLineNo">034</span><a name="line.34"></a>
+<span class="sourceLineNo">035</span>import java.io.Serializable;<a name="line.35"></a>
+<span class="sourceLineNo">036</span><a name="line.36"></a>
+<span class="sourceLineNo">037</span>/**<a name="line.37"></a>
+<span class="sourceLineNo">038</span> * Performs rotations about along an arbitrary axis (defined by two <a name="line.38"></a>
+<span class="sourceLineNo">039</span> * {@link Point3D} instances).  This file is derived from code published in <a name="line.39"></a>
+<span class="sourceLineNo">040</span> * "Computer Graphics for Java Programmers (Second Edition)" by Leen Ammeraal <a name="line.40"></a>
+<span class="sourceLineNo">041</span> * and Kang Zhang.<a name="line.41"></a>
+<span class="sourceLineNo">042</span> * &lt;br&gt;&lt;br&gt;<a name="line.42"></a>
+<span class="sourceLineNo">043</span> * NOTE: This class is serializable, but the serialization format is subject <a name="line.43"></a>
+<span class="sourceLineNo">044</span> * to change in future releases and should not be relied upon for persisting <a name="line.44"></a>
+<span class="sourceLineNo">045</span> * instances of this class. <a name="line.45"></a>
+<span class="sourceLineNo">046</span> */<a name="line.46"></a>
+<span class="sourceLineNo">047</span>@SuppressWarnings("serial")<a name="line.47"></a>
+<span class="sourceLineNo">048</span>public class Rotate3D implements Serializable {<a name="line.48"></a>
+<span class="sourceLineNo">049</span><a name="line.49"></a>
+<span class="sourceLineNo">050</span>    /** The first point defining the axis of rotation. */<a name="line.50"></a>
+<span class="sourceLineNo">051</span>    Point3D a;<a name="line.51"></a>
+<span class="sourceLineNo">052</span>    <a name="line.52"></a>
+<span class="sourceLineNo">053</span>    /** The second point defining the axis of rotation. */<a name="line.53"></a>
+<span class="sourceLineNo">054</span>    Point3D b;<a name="line.54"></a>
+<span class="sourceLineNo">055</span>    <a name="line.55"></a>
+<span class="sourceLineNo">056</span>    /** The angle of rotation in radians. */<a name="line.56"></a>
+<span class="sourceLineNo">057</span>    double angle;<a name="line.57"></a>
+<span class="sourceLineNo">058</span>    <a name="line.58"></a>
+<span class="sourceLineNo">059</span>    /** <a name="line.59"></a>
+<span class="sourceLineNo">060</span>     * Values in the transformation matrix (these need to be recalculated if <a name="line.60"></a>
+<span class="sourceLineNo">061</span>     * the axis of rotation or the angle are changed).<a name="line.61"></a>
+<span class="sourceLineNo">062</span>     */<a name="line.62"></a>
+<span class="sourceLineNo">063</span>    double r11, r12, r13;<a name="line.63"></a>
+<span class="sourceLineNo">064</span>    double r21, r22, r23;<a name="line.64"></a>
+<span class="sourceLineNo">065</span>    double r31, r32, r33;<a name="line.65"></a>
+<span class="sourceLineNo">066</span>    double r41, r42, r43;<a name="line.66"></a>
+<span class="sourceLineNo">067</span>    <a name="line.67"></a>
+<span class="sourceLineNo">068</span>    /**<a name="line.68"></a>
+<span class="sourceLineNo">069</span>     * Creates a new instance that will rotate points about the axis passing<a name="line.69"></a>
+<span class="sourceLineNo">070</span>     * through points a and b, by the specified angle.<a name="line.70"></a>
+<span class="sourceLineNo">071</span>     * <a name="line.71"></a>
+<span class="sourceLineNo">072</span>     * @param a  the first point defining the axis of rotation <a name="line.72"></a>
+<span class="sourceLineNo">073</span>     *     ({@code null} not permitted).<a name="line.73"></a>
+<span class="sourceLineNo">074</span>     * @param b  the second point defining the axis of rotation <a name="line.74"></a>
+<span class="sourceLineNo">075</span>     *     ({@code null} not permitted).<a name="line.75"></a>
+<span class="sourceLineNo">076</span>     * @param angle  the rotation angle (in radians).<a name="line.76"></a>
+<span class="sourceLineNo">077</span>     */<a name="line.77"></a>
+<span class="sourceLineNo">078</span>    public Rotate3D(Point3D a, Point3D b, double angle) {<a name="line.78"></a>
+<span class="sourceLineNo">079</span>        this.a = a;<a name="line.79"></a>
+<span class="sourceLineNo">080</span>        this.b = b;<a name="line.80"></a>
+<span class="sourceLineNo">081</span>        this.angle = angle;<a name="line.81"></a>
+<span class="sourceLineNo">082</span>        double v1 = b.x - a.x;<a name="line.82"></a>
+<span class="sourceLineNo">083</span>        double v2 = b.y - a.y;<a name="line.83"></a>
+<span class="sourceLineNo">084</span>        double v3 = b.z - a.z;<a name="line.84"></a>
+<span class="sourceLineNo">085</span>        double theta = Math.atan2(v2, v1);<a name="line.85"></a>
+<span class="sourceLineNo">086</span>        double phi = Math.atan2(Math.sqrt(v1 * v1 + v2 * v2), v3);<a name="line.86"></a>
+<span class="sourceLineNo">087</span>        initRotate(a, theta, phi, angle);        <a name="line.87"></a>
+<span class="sourceLineNo">088</span>    }<a name="line.88"></a>
+<span class="sourceLineNo">089</span><a name="line.89"></a>
+<span class="sourceLineNo">090</span>    /**<a name="line.90"></a>
+<span class="sourceLineNo">091</span>     * Returns the angle of rotation, in radians.<a name="line.91"></a>
+<span class="sourceLineNo">092</span>     * <a name="line.92"></a>
+<span class="sourceLineNo">093</span>     * @return The angle of rotation, in radians. <a name="line.93"></a>
+<span class="sourceLineNo">094</span>     */<a name="line.94"></a>
+<span class="sourceLineNo">095</span>    public double getAngle() {<a name="line.95"></a>
+<span class="sourceLineNo">096</span>        return this.angle;<a name="line.96"></a>
+<span class="sourceLineNo">097</span>    }<a name="line.97"></a>
+<span class="sourceLineNo">098</span>    <a name="line.98"></a>
+<span class="sourceLineNo">099</span>    /**<a name="line.99"></a>
+<span class="sourceLineNo">100</span>     * Sets the angle of rotation (in radians) and (internally) updates the <a name="line.100"></a>
+<span class="sourceLineNo">101</span>     * values of the transformation matrix ready for the next call(s) to <a name="line.101"></a>
+<span class="sourceLineNo">102</span>     * the {@code applyRotation} methods.<a name="line.102"></a>
+<span class="sourceLineNo">103</span>     * <a name="line.103"></a>
+<span class="sourceLineNo">104</span>     * @param angle  the angle (in radians). <a name="line.104"></a>
+<span class="sourceLineNo">105</span>     */<a name="line.105"></a>
+<span class="sourceLineNo">106</span>    public void setAngle(double angle) {<a name="line.106"></a>
+<span class="sourceLineNo">107</span>        this.angle = angle;<a name="line.107"></a>
+<span class="sourceLineNo">108</span>        double v1 = b.x - a.x;<a name="line.108"></a>
+<span class="sourceLineNo">109</span>        double v2 = b.y - a.y;<a name="line.109"></a>
+<span class="sourceLineNo">110</span>        double v3 = b.z - a.z;<a name="line.110"></a>
+<span class="sourceLineNo">111</span>        double theta = Math.atan2(v2, v1);<a name="line.111"></a>
+<span class="sourceLineNo">112</span>        double phi = Math.atan2(Math.sqrt(v1 * v1 + v2 * v2), v3);<a name="line.112"></a>
+<span class="sourceLineNo">113</span>        initRotate(this.a, theta, phi, angle);<a name="line.113"></a>
+<span class="sourceLineNo">114</span>    }<a name="line.114"></a>
+<span class="sourceLineNo">115</span>    <a name="line.115"></a>
+<span class="sourceLineNo">116</span>    /**<a name="line.116"></a>
+<span class="sourceLineNo">117</span>     * Computes the transformation matrix values.<a name="line.117"></a>
+<span class="sourceLineNo">118</span>     * <a name="line.118"></a>
+<span class="sourceLineNo">119</span>     * @param a  the start point of the axis of rotation.<a name="line.119"></a>
+<span class="sourceLineNo">120</span>     * @param theta  theta (defines direction of axis).<a name="line.120"></a>
+<span class="sourceLineNo">121</span>     * @param phi  phi (defines direction of axis).<a name="line.121"></a>
+<span class="sourceLineNo">122</span>     * @param alpha  alpha (angle of rotation).<a name="line.122"></a>
+<span class="sourceLineNo">123</span>     */<a name="line.123"></a>
+<span class="sourceLineNo">124</span>    private void initRotate(Point3D a, double theta, double phi, double alpha) {<a name="line.124"></a>
+<span class="sourceLineNo">125</span>        double cosAlpha = Math.cos(alpha);<a name="line.125"></a>
+<span class="sourceLineNo">126</span>        double sinAlpha = Math.sin(alpha);<a name="line.126"></a>
+<span class="sourceLineNo">127</span>        double cosPhi = Math.cos(phi);<a name="line.127"></a>
+<span class="sourceLineNo">128</span>        double cosPhi2 = cosPhi * cosPhi;<a name="line.128"></a>
+<span class="sourceLineNo">129</span>        double sinPhi = Math.sin(phi);<a name="line.129"></a>
+<span class="sourceLineNo">130</span>        double sinPhi2 = sinPhi * sinPhi;<a name="line.130"></a>
+<span class="sourceLineNo">131</span>        double cosTheta = Math.cos(theta);<a name="line.131"></a>
+<span class="sourceLineNo">132</span>        double cosTheta2 = cosTheta * cosTheta;<a name="line.132"></a>
+<span class="sourceLineNo">133</span>        double sinTheta = Math.sin(theta);<a name="line.133"></a>
+<span class="sourceLineNo">134</span>        double sinTheta2 = sinTheta * sinTheta;<a name="line.134"></a>
+<span class="sourceLineNo">135</span>        double a1 = a.x;<a name="line.135"></a>
+<span class="sourceLineNo">136</span>        double a2 = a.y;<a name="line.136"></a>
+<span class="sourceLineNo">137</span>        double a3 = a.z;<a name="line.137"></a>
+<span class="sourceLineNo">138</span>        double c = 1.0 - cosAlpha;<a name="line.138"></a>
+<span class="sourceLineNo">139</span>        this.r11 = cosTheta2 * (cosAlpha * cosPhi2 + sinPhi2) <a name="line.139"></a>
+<span class="sourceLineNo">140</span>                + cosAlpha * sinTheta2;<a name="line.140"></a>
+<span class="sourceLineNo">141</span>        this.r12 = sinAlpha * cosPhi + c * sinPhi2 * cosTheta * sinTheta;<a name="line.141"></a>
+<span class="sourceLineNo">142</span>        this.r13 = sinPhi * (cosPhi * cosTheta * c - sinAlpha * sinTheta);<a name="line.142"></a>
+<span class="sourceLineNo">143</span>        this.r21 = sinPhi2 * cosTheta * sinTheta * c - sinAlpha * cosPhi;<a name="line.143"></a>
+<span class="sourceLineNo">144</span>        this.r22 = sinTheta2 * (cosAlpha * cosPhi2 + sinPhi2) <a name="line.144"></a>
+<span class="sourceLineNo">145</span>                + cosAlpha * cosTheta2;<a name="line.145"></a>
+<span class="sourceLineNo">146</span>        this.r23 = sinPhi * (cosPhi * sinTheta * c + sinAlpha * cosTheta);<a name="line.146"></a>
+<span class="sourceLineNo">147</span>        this.r31 = sinPhi * (cosPhi * cosTheta * c + sinAlpha * sinTheta);<a name="line.147"></a>
+<span class="sourceLineNo">148</span>        this.r32 = sinPhi * (cosPhi * sinTheta * c - sinAlpha * cosTheta);<a name="line.148"></a>
+<span class="sourceLineNo">149</span>        this.r33 = cosAlpha * sinPhi2 + cosPhi2;<a name="line.149"></a>
+<span class="sourceLineNo">150</span>        this.r41 = a1 - a1 * this.r11 - a2 * this.r21 - a3 * this.r31;<a name="line.150"></a>
+<span class="sourceLineNo">151</span>        this.r42 = a2 - a1 * this.r12 - a2 * this.r22 - a3 * this.r32;<a name="line.151"></a>
+<span class="sourceLineNo">152</span>        this.r43 = a3 - a1 * this.r13 - a2 * this.r23 - a3 * this.r33;<a name="line.152"></a>
+<span class="sourceLineNo">153</span>    }<a name="line.153"></a>
+<span class="sourceLineNo">154</span>    <a name="line.154"></a>
+<span class="sourceLineNo">155</span>    /**<a name="line.155"></a>
+<span class="sourceLineNo">156</span>     * Creates and returns a new point that is the rotation of {@code p}<a name="line.156"></a>
+<span class="sourceLineNo">157</span>     * about the axis that was specified via the constructor.<a name="line.157"></a>
+<span class="sourceLineNo">158</span>     * <a name="line.158"></a>
+<span class="sourceLineNo">159</span>     * @param p  the point ({@code null} not permitted).<a name="line.159"></a>
+<span class="sourceLineNo">160</span>     * <a name="line.160"></a>
+<span class="sourceLineNo">161</span>     * @return A new point.<a name="line.161"></a>
+<span class="sourceLineNo">162</span>     */<a name="line.162"></a>
+<span class="sourceLineNo">163</span>    public Point3D applyRotation(Point3D p) {<a name="line.163"></a>
+<span class="sourceLineNo">164</span>        return applyRotation(p.x, p.y, p.z);<a name="line.164"></a>
+<span class="sourceLineNo">165</span>    }<a name="line.165"></a>
+<span class="sourceLineNo">166</span>    <a name="line.166"></a>
+<span class="sourceLineNo">167</span>    /**<a name="line.167"></a>
+<span class="sourceLineNo">168</span>     * Creates an returns a new point that is the rotation of the point <a name="line.168"></a>
+<span class="sourceLineNo">169</span>     * {@code (x, y, z)} about the axis that was specified via the <a name="line.169"></a>
+<span class="sourceLineNo">170</span>     * constructor.<a name="line.170"></a>
+<span class="sourceLineNo">171</span>     * <a name="line.171"></a>
+<span class="sourceLineNo">172</span>     * @param x  the x-coordinate of the point to transform.<a name="line.172"></a>
+<span class="sourceLineNo">173</span>     * @param y  the y-coordinate of the point to transform.<a name="line.173"></a>
+<span class="sourceLineNo">174</span>     * @param z  the z-coordinate of the point to transform.<a name="line.174"></a>
+<span class="sourceLineNo">175</span>     * <a name="line.175"></a>
+<span class="sourceLineNo">176</span>     * @return The transformed point (never {@code null}). <a name="line.176"></a>
+<span class="sourceLineNo">177</span>     */<a name="line.177"></a>
+<span class="sourceLineNo">178</span>    public Point3D applyRotation(double x, double y, double z) {<a name="line.178"></a>
+<span class="sourceLineNo">179</span>        return new Point3D(<a name="line.179"></a>
+<span class="sourceLineNo">180</span>                x * this.r11 + y * this.r21 + z * this.r31 + this.r41,<a name="line.180"></a>
+<span class="sourceLineNo">181</span>                x * this.r12 + y * this.r22 + z * this.r32 + this.r42,<a name="line.181"></a>
+<span class="sourceLineNo">182</span>                x * this.r13 + y * this.r23 + z * this.r33 + this.r43);        <a name="line.182"></a>
+<span class="sourceLineNo">183</span>    }<a name="line.183"></a>
+<span class="sourceLineNo">184</span>    <a name="line.184"></a>
+<span class="sourceLineNo">185</span>    /**<a name="line.185"></a>
+<span class="sourceLineNo">186</span>     * Returns the coordinates of a point that is the rotation of the point<a name="line.186"></a>
+<span class="sourceLineNo">187</span>     * {@code (x, y, z)} about the axis that was specified via the <a name="line.187"></a>
+<span class="sourceLineNo">188</span>     * constructor.<a name="line.188"></a>
+<span class="sourceLineNo">189</span>     * <a name="line.189"></a>
+<span class="sourceLineNo">190</span>     * @param x  the x-coordinate of the point to transform.<a name="line.190"></a>
+<span class="sourceLineNo">191</span>     * @param y  the y-coordinate of the point to transform.<a name="line.191"></a>
+<span class="sourceLineNo">192</span>     * @param z  the z-coordinate of the point to transform.<a name="line.192"></a>
+<span class="sourceLineNo">193</span>     * @param result  an array to carry the result ({@code null} permitted).<a name="line.193"></a>
+<span class="sourceLineNo">194</span>     * <a name="line.194"></a>
+<span class="sourceLineNo">195</span>     * @return The transformed coordinates (in the {@code result} array if <a name="line.195"></a>
+<span class="sourceLineNo">196</span>     * one was supplied, otherwise in a newly allocated array). <a name="line.196"></a>
+<span class="sourceLineNo">197</span>     */<a name="line.197"></a>
+<span class="sourceLineNo">198</span>    public double[] applyRotation(double x, double y, double z, <a name="line.198"></a>
+<span class="sourceLineNo">199</span>            double[] result) {<a name="line.199"></a>
+<span class="sourceLineNo">200</span>        if (result == null) {<a name="line.200"></a>
+<span class="sourceLineNo">201</span>            result = new double[3];<a name="line.201"></a>
+<span class="sourceLineNo">202</span>        }<a name="line.202"></a>
+<span class="sourceLineNo">203</span>        result[0] = x * this.r11 + y * this.r21 + z * this.r31 + this.r41;<a name="line.203"></a>
+<span class="sourceLineNo">204</span>        result[1] = x * this.r12 + y * this.r22 + z * this.r32 + this.r42;<a name="line.204"></a>
+<span class="sourceLineNo">205</span>        result[2] = x * this.r13 + y * this.r23 + z * this.r33 + this.r43;<a name="line.205"></a>
+<span class="sourceLineNo">206</span>        return result;<a name="line.206"></a>
+<span class="sourceLineNo">207</span>    }<a name="line.207"></a>
+<span class="sourceLineNo">208</span>}<a name="line.208"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</body>
+</html>

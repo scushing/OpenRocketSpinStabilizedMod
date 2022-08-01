@@ -1,0 +1,1227 @@
+T: 0.00599957
+Acceleration: X:   1.43, Y:  -0.48, Z:  10.01 m/s^2 
+Gyro:         X:  -0.19, Y:   0.13, Z:  -0.08 rad/s 
+T: 0.125999
+Acceleration: X:   0.19, Y:   0.03, Z:   8.68 m/s^2 
+Gyro:         X:   0.14, Y:   0.15, Z:   0.56 rad/s 
+T: 0.234
+Acceleration: X:   1.29, Y:  -0.70, Z:   8.51 m/s^2 
+Gyro:         X:   0.18, Y:  -0.25, Z:   0.31 rad/s 
+T: 0.342
+Acceleration: X:   0.79, Y:  -0.68, Z:  11.15 m/s^2 
+Gyro:         X:  -0.26, Y:  -0.16, Z:  -0.21 rad/s 
+T: 0.451
+Acceleration: X:  -0.02, Y:  -2.18, Z:  12.43 m/s^2 
+Gyro:         X:  -0.31, Y:   0.19, Z:  -0.53 rad/s 
+T: 0.561
+Acceleration: X:   0.28, Y:  -0.44, Z:   9.39 m/s^2 
+Gyro:         X:   0.07, Y:   0.59, Z:   0.21 rad/s 
+T: 0.669
+Acceleration: X:   0.17, Y:  -0.75, Z:   8.17 m/s^2 
+Gyro:         X:   0.13, Y:  -0.19, Z:  -0.00 rad/s 
+T: 0.78
+Acceleration: X:   0.67, Y:   0.39, Z:   9.95 m/s^2 
+Gyro:         X:  -0.01, Y:  -0.48, Z:  -0.07 rad/s 
+T: 0.888
+Acceleration: X:   1.93, Y:   1.32, Z:  11.61 m/s^2 
+Gyro:         X:   0.13, Y:  -0.33, Z:   0.30 rad/s 
+T: 0.997
+Acceleration: X:   1.71, Y:   1.85, Z:  10.16 m/s^2 
+Gyro:         X:  -0.18, Y:  -0.15, Z:  -0.06 rad/s 
+T: 1.106
+Acceleration: X:  -0.35, Y:  -0.18, Z:   9.03 m/s^2 
+Gyro:         X:  -0.09, Y:   0.10, Z:  -0.05 rad/s 
+T: 1.214
+Acceleration: X:   2.07, Y:  -1.38, Z:   8.27 m/s^2 
+Gyro:         X:  -0.15, Y:  -0.24, Z:  -0.05 rad/s 
+T: 1.323
+Acceleration: X:   1.94, Y:   0.48, Z:  10.77 m/s^2 
+Gyro:         X:  -0.02, Y:  -0.14, Z:  -0.21 rad/s 
+T: 1.431
+Acceleration: X:   1.27, Y:  -1.49, Z:  12.23 m/s^2 
+Gyro:         X:  -0.03, Y:   0.06, Z:  -0.32 rad/s 
+T: 1.54
+Acceleration: X:   0.51, Y:  -0.92, Z:   9.50 m/s^2 
+Gyro:         X:   0.00, Y:   0.64, Z:  -0.05 rad/s 
+T: 1.649
+Acceleration: X:   0.06, Y:  -0.11, Z:   8.36 m/s^2 
+Gyro:         X:   0.22, Y:   0.11, Z:  -0.04 rad/s 
+T: 1.757
+Acceleration: X:   0.63, Y:   0.44, Z:   9.88 m/s^2 
+Gyro:         X:   0.03, Y:  -0.29, Z:  -0.13 rad/s 
+T: 1.866
+Acceleration: X:   0.75, Y:   1.25, Z:  11.83 m/s^2 
+Gyro:         X:   0.13, Y:  -0.20, Z:   0.22 rad/s 
+T: 1.975
+Acceleration: X:   0.09, Y:   2.01, Z:  11.59 m/s^2 
+Gyro:         X:   0.25, Y:   0.04, Z:   0.16 rad/s 
+T: 2.083
+Acceleration: X:  -0.83, Y:   1.39, Z:   8.98 m/s^2 
+Gyro:         X:  -0.09, Y:   0.25, Z:  -0.09 rad/s 
+T: 2.192
+Acceleration: X:   1.29, Y:  -0.78, Z:   8.26 m/s^2 
+Gyro:         X:  -0.08, Y:  -0.15, Z:  -0.01 rad/s 
+T: 2.3
+Acceleration: X:   1.44, Y:  -0.11, Z:  10.84 m/s^2 
+Gyro:         X:   0.09, Y:  -0.12, Z:   0.01 rad/s 
+T: 2.409
+Acceleration: X:   1.98, Y:  -0.76, Z:  11.65 m/s^2 
+Gyro:         X:  -0.15, Y:   0.09, Z:  -0.32 rad/s 
+T: 2.518
+Acceleration: X:  -1.06, Y:  -0.66, Z:  10.18 m/s^2 
+Gyro:         X:   0.06, Y:   0.54, Z:  -0.27 rad/s 
+T: 2.626
+Acceleration: X:   0.24, Y:   0.94, Z:   8.19 m/s^2 
+Gyro:         X:   0.15, Y:  -0.27, Z:   0.13 rad/s 
+T: 2.735
+Acceleration: X:   1.00, Y:   0.59, Z:   9.50 m/s^2 
+Gyro:         X:  -0.43, Y:  -0.29, Z:  -0.11 rad/s 
+T: 2.843
+Acceleration: X:   1.79, Y:   0.79, Z:  11.83 m/s^2 
+Gyro:         X:  -0.24, Y:  -0.19, Z:   0.13 rad/s 
+T: 2.952
+Acceleration: X:   0.87, Y:   1.38, Z:  10.55 m/s^2 
+Gyro:         X:  -0.14, Y:  -0.04, Z:  -0.27 rad/s 
+T: 3.061
+Acceleration: X:   0.66, Y:   1.26, Z:   8.45 m/s^2 
+Gyro:         X:   0.02, Y:   0.22, Z:  -0.21 rad/s 
+T: 3.169
+Acceleration: X:   1.85, Y:   0.55, Z:   8.06 m/s^2 
+Gyro:         X:  -0.08, Y:  -0.32, Z:   0.08 rad/s 
+T: 3.278
+Acceleration: X:   1.37, Y:   0.95, Z:  10.75 m/s^2 
+Gyro:         X:  -0.27, Y:  -0.17, Z:  -0.37 rad/s 
+T: 3.386
+Acceleration: X:   0.22, Y:  -1.18, Z:  12.58 m/s^2 
+Gyro:         X:  -0.33, Y:  -0.02, Z:  -0.32 rad/s 
+T: 3.495
+Acceleration: X:   0.13, Y:   0.44, Z:   9.69 m/s^2 
+Gyro:         X:   0.04, Y:   0.70, Z:  -0.00 rad/s 
+T: 3.604
+Acceleration: X:   0.23, Y:   1.09, Z:   7.80 m/s^2 
+Gyro:         X:  -0.05, Y:  -0.19, Z:   0.14 rad/s 
+T: 3.712
+Acceleration: X:   0.89, Y:   0.20, Z:  10.26 m/s^2 
+Gyro:         X:  -0.06, Y:  -0.32, Z:   0.12 rad/s 
+T: 3.822
+Acceleration: X:   2.60, Y:   0.41, Z:  11.21 m/s^2 
+Gyro:         X:   0.03, Y:   0.21, Z:   0.09 rad/s 
+T: 3.931
+Acceleration: X:   0.61, Y:   1.39, Z:  10.81 m/s^2 
+Gyro:         X:  -0.17, Y:   0.19, Z:  -0.07 rad/s 
+T: 4.039
+Acceleration: X:  -0.75, Y:   1.14, Z:   8.61 m/s^2 
+Gyro:         X:  -0.00, Y:   0.21, Z:   0.27 rad/s 
+T: 4.148
+Acceleration: X:   1.61, Y:  -0.40, Z:   9.07 m/s^2 
+Gyro:         X:  -0.23, Y:  -0.18, Z:   0.16 rad/s 
+T: 4.256
+Acceleration: X:   1.06, Y:  -0.93, Z:  11.21 m/s^2 
+Gyro:         X:  -0.32, Y:  -0.32, Z:  -0.22 rad/s 
+T: 4.365
+Acceleration: X:  -0.39, Y:  -0.99, Z:  11.72 m/s^2 
+Gyro:         X:  -0.50, Y:   0.17, Z:  -0.29 rad/s 
+T: 4.474
+Acceleration: X:   0.05, Y:   0.43, Z:   9.53 m/s^2 
+Gyro:         X:   0.57, Y:   0.49, Z:   0.06 rad/s 
+T: 4.582
+Acceleration: X:   0.80, Y:   0.29, Z:   7.59 m/s^2 
+Gyro:         X:  -0.74, Y:   0.16, Z:   0.12 rad/s 
+T: 4.691
+Acceleration: X:   1.24, Y:  -0.73, Z:  10.53 m/s^2 
+Gyro:         X:  -0.23, Y:  -0.29, Z:  -0.03 rad/s 
+T: 4.799
+Acceleration: X:   2.85, Y:  -0.06, Z:  12.23 m/s^2 
+Gyro:         X:  -0.31, Y:   0.16, Z:  -0.11 rad/s 
+T: 4.909
+Acceleration: X:   0.23, Y:  -0.72, Z:  10.38 m/s^2 
+Gyro:         X:  -0.15, Y:   0.51, Z:   0.19 rad/s 
+T: 5.017
+Acceleration: X:  -0.25, Y:   1.22, Z:   8.64 m/s^2 
+Gyro:         X:   0.44, Y:  -0.12, Z:   0.55 rad/s 
+T: 5.125
+Acceleration: X:  -0.13, Y:  -0.17, Z:   8.94 m/s^2 
+Gyro:         X:  -0.38, Y:  -0.30, Z:  -0.03 rad/s 
+T: 5.234
+Acceleration: X:  -0.77, Y:   0.33, Z:  11.96 m/s^2 
+Gyro:         X:  -0.35, Y:  -0.22, Z:  -0.17 rad/s 
+T: 5.343
+Acceleration: X:  -0.25, Y:  -0.50, Z:  11.95 m/s^2 
+Gyro:         X:   0.59, Y:   0.08, Z:   0.04 rad/s 
+T: 5.451
+Acceleration: X:  -0.32, Y:   0.32, Z:   9.81 m/s^2 
+Gyro:         X:  -0.15, Y:   0.24, Z:  -0.18 rad/s 
+T: 5.56
+Acceleration: X:   0.38, Y:  -1.43, Z:   7.67 m/s^2 
+Gyro:         X:  -0.10, Y:  -0.35, Z:   0.02 rad/s 
+T: 5.668
+Acceleration: X:   0.89, Y:  -0.52, Z:   9.95 m/s^2 
+Gyro:         X:  -0.07, Y:  -0.45, Z:   0.03 rad/s 
+T: 5.777
+Acceleration: X:   2.38, Y:  -0.45, Z:  12.22 m/s^2 
+Gyro:         X:   0.41, Y:   0.33, Z:   0.52 rad/s 
+T: 5.886
+Acceleration: X:   0.76, Y:  -0.15, Z:  10.77 m/s^2 
+Gyro:         X:  -0.13, Y:   0.48, Z:  -0.02 rad/s 
+T: 5.994
+Acceleration: X:   0.33, Y:   1.44, Z:   7.83 m/s^2 
+Gyro:         X:  -0.12, Y:   0.00, Z:   0.35 rad/s 
+T: 6.103
+Acceleration: X:   1.66, Y:  -0.40, Z:   9.09 m/s^2 
+Gyro:         X:   0.06, Y:  -0.19, Z:   0.24 rad/s 
+T: 6.211
+Acceleration: X:   0.60, Y:   0.39, Z:  11.29 m/s^2 
+Gyro:         X:  -0.19, Y:  -0.02, Z:  -0.28 rad/s 
+T: 6.321
+Acceleration: X:  -0.98, Y:  -0.57, Z:  11.70 m/s^2 
+Gyro:         X:  -0.09, Y:   0.16, Z:  -0.24 rad/s 
+T: 6.429
+Acceleration: X:   0.86, Y:   0.01, Z:   8.52 m/s^2 
+Gyro:         X:   0.37, Y:   0.35, Z:   0.00 rad/s 
+T: 6.537
+Acceleration: X:   0.91, Y:  -0.98, Z:   7.49 m/s^2 
+Gyro:         X:   0.47, Y:  -0.30, Z:   0.34 rad/s 
+T: 6.646
+Acceleration: X:   2.00, Y:   0.23, Z:  10.43 m/s^2 
+Gyro:         X:   0.12, Y:  -0.18, Z:   0.32 rad/s 
+T: 6.754
+Acceleration: X:   1.39, Y:  -0.36, Z:  12.38 m/s^2 
+Gyro:         X:   0.02, Y:   0.66, Z:   0.06 rad/s 
+T: 6.865
+Acceleration: X:  -1.41, Y:   0.20, Z:  10.84 m/s^2 
+Gyro:         X:   0.25, Y:   0.41, Z:   0.27 rad/s 
+T: 6.973
+Acceleration: X:  -0.63, Y:  -0.43, Z:   8.07 m/s^2 
+Gyro:         X:  -0.38, Y:  -0.04, Z:   0.36 rad/s 
+T: 7.081
+Acceleration: X:   0.01, Y:   0.43, Z:   9.81 m/s^2 
+Gyro:         X:  -0.14, Y:  -0.44, Z:  -0.12 rad/s 
+T: 7.19
+Acceleration: X:   2.72, Y:  -0.47, Z:  11.17 m/s^2 
+Gyro:         X:  -0.20, Y:  -0.57, Z:  -0.50 rad/s 
+T: 7.299
+Acceleration: X:   0.59, Y:  -0.10, Z:  10.51 m/s^2 
+Gyro:         X:  -0.03, Y:   0.60, Z:  -0.37 rad/s 
+T: 7.408
+Acceleration: X:  -0.33, Y:   0.40, Z:   9.10 m/s^2 
+Gyro:         X:   0.03, Y:   0.18, Z:  -0.14 rad/s 
+T: 7.516
+Acceleration: X:   1.41, Y:   0.42, Z:   8.22 m/s^2 
+Gyro:         X:  -0.04, Y:  -0.55, Z:  -0.01 rad/s 
+T: 7.624
+Acceleration: X:  -0.18, Y:  -0.03, Z:  10.95 m/s^2 
+Gyro:         X:   0.01, Y:  -0.23, Z:   0.32 rad/s 
+T: 7.735
+Acceleration: X:  -1.23, Y:   0.97, Z:  12.94 m/s^2 
+Gyro:         X:   0.27, Y:   0.57, Z:   0.68 rad/s 
+T: 7.844
+Acceleration: X:   0.26, Y:   0.51, Z:   9.07 m/s^2 
+Gyro:         X:   0.14, Y:   0.42, Z:  -0.06 rad/s 
+T: 7.952
+Acceleration: X:  -1.02, Y:  -0.11, Z:   8.61 m/s^2 
+Gyro:         X:  -0.42, Y:  -0.19, Z:  -0.27 rad/s 
+T: 8.061
+Acceleration: X:   1.89, Y:   0.03, Z:   9.61 m/s^2 
+Gyro:         X:   0.57, Y:  -0.52, Z:   0.53 rad/s 
+T: 8.169
+Acceleration: X:   0.31, Y:  -0.72, Z:  12.78 m/s^2 
+Gyro:         X:  -0.62, Y:   0.25, Z:  -0.67 rad/s 
+T: 8.279
+Acceleration: X:  -0.14, Y:   1.21, Z:  10.11 m/s^2 
+Gyro:         X:  -0.27, Y:   0.50, Z:  -0.46 rad/s 
+T: 8.387
+Acceleration: X:   0.65, Y:  -0.36, Z:   7.36 m/s^2 
+Gyro:         X:   0.15, Y:  -0.09, Z:   0.30 rad/s 
+T: 8.495
+Acceleration: X:   1.38, Y:   0.75, Z:   8.10 m/s^2 
+Gyro:         X:   0.19, Y:  -0.27, Z:  -0.04 rad/s 
+T: 8.604
+Acceleration: X:   0.02, Y:   0.62, Z:  12.50 m/s^2 
+Gyro:         X:  -0.14, Y:  -0.19, Z:  -0.04 rad/s 
+T: 8.712
+Acceleration: X:   0.61, Y:   1.12, Z:  11.13 m/s^2 
+Gyro:         X:  -0.24, Y:   0.25, Z:  -0.19 rad/s 
+T: 8.822
+Acceleration: X:  -0.07, Y:   0.71, Z:   8.70 m/s^2 
+Gyro:         X:  -0.24, Y:   0.22, Z:  -0.23 rad/s 
+T: 8.93
+Acceleration: X:   2.19, Y:  -0.36, Z:   7.30 m/s^2 
+Gyro:         X:   0.17, Y:  -0.31, Z:   0.28 rad/s 
+T: 9.038
+Acceleration: X:   0.86, Y:   0.45, Z:  11.40 m/s^2 
+Gyro:         X:  -0.19, Y:  -0.20, Z:  -0.27 rad/s 
+T: 9.147
+Acceleration: X:  -0.34, Y:  -1.45, Z:  12.65 m/s^2 
+Gyro:         X:  -0.11, Y:   0.34, Z:  -0.02 rad/s 
+T: 9.256
+Acceleration: X:  -1.47, Y:  -1.05, Z:   9.88 m/s^2 
+Gyro:         X:   0.04, Y:   0.36, Z:   0.06 rad/s 
+T: 9.365
+Acceleration: X:   0.31, Y:  -0.87, Z:   7.23 m/s^2 
+Gyro:         X:   0.06, Y:  -0.36, Z:   0.10 rad/s 
+T: 9.473
+Acceleration: X:   0.88, Y:  -0.18, Z:  10.82 m/s^2 
+Gyro:         X:   0.16, Y:  -0.48, Z:   0.10 rad/s 
+T: 9.581
+Acceleration: X:   3.07, Y:  -0.82, Z:  11.87 m/s^2 
+Gyro:         X:  -0.17, Y:   0.11, Z:  -0.04 rad/s 
+T: 9.69
+Acceleration: X:  -0.22, Y:   0.22, Z:  10.65 m/s^2 
+Gyro:         X:  -0.12, Y:   0.13, Z:  -0.52 rad/s 
+T: 9.799
+Acceleration: X:  -0.01, Y:   0.85, Z:   8.15 m/s^2 
+Gyro:         X:  -0.07, Y:  -0.01, Z:  -0.13 rad/s 
+T: 9.908
+Acceleration: X:   1.03, Y:   0.10, Z:   9.49 m/s^2 
+Gyro:         X:  -0.12, Y:  -0.34, Z:  -0.50 rad/s 
+T: 10.016
+Acceleration: X:   0.30, Y:  -0.89, Z:  10.85 m/s^2 
+Gyro:         X:   0.25, Y:  -0.27, Z:   0.21 rad/s 
+T: 10.124
+Acceleration: X:   0.45, Y:  -1.00, Z:  11.27 m/s^2 
+Gyro:         X:  -0.30, Y:   0.35, Z:  -0.42 rad/s 
+T: 10.234
+Acceleration: X:  -0.69, Y:  -0.34, Z:   9.65 m/s^2 
+Gyro:         X:   0.20, Y:   0.21, Z:  -0.10 rad/s 
+T: 10.342
+Acceleration: X:   1.66, Y:  -0.49, Z:   7.11 m/s^2 
+Gyro:         X:   0.22, Y:  -0.49, Z:   0.06 rad/s 
+T: 10.451
+Acceleration: X:   1.80, Y:   0.20, Z:   9.43 m/s^2 
+Gyro:         X:   0.26, Y:  -0.65, Z:   0.07 rad/s 
+T: 10.559
+Acceleration: X:   3.16, Y:  -0.17, Z:  12.43 m/s^2 
+Gyro:         X:  -0.04, Y:   0.65, Z:  -0.24 rad/s 
+T: 10.668
+Acceleration: X:  -0.58, Y:   0.55, Z:  10.75 m/s^2 
+Gyro:         X:  -0.57, Y:   0.64, Z:  -0.42 rad/s 
+T: 10.777
+Acceleration: X:  -0.03, Y:   0.20, Z:   7.84 m/s^2 
+Gyro:         X:  -0.47, Y:  -0.03, Z:   0.06 rad/s 
+T: 10.885
+Acceleration: X:  -0.36, Y:  -0.57, Z:   9.16 m/s^2 
+Gyro:         X:  -0.15, Y:  -0.23, Z:   0.16 rad/s 
+T: 10.993
+Acceleration: X:   0.78, Y:  -0.95, Z:  11.85 m/s^2 
+Gyro:         X:   0.48, Y:  -0.51, Z:   0.55 rad/s 
+T: 11.102
+Acceleration: X:   0.28, Y:   0.43, Z:  11.16 m/s^2 
+Gyro:         X:   0.16, Y:   0.63, Z:  -0.06 rad/s 
+T: 11.211
+Acceleration: X:  -0.36, Y:   0.19, Z:   8.42 m/s^2 
+Gyro:         X:  -0.36, Y:   0.48, Z:  -0.67 rad/s 
+T: 11.32
+Acceleration: X:   1.36, Y:   0.01, Z:   8.08 m/s^2 
+Gyro:         X:   1.26, Y:  -0.92, Z:   0.23 rad/s 
+T: 11.428
+Acceleration: X:   0.38, Y:   0.44, Z:  11.15 m/s^2 
+Gyro:         X:   0.48, Y:  -0.85, Z:   0.30 rad/s 
+T: 11.536
+Acceleration: X:  -0.24, Y:  -1.25, Z:  12.74 m/s^2 
+Gyro:         X:  -0.37, Y:   0.40, Z:   0.18 rad/s 
+T: 11.646
+Acceleration: X:  -1.32, Y:  -0.70, Z:   9.15 m/s^2 
+Gyro:         X:   0.16, Y:   0.72, Z:   0.36 rad/s 
+T: 11.754
+Acceleration: X:   0.50, Y:  -0.83, Z:   7.48 m/s^2 
+Gyro:         X:  -0.07, Y:  -0.24, Z:   0.19 rad/s 
+T: 11.863
+Acceleration: X:   1.59, Y:   0.44, Z:   9.69 m/s^2 
+Gyro:         X:   0.27, Y:  -0.44, Z:   0.18 rad/s 
+T: 11.971
+Acceleration: X:   1.28, Y:  -0.51, Z:  11.89 m/s^2 
+Gyro:         X:   0.11, Y:  -0.32, Z:  -0.16 rad/s 
+T: 12.079
+Acceleration: X:   1.13, Y:   0.44, Z:  10.58 m/s^2 
+Gyro:         X:  -0.30, Y:   0.41, Z:  -0.61 rad/s 
+T: 12.189
+Acceleration: X:   0.21, Y:   0.06, Z:   8.94 m/s^2 
+Gyro:         X:  -0.01, Y:   0.18, Z:  -0.33 rad/s 
+T: 12.297
+Acceleration: X:   1.93, Y:  -0.14, Z:   7.60 m/s^2 
+Gyro:         X:   0.36, Y:  -0.33, Z:   0.17 rad/s 
+T: 12.406
+Acceleration: X:   1.56, Y:   0.26, Z:  10.56 m/s^2 
+Gyro:         X:   0.18, Y:  -0.47, Z:   0.27 rad/s 
+T: 12.514
+Acceleration: X:   0.61, Y:  -0.11, Z:  13.07 m/s^2 
+Gyro:         X:   0.32, Y:   0.65, Z:   0.63 rad/s 
+T: 12.623
+Acceleration: X:  -0.59, Y:  -0.46, Z:   9.64 m/s^2 
+Gyro:         X:   0.04, Y:   0.41, Z:   0.25 rad/s 
+T: 12.732
+Acceleration: X:   0.09, Y:  -0.37, Z:   7.47 m/s^2 
+Gyro:         X:  -0.25, Y:  -0.19, Z:   0.19 rad/s 
+T: 12.84
+Acceleration: X:   0.49, Y:  -0.42, Z:   9.34 m/s^2 
+Gyro:         X:  -0.24, Y:  -0.23, Z:   0.11 rad/s 
+T: 12.949
+Acceleration: X:   1.35, Y:  -0.56, Z:  11.98 m/s^2 
+Gyro:         X:  -0.00, Y:  -0.22, Z:  -0.09 rad/s 
+T: 13.058
+Acceleration: X:   0.10, Y:   0.03, Z:  11.04 m/s^2 
+Gyro:         X:   0.14, Y:   0.29, Z:  -0.32 rad/s 
+T: 13.166
+Acceleration: X:  -0.69, Y:  -0.28, Z:  10.18 m/s^2 
+Gyro:         X:   0.16, Y:   0.23, Z:   0.00 rad/s 
+T: 13.275
+Acceleration: X:   2.03, Y:   0.12, Z:   7.36 m/s^2 
+Gyro:         X:   0.11, Y:  -0.43, Z:  -0.11 rad/s 
+T: 13.383
+Acceleration: X:   1.20, Y:   0.70, Z:  10.37 m/s^2 
+Gyro:         X:   0.08, Y:  -0.42, Z:   0.11 rad/s 
+T: 13.492
+Acceleration: X:   2.84, Y:  -0.37, Z:  11.84 m/s^2 
+Gyro:         X:   0.07, Y:   0.18, Z:   0.30 rad/s 
+T: 13.601
+Acceleration: X:   1.36, Y:   0.33, Z:   9.35 m/s^2 
+Gyro:         X:   0.04, Y:   0.14, Z:   0.21 rad/s 
+T: 13.709
+Acceleration: X:   1.01, Y:   0.32, Z:   7.81 m/s^2 
+Gyro:         X:   0.35, Y:  -0.07, Z:   0.30 rad/s 
+T: 13.818
+Acceleration: X:   1.88, Y:   0.92, Z:   8.60 m/s^2 
+Gyro:         X:   0.13, Y:  -0.08, Z:   0.20 rad/s 
+T: 13.926
+Acceleration: X:   0.10, Y:   0.05, Z:  11.58 m/s^2 
+Gyro:         X:  -0.77, Y:   0.21, Z:  -0.26 rad/s 
+T: 14.035
+Acceleration: X:  -1.99, Y:  -0.33, Z:  12.23 m/s^2 
+Gyro:         X:   1.12, Y:  -0.30, Z:  -0.04 rad/s 
+T: 14.144
+Acceleration: X:  -0.46, Y:  -0.58, Z:  10.48 m/s^2 
+Gyro:         X:   0.35, Y:  -0.04, Z:   0.03 rad/s 
+T: 14.252
+Acceleration: X:   0.32, Y:  -0.90, Z:   7.30 m/s^2 
+Gyro:         X:  -1.67, Y:  -0.02, Z:  -0.67 rad/s 
+T: 14.361
+Acceleration: X:   2.10, Y:  -1.39, Z:   9.74 m/s^2 
+Gyro:         X:   0.84, Y:  -0.66, Z:   0.47 rad/s 
+T: 14.469
+Acceleration: X:   3.62, Y:   0.42, Z:  11.18 m/s^2 
+Gyro:         X:   1.60, Y:  -0.16, Z:   1.05 rad/s 
+T: 14.578
+Acceleration: X:   0.19, Y:   1.37, Z:  10.16 m/s^2 
+Gyro:         X:  -0.68, Y:   0.20, Z:   0.09 rad/s 
+T: 14.687
+Acceleration: X:  -0.30, Y:   1.14, Z:   8.40 m/s^2 
+Gyro:         X:   0.04, Y:   0.06, Z:   0.00 rad/s 
+T: 14.795
+Acceleration: X:   1.04, Y:   0.58, Z:   8.32 m/s^2 
+Gyro:         X:  -0.22, Y:  -0.37, Z:  -0.09 rad/s 
+T: 14.904
+Acceleration: X:   0.70, Y:  -0.52, Z:  11.38 m/s^2 
+Gyro:         X:   0.83, Y:  -0.53, Z:   0.69 rad/s 
+T: 15.013
+Acceleration: X:   0.35, Y:   0.57, Z:  11.84 m/s^2 
+Gyro:         X:  -0.17, Y:   0.38, Z:  -0.07 rad/s 
+T: 15.121
+Acceleration: X:  -1.00, Y:   0.03, Z:   9.93 m/s^2 
+Gyro:         X:   0.25, Y:   0.00, Z:   0.25 rad/s 
+T: 15.23
+Acceleration: X:   0.24, Y:  -0.34, Z:   7.72 m/s^2 
+Gyro:         X:   0.49, Y:  -0.29, Z:   0.38 rad/s 
+T: 15.338
+Acceleration: X:   1.29, Y:   0.32, Z:   9.98 m/s^2 
+Gyro:         X:   0.01, Y:  -0.43, Z:  -0.00 rad/s 
+T: 15.447
+Acceleration: X:   1.56, Y:  -0.18, Z:  12.16 m/s^2 
+Gyro:         X:  -0.20, Y:   0.01, Z:  -0.25 rad/s 
+T: 15.558
+Acceleration: X:  -1.24, Y:   0.27, Z:  10.60 m/s^2 
+Gyro:         X:  -0.56, Y:   0.09, Z:  -0.46 rad/s 
+T: 15.666
+Acceleration: X:   0.22, Y:   0.58, Z:   8.55 m/s^2 
+Gyro:         X:  -0.11, Y:  -0.06, Z:  -0.11 rad/s 
+T: 15.775
+Acceleration: X:   0.32, Y:   0.56, Z:   9.29 m/s^2 
+Gyro:         X:  -0.06, Y:  -0.29, Z:  -0.20 rad/s 
+T: 15.883
+Acceleration: X:  -0.15, Y:  -0.12, Z:  10.80 m/s^2 
+Gyro:         X:  -0.01, Y:  -0.46, Z:  -0.35 rad/s 
+T: 15.992
+Acceleration: X:   0.47, Y:   0.38, Z:  11.69 m/s^2 
+Gyro:         X:  -0.18, Y:   0.16, Z:  -0.67 rad/s 
+T: 16.102
+Acceleration: X:  -0.94, Y:   0.70, Z:  10.52 m/s^2 
+Gyro:         X:  -0.23, Y:   0.02, Z:  -0.43 rad/s 
+T: 16.21
+Acceleration: X:   0.27, Y:  -0.44, Z:   8.04 m/s^2 
+Gyro:         X:  -0.40, Y:  -0.31, Z:  -0.59 rad/s 
+T: 16.319
+Acceleration: X:  -0.24, Y:   1.18, Z:   9.73 m/s^2 
+Gyro:         X:  -0.37, Y:  -0.38, Z:  -0.66 rad/s 
+T: 16.428
+Acceleration: X:   2.09, Y:   0.99, Z:  10.48 m/s^2 
+Gyro:         X:  -0.72, Y:   0.31, Z:   0.27 rad/s 
+T: 16.536
+Acceleration: X:   0.67, Y:   1.19, Z:   9.87 m/s^2 
+Gyro:         X:  -0.15, Y:   0.30, Z:   0.38 rad/s 
+T: 16.645
+Acceleration: X:  -1.09, Y:   1.15, Z:   9.74 m/s^2 
+Gyro:         X:  -0.38, Y:  -0.13, Z:   0.48 rad/s 
+T: 16.753
+Acceleration: X:   0.60, Y:  -0.36, Z:   9.95 m/s^2 
+Gyro:         X:  -0.27, Y:  -0.33, Z:  -0.41 rad/s 
+T: 16.862
+Acceleration: X:   1.98, Y:  -1.87, Z:  12.62 m/s^2 
+Gyro:         X:  -0.02, Y:   0.02, Z:  -0.79 rad/s 
+T: 16.971
+Acceleration: X:   2.12, Y:   0.24, Z:  10.50 m/s^2 
+Gyro:         X:  -0.20, Y:   0.23, Z:  -0.72 rad/s 
+T: 17.079
+Acceleration: X:   2.08, Y:  -1.29, Z:   9.72 m/s^2 
+Gyro:         X:  -0.38, Y:   0.10, Z:   0.02 rad/s 
+T: 17.188
+Acceleration: X:   0.98, Y:  -0.45, Z:   7.13 m/s^2 
+Gyro:         X:   0.55, Y:  -0.25, Z:   0.71 rad/s 
+T: 17.296
+Acceleration: X:   1.81, Y:  -0.35, Z:   9.77 m/s^2 
+Gyro:         X:  -0.07, Y:  -0.11, Z:  -0.01 rad/s 
+T: 17.406
+Acceleration: X:   2.84, Y:   0.93, Z:  11.78 m/s^2 
+Gyro:         X:  -0.08, Y:  -0.19, Z:  -0.04 rad/s 
+T: 17.514
+Acceleration: X:   0.11, Y:  -0.27, Z:  11.14 m/s^2 
+Gyro:         X:   0.86, Y:  -0.03, Z:   0.54 rad/s 
+T: 17.622
+Acceleration: X:   0.12, Y:  -0.54, Z:  10.03 m/s^2 
+Gyro:         X:  -0.25, Y:   0.24, Z:   0.02 rad/s 
+T: 17.731
+Acceleration: X:   0.45, Y:  -0.26, Z:   8.00 m/s^2 
+Gyro:         X:  -0.01, Y:  -0.33, Z:  -0.14 rad/s 
+T: 17.843
+Acceleration: X:   1.02, Y:   0.59, Z:   9.93 m/s^2 
+Gyro:         X:   0.03, Y:  -0.15, Z:  -0.14 rad/s 
+T: 17.952
+Acceleration: X:   3.43, Y:   0.80, Z:  11.25 m/s^2 
+Gyro:         X:  -0.05, Y:   0.35, Z:  -0.29 rad/s 
+T: 18.061
+Acceleration: X:   2.60, Y:   0.64, Z:  10.29 m/s^2 
+Gyro:         X:   0.07, Y:   0.51, Z:   0.12 rad/s 
+T: 18.169
+Acceleration: X:  -0.10, Y:  -1.94, Z:  10.05 m/s^2 
+Gyro:         X:  -0.15, Y:   0.16, Z:   0.23 rad/s 
+T: 18.278
+Acceleration: X:   1.20, Y:  -0.76, Z:   7.63 m/s^2 
+Gyro:         X:   0.58, Y:  -0.36, Z:   0.94 rad/s 
+T: 18.387
+Acceleration: X:   1.73, Y:   1.09, Z:  10.43 m/s^2 
+Gyro:         X:   0.85, Y:  -0.44, Z:   0.69 rad/s 
+T: 18.495
+Acceleration: X:   3.66, Y:   0.32, Z:  12.05 m/s^2 
+Gyro:         X:  -0.09, Y:   0.37, Z:  -0.11 rad/s 
+T: 18.604
+Acceleration: X:   1.61, Y:   2.08, Z:  11.04 m/s^2 
+Gyro:         X:  -0.08, Y:   0.09, Z:   0.44 rad/s 
+T: 18.712
+Acceleration: X:   0.30, Y:   0.75, Z:   8.20 m/s^2 
+Gyro:         X:  -1.17, Y:   0.04, Z:  -0.95 rad/s 
+T: 18.822
+Acceleration: X:   0.94, Y:  -0.05, Z:   7.42 m/s^2 
+Gyro:         X:   0.01, Y:  -0.31, Z:  -0.28 rad/s 
+T: 18.93
+Acceleration: X:   0.64, Y:  -0.04, Z:  11.15 m/s^2 
+Gyro:         X:  -0.25, Y:   0.22, Z:  -0.76 rad/s 
+T: 19.038
+Acceleration: X:   1.71, Y:  -1.60, Z:  12.03 m/s^2 
+Gyro:         X:   0.36, Y:   0.29, Z:   0.00 rad/s 
+T: 19.148
+Acceleration: X:   0.86, Y:   0.16, Z:  10.63 m/s^2 
+Gyro:         X:   0.24, Y:   0.50, Z:   0.91 rad/s 
+T: 19.256
+Acceleration: X:  -0.84, Y:   0.45, Z:   7.80 m/s^2 
+Gyro:         X:  -0.32, Y:  -0.14, Z:   0.02 rad/s 
+T: 19.366
+Acceleration: X:   1.22, Y:   1.03, Z:   8.26 m/s^2 
+Gyro:         X:   0.28, Y:  -0.27, Z:   0.09 rad/s 
+T: 19.474
+Acceleration: X:   1.36, Y:   1.01, Z:  11.56 m/s^2 
+Gyro:         X:   0.12, Y:   0.10, Z:   0.44 rad/s 
+T: 19.582
+Acceleration: X:  -1.71, Y:  -0.50, Z:  12.83 m/s^2 
+Gyro:         X:  -0.06, Y:   0.29, Z:  -0.03 rad/s 
+T: 19.691
+Acceleration: X:   1.08, Y:   0.85, Z:  10.16 m/s^2 
+Gyro:         X:  -0.08, Y:   0.43, Z:   0.48 rad/s 
+T: 19.8
+Acceleration: X:   0.95, Y:  -0.05, Z:   7.69 m/s^2 
+Gyro:         X:  -0.26, Y:  -0.19, Z:   0.16 rad/s 
+T: 19.909
+Acceleration: X:   0.52, Y:   0.65, Z:   9.27 m/s^2 
+Gyro:         X:  -0.08, Y:  -0.19, Z:  -0.03 rad/s 
+T: 20.017
+Acceleration: X:   0.86, Y:  -0.57, Z:  11.83 m/s^2 
+Gyro:         X:   0.24, Y:  -0.06, Z:   0.28 rad/s 
+T: 20.125
+Acceleration: X:   1.41, Y:   0.53, Z:  10.72 m/s^2 
+Gyro:         X:   0.46, Y:  -0.00, Z:   0.05 rad/s 
+T: 20.234
+Acceleration: X:   0.71, Y:  -0.70, Z:  10.37 m/s^2 
+Gyro:         X:  -0.15, Y:   0.40, Z:   0.01 rad/s 
+T: 20.343
+Acceleration: X:   0.05, Y:   1.15, Z:   7.12 m/s^2 
+Gyro:         X:   0.17, Y:  -0.30, Z:   0.69 rad/s 
+T: 20.451
+Acceleration: X:   1.27, Y:  -0.74, Z:  10.37 m/s^2 
+Gyro:         X:   0.07, Y:  -0.19, Z:  -0.30 rad/s 
+T: 20.56
+Acceleration: X:   2.51, Y:   0.37, Z:  12.16 m/s^2 
+Gyro:         X:  -0.35, Y:   0.03, Z:  -0.79 rad/s 
+T: 20.668
+Acceleration: X:   0.94, Y:   3.05, Z:  10.94 m/s^2 
+Gyro:         X:  -0.36, Y:   0.24, Z:  -0.48 rad/s 
+T: 20.778
+Acceleration: X:   0.46, Y:   0.42, Z:   8.82 m/s^2 
+Gyro:         X:  -0.43, Y:   0.05, Z:   0.11 rad/s 
+T: 20.886
+Acceleration: X:   0.29, Y:  -0.33, Z:   7.63 m/s^2 
+Gyro:         X:  -0.19, Y:  -0.40, Z:  -0.24 rad/s 
+T: 20.994
+Acceleration: X:   0.84, Y:   0.87, Z:  10.74 m/s^2 
+Gyro:         X:   0.11, Y:  -0.24, Z:   0.10 rad/s 
+T: 21.103
+Acceleration: X:   0.03, Y:  -1.75, Z:  12.06 m/s^2 
+Gyro:         X:   0.17, Y:   0.25, Z:  -0.33 rad/s 
+T: 21.211
+Acceleration: X:   1.23, Y:  -1.05, Z:  10.35 m/s^2 
+Gyro:         X:  -0.08, Y:   0.52, Z:   0.10 rad/s 
+T: 21.321
+Acceleration: X:   0.01, Y:  -1.60, Z:   8.46 m/s^2 
+Gyro:         X:   0.37, Y:  -0.19, Z:   0.17 rad/s 
+T: 21.429
+Acceleration: X:   0.29, Y:   0.65, Z:   7.15 m/s^2 
+Gyro:         X:  -0.09, Y:  -0.14, Z:   0.01 rad/s 
+T: 21.537
+Acceleration: X:   0.72, Y:   0.93, Z:  11.58 m/s^2 
+Gyro:         X:  -0.02, Y:   0.05, Z:   0.02 rad/s 
+T: 21.646
+Acceleration: X:  -1.02, Y:  -1.69, Z:  12.73 m/s^2 
+Gyro:         X:  -0.10, Y:   0.50, Z:  -0.13 rad/s 
+T: 21.755
+Acceleration: X:   0.57, Y:  -2.22, Z:  10.86 m/s^2 
+Gyro:         X:  -0.68, Y:   0.34, Z:  -0.28 rad/s 
+T: 21.864
+Acceleration: X:  -0.98, Y:  -1.02, Z:   7.95 m/s^2 
+Gyro:         X:  -0.35, Y:  -0.31, Z:  -0.13 rad/s 
+T: 21.972
+Acceleration: X:   1.19, Y:   0.22, Z:   8.59 m/s^2 
+Gyro:         X:   0.47, Y:  -0.44, Z:   0.20 rad/s 
+T: 22.08
+Acceleration: X:   1.74, Y:   0.28, Z:  11.81 m/s^2 
+Gyro:         X:   0.21, Y:   0.01, Z:  -0.44 rad/s 
+T: 22.191
+Acceleration: X:   2.78, Y:   0.39, Z:  10.40 m/s^2 
+Gyro:         X:   0.26, Y:   0.16, Z:  -0.26 rad/s 
+T: 22.299
+Acceleration: X:   0.90, Y:  -0.88, Z:   9.74 m/s^2 
+Gyro:         X:   0.24, Y:   0.11, Z:   0.40 rad/s 
+T: 22.408
+Acceleration: X:   0.35, Y:   0.77, Z:   7.65 m/s^2 
+Gyro:         X:   0.22, Y:  -0.30, Z:   0.15 rad/s 
+T: 22.516
+Acceleration: X:   1.80, Y:   1.21, Z:   9.62 m/s^2 
+Gyro:         X:  -0.00, Y:  -0.05, Z:  -0.13 rad/s 
+T: 22.624
+Acceleration: X:   1.87, Y:  -0.93, Z:  12.27 m/s^2 
+Gyro:         X:  -0.24, Y:   0.52, Z:   0.13 rad/s 
+T: 22.734
+Acceleration: X:   1.57, Y:   0.86, Z:  10.43 m/s^2 
+Gyro:         X:  -0.14, Y:   0.17, Z:   0.01 rad/s 
+T: 22.842
+Acceleration: X:  -1.26, Y:   0.47, Z:   8.53 m/s^2 
+Gyro:         X:  -0.33, Y:  -0.04, Z:   0.01 rad/s 
+T: 22.951
+Acceleration: X:  -0.33, Y:   1.38, Z:   8.61 m/s^2 
+Gyro:         X:  -0.22, Y:  -0.22, Z:  -0.38 rad/s 
+T: 23.059
+Acceleration: X:   1.77, Y:   0.20, Z:  10.86 m/s^2 
+Gyro:         X:  -0.84, Y:   0.18, Z:  -0.46 rad/s 
+T: 23.168
+Acceleration: X:   0.82, Y:   0.37, Z:  11.69 m/s^2 
+Gyro:         X:   0.64, Y:  -0.14, Z:   0.64 rad/s 
+T: 23.277
+Acceleration: X:   1.26, Y:  -1.83, Z:  10.42 m/s^2 
+Gyro:         X:   0.50, Y:  -0.02, Z:   0.77 rad/s 
+T: 23.387
+Acceleration: X:  -1.19, Y:   0.87, Z:   7.16 m/s^2 
+Gyro:         X:   0.81, Y:  -0.61, Z:   0.62 rad/s 
+T: 23.495
+Acceleration: X:   0.98, Y:   0.27, Z:   8.50 m/s^2 
+Gyro:         X:   0.45, Y:  -0.22, Z:   0.53 rad/s 
+T: 23.604
+Acceleration: X:   1.07, Y:   0.48, Z:  12.13 m/s^2 
+Gyro:         X:   0.24, Y:   0.12, Z:  -0.00 rad/s 
+T: 23.713
+Acceleration: X:  -3.09, Y:  -1.18, Z:  12.29 m/s^2 
+Gyro:         X:  -0.40, Y:   0.60, Z:  -0.07 rad/s 
+T: 23.822
+Acceleration: X:  -0.74, Y:  -2.09, Z:  10.34 m/s^2 
+Gyro:         X:  -0.39, Y:   0.10, Z:   0.96 rad/s 
+T: 23.93
+Acceleration: X:  -0.24, Y:  -1.11, Z:   7.97 m/s^2 
+Gyro:         X:  -0.09, Y:  -0.18, Z:  -0.03 rad/s 
+T: 24.038
+Acceleration: X:   0.23, Y:   0.78, Z:   8.98 m/s^2 
+Gyro:         X:   0.57, Y:  -0.41, Z:  -0.05 rad/s 
+T: 24.148
+Acceleration: X:   1.44, Y:   0.45, Z:  11.25 m/s^2 
+Gyro:         X:   0.69, Y:  -0.27, Z:   0.16 rad/s 
+T: 24.256
+Acceleration: X:   0.51, Y:   1.05, Z:  10.75 m/s^2 
+Gyro:         X:   0.03, Y:   0.38, Z:  -0.30 rad/s 
+T: 24.365
+Acceleration: X:  -0.27, Y:  -0.49, Z:  10.23 m/s^2 
+Gyro:         X:   0.23, Y:  -0.16, Z:   0.51 rad/s 
+T: 24.473
+Acceleration: X:   1.36, Y:   0.66, Z:   7.18 m/s^2 
+Gyro:         X:   0.25, Y:  -0.44, Z:   0.17 rad/s 
+T: 24.582
+Acceleration: X:   0.50, Y:  -0.03, Z:   9.88 m/s^2 
+Gyro:         X:   0.23, Y:  -0.16, Z:   0.12 rad/s 
+T: 24.691
+Acceleration: X:   2.73, Y:   1.21, Z:  12.44 m/s^2 
+Gyro:         X:   0.22, Y:   0.18, Z:   0.02 rad/s 
+T: 24.799
+Acceleration: X:   0.95, Y:   3.05, Z:  10.46 m/s^2 
+Gyro:         X:   0.22, Y:  -0.03, Z:   0.14 rad/s 
+T: 24.908
+Acceleration: X:   0.04, Y:  -0.16, Z:   9.75 m/s^2 
+Gyro:         X:  -0.17, Y:  -0.07, Z:   0.10 rad/s 
+T: 25.016
+Acceleration: X:  -0.12, Y:   0.73, Z:   8.24 m/s^2 
+Gyro:         X:   0.07, Y:  -0.63, Z:  -0.29 rad/s 
+T: 25.125
+Acceleration: X:   0.62, Y:   0.92, Z:  10.23 m/s^2 
+Gyro:         X:   0.28, Y:  -0.41, Z:  -0.18 rad/s 
+T: 25.234
+Acceleration: X:  -0.62, Y:  -0.82, Z:  11.64 m/s^2 
+Gyro:         X:  -0.07, Y:   0.18, Z:  -0.43 rad/s 
+T: 25.342
+Acceleration: X:   0.20, Y:   0.16, Z:  10.63 m/s^2 
+Gyro:         X:  -0.36, Y:   0.40, Z:  -0.28 rad/s 
+T: 25.451
+Acceleration: X:  -1.80, Y:  -0.17, Z:   9.00 m/s^2 
+Gyro:         X:  -0.17, Y:  -0.23, Z:  -0.25 rad/s 
+T: 25.56
+Acceleration: X:   0.44, Y:   0.54, Z:   7.65 m/s^2 
+Gyro:         X:  -0.23, Y:  -0.13, Z:  -0.44 rad/s 
+T: 25.668
+Acceleration: X:   0.81, Y:   0.06, Z:  10.55 m/s^2 
+Gyro:         X:   0.67, Y:   0.04, Z:  -0.15 rad/s 
+T: 25.777
+Acceleration: X:  -3.38, Y:  -2.35, Z:  13.01 m/s^2 
+Gyro:         X:   2.00, Y:  -0.03, Z:   0.48 rad/s 
+T: 25.885
+Acceleration: X:  -1.53, Y:  -0.82, Z:  11.31 m/s^2 
+Gyro:         X:  -0.56, Y:   0.29, Z:   0.15 rad/s 
+T: 25.993
+Acceleration: X:  -0.89, Y:  -1.33, Z:   8.33 m/s^2 
+Gyro:         X:  -0.40, Y:  -0.12, Z:  -0.29 rad/s 
+T: 26.103
+Acceleration: X:  -0.31, Y:   1.20, Z:   9.22 m/s^2 
+Gyro:         X:  -0.18, Y:  -0.28, Z:  -0.29 rad/s 
+T: 26.211
+Acceleration: X:  -0.54, Y:   0.66, Z:  11.64 m/s^2 
+Gyro:         X:  -0.23, Y:   0.11, Z:  -0.72 rad/s 
+T: 26.32
+Acceleration: X:   0.35, Y:   1.59, Z:  10.99 m/s^2 
+Gyro:         X:   0.01, Y:   0.28, Z:  -0.19 rad/s 
+T: 26.428
+Acceleration: X:  -0.12, Y:   0.11, Z:  10.56 m/s^2 
+Gyro:         X:  -0.05, Y:   0.42, Z:   0.32 rad/s 
+T: 26.537
+Acceleration: X:   0.74, Y:   1.29, Z:   6.96 m/s^2 
+Gyro:         X:   0.30, Y:  -0.36, Z:   0.43 rad/s 
+T: 26.646
+Acceleration: X:   0.80, Y:   0.55, Z:   9.82 m/s^2 
+Gyro:         X:   0.39, Y:  -0.29, Z:   0.50 rad/s 
+T: 26.754
+Acceleration: X:   1.84, Y:   0.87, Z:  11.40 m/s^2 
+Gyro:         X:  -0.43, Y:   0.18, Z:   0.02 rad/s 
+T: 26.863
+Acceleration: X:   0.43, Y:   0.99, Z:  11.82 m/s^2 
+Gyro:         X:   0.04, Y:   0.09, Z:  -0.32 rad/s 
+T: 26.971
+Acceleration: X:  -0.85, Y:   0.94, Z:   9.95 m/s^2 
+Gyro:         X:  -0.68, Y:   0.11, Z:  -0.01 rad/s 
+T: 27.08
+Acceleration: X:  -0.24, Y:   0.47, Z:   7.90 m/s^2 
+Gyro:         X:  -0.10, Y:  -0.31, Z:   0.06 rad/s 
+T: 27.189
+Acceleration: X:  -0.47, Y:   0.63, Z:  10.06 m/s^2 
+Gyro:         X:   0.31, Y:  -0.12, Z:  -0.17 rad/s 
+T: 27.297
+Acceleration: X:   0.17, Y:  -0.10, Z:  11.06 m/s^2 
+Gyro:         X:  -0.07, Y:   0.05, Z:  -0.35 rad/s 
+T: 27.406
+Acceleration: X:   1.58, Y:   0.16, Z:  10.77 m/s^2 
+Gyro:         X:  -0.24, Y:   0.31, Z:  -0.14 rad/s 
+T: 27.515
+Acceleration: X:  -0.76, Y:  -1.06, Z:   9.50 m/s^2 
+Gyro:         X:  -0.21, Y:  -0.06, Z:  -0.10 rad/s 
+T: 27.623
+Acceleration: X:   0.25, Y:   1.04, Z:   8.52 m/s^2 
+Gyro:         X:   0.18, Y:  -0.39, Z:   0.17 rad/s 
+T: 27.732
+Acceleration: X:   1.67, Y:   1.72, Z:  10.32 m/s^2 
+Gyro:         X:  -0.07, Y:   0.01, Z:   0.07 rad/s 
+T: 27.84
+Acceleration: X:  -1.98, Y:   0.89, Z:  12.04 m/s^2 
+Gyro:         X:  -0.25, Y:   0.17, Z:  -0.83 rad/s 
+T: 27.95
+Acceleration: X:   0.36, Y:   0.11, Z:  10.67 m/s^2 
+Gyro:         X:  -0.26, Y:   0.02, Z:   0.01 rad/s 
+T: 28.058
+Acceleration: X:  -1.17, Y:   0.12, Z:   8.72 m/s^2 
+Gyro:         X:   0.07, Y:  -0.33, Z:  -0.19 rad/s 
+T: 28.166
+Acceleration: X:  -0.08, Y:   0.80, Z:   9.99 m/s^2 
+Gyro:         X:   0.09, Y:  -0.28, Z:  -0.22 rad/s 
+T: 28.275
+Acceleration: X:   0.20, Y:   0.10, Z:  10.94 m/s^2 
+Gyro:         X:  -0.00, Y:   0.25, Z:  -0.25 rad/s 
+T: 28.384
+Acceleration: X:   1.47, Y:   0.35, Z:  10.09 m/s^2 
+Gyro:         X:   0.14, Y:   0.21, Z:  -0.08 rad/s 
+T: 28.493
+Acceleration: X:  -0.18, Y:   0.22, Z:   9.31 m/s^2 
+Gyro:         X:   0.19, Y:  -0.22, Z:   0.23 rad/s 
+T: 28.602
+Acceleration: X:   1.43, Y:  -0.43, Z:   9.13 m/s^2 
+Gyro:         X:  -0.17, Y:  -0.49, Z:   0.07 rad/s 
+T: 28.71
+Acceleration: X:   0.40, Y:   0.78, Z:  10.74 m/s^2 
+Gyro:         X:   0.14, Y:  -0.31, Z:   0.40 rad/s 
+T: 28.819
+Acceleration: X:   1.05, Y:  -0.80, Z:  10.27 m/s^2 
+Gyro:         X:   0.46, Y:  -0.16, Z:   0.57 rad/s 
+T: 28.928
+Acceleration: X:   1.13, Y:   0.35, Z:  10.65 m/s^2 
+Gyro:         X:   0.02, Y:   0.14, Z:   0.06 rad/s 
+T: 29.036
+Acceleration: X:   0.35, Y:  -0.91, Z:   9.55 m/s^2 
+Gyro:         X:  -0.27, Y:   0.10, Z:  -0.30 rad/s 
+T: 29.145
+Acceleration: X:   0.42, Y:  -0.66, Z:   9.80 m/s^2 
+Gyro:         X:   0.44, Y:  -0.20, Z:  -0.38 rad/s 
+T: 29.253
+Acceleration: X:  -1.44, Y:  -0.47, Z:  10.53 m/s^2 
+Gyro:         X:  -0.47, Y:   0.27, Z:  -0.46 rad/s 
+T: 29.362
+Acceleration: X:   0.18, Y:  -1.58, Z:  11.00 m/s^2 
+Gyro:         X:  -0.29, Y:   0.37, Z:  -0.05 rad/s 
+T: 29.471
+Acceleration: X:  -0.75, Y:  -1.43, Z:  10.01 m/s^2 
+Gyro:         X:  -0.21, Y:  -0.18, Z:  -0.22 rad/s 
+T: 29.579
+Acceleration: X:  -0.14, Y:  -0.51, Z:  10.10 m/s^2 
+Gyro:         X:   0.40, Y:  -0.13, Z:   0.48 rad/s 
+T: 29.688
+Acceleration: X:   1.22, Y:  -0.68, Z:   9.87 m/s^2 
+Gyro:         X:   0.36, Y:  -0.28, Z:   0.42 rad/s 
+T: 29.796
+Acceleration: X:   1.41, Y:   0.28, Z:   9.27 m/s^2 
+Gyro:         X:   0.32, Y:  -0.33, Z:   0.50 rad/s 
+T: 29.906
+Acceleration: X:   0.42, Y:  -0.24, Z:   9.45 m/s^2 
+Gyro:         X:   0.11, Y:  -0.18, Z:   0.21 rad/s 
+T: 30.014
+Acceleration: X:  -0.39, Y:  -1.08, Z:  10.50 m/s^2 
+Gyro:         X:  -0.18, Y:   0.39, Z:   0.04 rad/s 
+T: 30.122
+Acceleration: X:   0.96, Y:  -0.15, Z:   9.39 m/s^2 
+Gyro:         X:   0.09, Y:  -0.03, Z:   0.46 rad/s 
+T: 30.231
+Acceleration: X:  -0.56, Y:  -0.08, Z:   9.99 m/s^2 
+Gyro:         X:   0.12, Y:   0.15, Z:   0.03 rad/s 
+T: 30.339
+Acceleration: X:  -0.18, Y:  -0.93, Z:  10.60 m/s^2 
+Gyro:         X:  -0.03, Y:   0.23, Z:  -0.02 rad/s 
+T: 30.448
+Acceleration: X:   0.54, Y:  -1.53, Z:  10.14 m/s^2 
+Gyro:         X:   0.04, Y:   0.09, Z:  -0.25 rad/s 
+T: 30.556
+Acceleration: X:   1.55, Y:  -0.69, Z:  10.01 m/s^2 
+Gyro:         X:   0.03, Y:   0.01, Z:  -0.26 rad/s 
+T: 30.664
+Acceleration: X:   2.39, Y:  -0.00, Z:   9.91 m/s^2 
+Gyro:         X:  -0.41, Y:  -0.38, Z:  -0.27 rad/s 
+T: 30.773
+Acceleration: X:  -0.02, Y:  -0.54, Z:  11.53 m/s^2 
+Gyro:         X:  -0.94, Y:   0.22, Z:  -0.45 rad/s 
+T: 30.893
+Acceleration: X:   1.87, Y:   0.29, Z:   9.69 m/s^2 
+Gyro:         X:  -0.72, Y:   0.24, Z:  -0.60 rad/s 
+T: 31.004
+Acceleration: X:   0.50, Y:   0.48, Z:   8.91 m/s^2 
+Gyro:         X:  -0.21, Y:  -0.11, Z:  -0.32 rad/s 
+T: 31.115
+Acceleration: X:   1.33, Y:   0.83, Z:   9.18 m/s^2 
+Gyro:         X:  -0.06, Y:  -0.28, Z:  -0.22 rad/s 
+T: 31.224
+Acceleration: X:   2.29, Y:   1.14, Z:  11.83 m/s^2 
+Gyro:         X:  -0.11, Y:  -0.45, Z:  -0.44 rad/s 
+T: 31.337
+Acceleration: X:  -0.35, Y:  -0.39, Z:  11.15 m/s^2 
+Gyro:         X:   0.33, Y:  -0.02, Z:   0.18 rad/s 
+T: 31.447
+Acceleration: X:  -0.61, Y:   2.08, Z:   9.15 m/s^2 
+Gyro:         X:  -0.61, Y:   0.37, Z:  -0.19 rad/s 
+T: 31.556
+Acceleration: X:   0.99, Y:   0.13, Z:   8.75 m/s^2 
+Gyro:         X:  -0.28, Y:  -0.04, Z:  -0.54 rad/s 
+T: 31.666
+Acceleration: X:   1.16, Y:   1.01, Z:   9.24 m/s^2 
+Gyro:         X:   0.21, Y:  -0.26, Z:  -0.34 rad/s 
+T: 31.777
+Acceleration: X:   1.91, Y:   2.39, Z:  10.70 m/s^2 
+Gyro:         X:   0.64, Y:  -0.22, Z:   0.31 rad/s 
+T: 31.887
+Acceleration: X:  -0.32, Y:   0.57, Z:  11.69 m/s^2 
+Gyro:         X:  -0.21, Y:   0.32, Z:  -0.08 rad/s 
+T: 31.996
+Acceleration: X:  -0.63, Y:   1.52, Z:   9.70 m/s^2 
+Gyro:         X:  -0.07, Y:   0.19, Z:  -0.07 rad/s 
+T: 32.106
+Acceleration: X:  -0.42, Y:   0.55, Z:   8.95 m/s^2 
+Gyro:         X:  -0.32, Y:  -0.22, Z:  -0.09 rad/s 
+T: 32.216
+Acceleration: X:   1.51, Y:   0.17, Z:   9.82 m/s^2 
+Gyro:         X:  -0.17, Y:  -0.21, Z:   0.17 rad/s 
+T: 32.326
+Acceleration: X:   0.41, Y:   0.44, Z:  12.26 m/s^2 
+Gyro:         X:  -0.19, Y:   0.29, Z:  -0.14 rad/s 
+T: 32.436
+Acceleration: X:  -0.08, Y:   0.96, Z:  10.06 m/s^2 
+Gyro:         X:  -0.33, Y:   0.62, Z:  -0.09 rad/s 
+T: 32.546
+Acceleration: X:   0.17, Y:  -0.73, Z:   8.31 m/s^2 
+Gyro:         X:  -0.10, Y:   0.18, Z:  -0.04 rad/s 
+T: 32.657
+Acceleration: X:   0.48, Y:   0.38, Z:   9.09 m/s^2 
+Gyro:         X:   0.15, Y:  -0.15, Z:   0.18 rad/s 
+T: 32.767
+Acceleration: X:  -0.28, Y:   0.75, Z:  11.77 m/s^2 
+Gyro:         X:   0.30, Y:  -0.21, Z:   0.22 rad/s 
+T: 32.877
+Acceleration: X:  -0.17, Y:   1.81, Z:  11.77 m/s^2 
+Gyro:         X:  -0.19, Y:  -0.23, Z:   0.34 rad/s 
+T: 32.988
+Acceleration: X:  -0.61, Y:   1.12, Z:   9.43 m/s^2 
+Gyro:         X:   0.27, Y:   0.19, Z:  -0.10 rad/s 
+T: 33.097
+Acceleration: X:  -0.20, Y:   0.83, Z:   8.58 m/s^2 
+Gyro:         X:   0.09, Y:  -0.33, Z:   0.09 rad/s 
+T: 33.207
+Acceleration: X:   1.10, Y:  -0.32, Z:   9.65 m/s^2 
+Gyro:         X:   0.37, Y:  -0.43, Z:   0.12 rad/s 
+T: 33.319
+Acceleration: X:  -0.85, Y:   0.07, Z:  11.26 m/s^2 
+Gyro:         X:  -0.40, Y:   0.39, Z:  -0.60 rad/s 
+T: 33.429
+Acceleration: X:  -1.94, Y:   0.98, Z:  11.30 m/s^2 
+Gyro:         X:  -0.21, Y:   0.57, Z:  -0.28 rad/s 
+T: 33.539
+Acceleration: X:  -2.18, Y:  -0.44, Z:   9.51 m/s^2 
+Gyro:         X:  -0.42, Y:   0.06, Z:  -0.09 rad/s 
+T: 33.649
+Acceleration: X:  -1.53, Y:   1.09, Z:   8.87 m/s^2 
+Gyro:         X:  -0.15, Y:  -0.18, Z:   0.05 rad/s 
+T: 33.759
+Acceleration: X:  -1.65, Y:  -0.66, Z:  10.52 m/s^2 
+Gyro:         X:   0.06, Y:  -0.12, Z:   0.40 rad/s 
+T: 33.869
+Acceleration: X:   0.52, Y:   0.61, Z:  11.47 m/s^2 
+Gyro:         X:  -0.18, Y:   0.10, Z:   0.22 rad/s 
+T: 33.979
+Acceleration: X:  -1.28, Y:   1.07, Z:  11.03 m/s^2 
+Gyro:         X:  -0.27, Y:   0.38, Z:   0.55 rad/s 
+T: 34.089
+Acceleration: X:  -0.84, Y:  -0.93, Z:   9.54 m/s^2 
+Gyro:         X:   0.26, Y:   0.06, Z:   0.94 rad/s 
+T: 34.2
+Acceleration: X:  -1.62, Y:   0.38, Z:   9.62 m/s^2 
+Gyro:         X:   0.27, Y:  -0.06, Z:   0.76 rad/s 
+T: 34.312
+Acceleration: X:   0.18, Y:   0.45, Z:  10.86 m/s^2 
+Gyro:         X:   0.53, Y:  -0.11, Z:   0.77 rad/s 
+T: 34.421
+Acceleration: X:   0.49, Y:  -0.15, Z:  12.40 m/s^2 
+Gyro:         X:   0.17, Y:   0.24, Z:  -0.33 rad/s 
+T: 34.532
+Acceleration: X:   0.23, Y:  -1.03, Z:  10.55 m/s^2 
+Gyro:         X:   0.47, Y:  -0.04, Z:   0.17 rad/s 
+T: 34.641
+Acceleration: X:   0.61, Y:  -1.19, Z:  11.28 m/s^2 
+Gyro:         X:  -0.12, Y:   0.19, Z:   0.45 rad/s 
+T: 34.752
+Acceleration: X:   0.14, Y:  -2.21, Z:   9.11 m/s^2 
+Gyro:         X:  -0.08, Y:   0.02, Z:   0.23 rad/s 
+T: 34.863
+Acceleration: X:   0.69, Y:  -0.75, Z:   8.57 m/s^2 
+Gyro:         X:   0.13, Y:  -0.21, Z:  -0.16 rad/s 
+T: 34.973
+Acceleration: X:   0.42, Y:   0.08, Z:  11.26 m/s^2 
+Gyro:         X:   0.66, Y:  -0.15, Z:   0.15 rad/s 
+T: 35.082
+Acceleration: X:  -1.70, Y:   0.28, Z:  11.18 m/s^2 
+Gyro:         X:   0.09, Y:   0.13, Z:   0.07 rad/s 
+T: 35.193
+Acceleration: X:   0.39, Y:   0.82, Z:   8.89 m/s^2 
+Gyro:         X:  -0.14, Y:  -0.10, Z:   0.13 rad/s 
+T: 35.303
+Acceleration: X:   0.49, Y:   0.52, Z:   9.22 m/s^2 
+Gyro:         X:  -0.02, Y:  -0.02, Z:  -0.30 rad/s 
+T: 35.412
+Acceleration: X:  -0.01, Y:  -0.12, Z:   9.51 m/s^2 
+Gyro:         X:  -0.19, Y:  -0.21, Z:  -0.16 rad/s 
+T: 35.523
+Acceleration: X:   0.14, Y:  -0.59, Z:  11.68 m/s^2 
+Gyro:         X:   0.33, Y:  -0.03, Z:   0.10 rad/s 
+T: 35.633
+Acceleration: X:  -0.17, Y:  -0.68, Z:  11.20 m/s^2 
+Gyro:         X:  -0.15, Y:   0.35, Z:  -0.39 rad/s 
+T: 35.744
+Acceleration: X:   0.73, Y:  -0.62, Z:  10.29 m/s^2 
+Gyro:         X:  -0.45, Y:  -0.11, Z:   0.13 rad/s 
+T: 35.854
+Acceleration: X:   0.59, Y:  -1.55, Z:   7.90 m/s^2 
+Gyro:         X:  -0.20, Y:  -0.43, Z:  -0.29 rad/s 
+T: 35.963
+Acceleration: X:   1.24, Y:  -0.28, Z:   9.28 m/s^2 
+Gyro:         X:   0.15, Y:  -0.29, Z:  -0.47 rad/s 
+T: 36.074
+Acceleration: X:   1.05, Y:  -1.01, Z:  12.51 m/s^2 
+Gyro:         X:  -0.23, Y:   0.12, Z:  -0.37 rad/s 
+T: 36.184
+Acceleration: X:  -0.24, Y:  -1.37, Z:  11.80 m/s^2 
+Gyro:         X:   1.06, Y:  -0.42, Z:   0.54 rad/s 
+T: 36.294
+Acceleration: X:  -0.26, Y:  -0.81, Z:   9.95 m/s^2 
+Gyro:         X:   0.12, Y:  -0.13, Z:   0.72 rad/s 
+T: 36.405
+Acceleration: X:   0.80, Y:  -0.67, Z:   8.03 m/s^2 
+Gyro:         X:   0.27, Y:  -0.28, Z:   0.31 rad/s 
+T: 36.515
+Acceleration: X:   0.40, Y:  -0.56, Z:  10.59 m/s^2 
+Gyro:         X:  -0.22, Y:  -0.13, Z:  -0.24 rad/s 
+T: 36.625
+Acceleration: X:   0.17, Y:  -0.90, Z:  11.32 m/s^2 
+Gyro:         X:  -0.11, Y:   0.31, Z:  -0.49 rad/s 
+T: 36.736
+Acceleration: X:   1.48, Y:   0.75, Z:  10.40 m/s^2 
+Gyro:         X:   0.10, Y:   0.27, Z:   0.08 rad/s 
+T: 36.846
+Acceleration: X:   0.88, Y:  -0.70, Z:   9.34 m/s^2 
+Gyro:         X:  -0.06, Y:  -0.14, Z:   0.21 rad/s 
+T: 36.955
+Acceleration: X:   1.42, Y:   0.07, Z:   7.57 m/s^2 
+Gyro:         X:   0.10, Y:  -0.22, Z:  -0.11 rad/s 
+T: 37.066
+Acceleration: X:   0.89, Y:  -0.76, Z:  10.96 m/s^2 
+Gyro:         X:   0.26, Y:  -0.07, Z:   0.14 rad/s 
+T: 37.177
+Acceleration: X:   0.86, Y:  -0.05, Z:  11.26 m/s^2 
+Gyro:         X:  -0.58, Y:   0.58, Z:  -0.52 rad/s 
+T: 37.287
+Acceleration: X:  -0.02, Y:   0.50, Z:  10.47 m/s^2 
+Gyro:         X:   0.29, Y:  -0.06, Z:   0.28 rad/s 
+T: 37.398
+Acceleration: X:   0.33, Y:  -1.00, Z:   9.51 m/s^2 
+Gyro:         X:   0.12, Y:  -0.14, Z:   0.23 rad/s 
+T: 37.508
+Acceleration: X:  -0.04, Y:   1.07, Z:   8.97 m/s^2 
+Gyro:         X:   0.24, Y:  -0.21, Z:   0.12 rad/s 
+T: 37.618
+Acceleration: X:   0.15, Y:  -0.39, Z:  10.74 m/s^2 
+Gyro:         X:   0.00, Y:  -0.25, Z:  -0.01 rad/s 
+T: 37.73
+Acceleration: X:   0.14, Y:  -0.36, Z:  11.24 m/s^2 
+Gyro:         X:   0.53, Y:   0.24, Z:  -0.15 rad/s 
+T: 37.84
+Acceleration: X:   0.54, Y:  -0.22, Z:  11.00 m/s^2 
+Gyro:         X:   0.00, Y:   0.24, Z:   0.05 rad/s 
+T: 37.951
+Acceleration: X:   0.54, Y:   0.53, Z:   8.75 m/s^2 
+Gyro:         X:  -0.18, Y:  -0.07, Z:  -0.16 rad/s 
+T: 38.061
+Acceleration: X:   0.69, Y:   1.20, Z:   8.46 m/s^2 
+Gyro:         X:  -0.96, Y:  -0.17, Z:  -0.16 rad/s 
+T: 38.172
+Acceleration: X:   2.16, Y:   0.14, Z:  10.81 m/s^2 
+Gyro:         X:   0.38, Y:  -0.27, Z:   0.20 rad/s 
+T: 38.283
+Acceleration: X:  -1.40, Y:  -0.28, Z:  11.76 m/s^2 
+Gyro:         X:   0.17, Y:   0.30, Z:  -0.12 rad/s 
+T: 38.392
+Acceleration: X:   0.11, Y:  -0.47, Z:  10.82 m/s^2 
+Gyro:         X:  -0.72, Y:  -0.07, Z:   0.50 rad/s 
+T: 38.502
+Acceleration: X:   0.59, Y:  -0.13, Z:   9.16 m/s^2 
+Gyro:         X:   0.07, Y:  -0.08, Z:  -0.16 rad/s 
+T: 38.612
+Acceleration: X:   1.08, Y:  -0.39, Z:   9.72 m/s^2 
+Gyro:         X:  -0.01, Y:  -0.12, Z:  -0.01 rad/s 
+T: 38.723
+Acceleration: X:   0.27, Y:   0.14, Z:  10.19 m/s^2 
+Gyro:         X:  -0.17, Y:   0.17, Z:   0.19 rad/s 
+T: 38.833
+Acceleration: X:   0.94, Y:  -1.14, Z:  10.18 m/s^2 
+Gyro:         X:  -0.13, Y:   0.29, Z:   0.09 rad/s 
+T: 38.944
+Acceleration: X:  -0.28, Y:  -0.56, Z:   8.86 m/s^2 
+Gyro:         X:   0.18, Y:  -0.23, Z:  -0.13 rad/s 
+T: 39.054
+Acceleration: X:   1.51, Y:  -0.66, Z:   8.91 m/s^2 
+Gyro:         X:  -0.29, Y:  -0.46, Z:  -0.39 rad/s 
+T: 39.164
+Acceleration: X:   1.32, Y:  -0.40, Z:  11.23 m/s^2 
+Gyro:         X:  -0.18, Y:   0.13, Z:  -0.35 rad/s 
+T: 39.277
+Acceleration: X:   0.33, Y:  -0.72, Z:  12.11 m/s^2 
+Gyro:         X:  -0.51, Y:   0.82, Z:  -0.29 rad/s 
+T: 39.386
+Acceleration: X:  -1.37, Y:   0.51, Z:  10.49 m/s^2 
+Gyro:         X:  -0.53, Y:  -0.08, Z:  -0.03 rad/s 
+T: 39.496
+Acceleration: X:   0.70, Y:   0.01, Z:   7.93 m/s^2 
+Gyro:         X:  -0.30, Y:  -0.24, Z:  -0.16 rad/s 
+T: 39.609
+Acceleration: X:   0.62, Y:   0.83, Z:   8.53 m/s^2 
+Gyro:         X:   0.26, Y:  -0.28, Z:   0.11 rad/s 
+T: 39.719
+Acceleration: X:   0.64, Y:   0.89, Z:  10.49 m/s^2 
+Gyro:         X:   0.39, Y:  -0.32, Z:  -0.04 rad/s 
+T: 39.829
+Acceleration: X:   1.06, Y:  -0.00, Z:  12.14 m/s^2 
+Gyro:         X:   0.25, Y:   0.65, Z:  -0.17 rad/s 
+T: 39.939
+Acceleration: X:   0.87, Y:  -0.17, Z:  10.15 m/s^2 
+Gyro:         X:  -0.09, Y:   0.27, Z:   0.09 rad/s 
+T: 40.049
+Acceleration: X:   0.32, Y:   0.43, Z:   8.89 m/s^2 
+Gyro:         X:   0.00, Y:  -0.13, Z:   0.17 rad/s 
+T: 40.159
+Acceleration: X:   0.90, Y:  -0.52, Z:   8.24 m/s^2 
+Gyro:         X:   0.14, Y:  -0.04, Z:  -0.00 rad/s 
+T: 40.269
+Acceleration: X:   0.45, Y:   0.77, Z:  10.29 m/s^2 
+Gyro:         X:   0.40, Y:  -0.14, Z:   0.16 rad/s 
+T: 40.378
+Acceleration: X:   0.75, Y:  -0.25, Z:  11.77 m/s^2 
+Gyro:         X:   0.27, Y:   0.31, Z:   0.22 rad/s 
+T: 40.489
+Acceleration: X:  -0.10, Y:   1.25, Z:  11.11 m/s^2 
+Gyro:         X:   0.40, Y:  -0.11, Z:   0.61 rad/s 
+T: 40.6
+Acceleration: X:   0.45, Y:  -1.05, Z:   8.87 m/s^2 
+Gyro:         X:  -0.00, Y:  -0.09, Z:   0.27 rad/s 
+T: 40.71
+Acceleration: X:   0.23, Y:   1.15, Z:   7.61 m/s^2 
+Gyro:         X:   0.27, Y:  -0.29, Z:   0.29 rad/s 
+T: 40.821
+Acceleration: X:   0.96, Y:  -0.59, Z:   9.82 m/s^2 
+Gyro:         X:   0.24, Y:  -0.04, Z:   0.06 rad/s 
+T: 40.931
+Acceleration: X:   0.64, Y:  -0.24, Z:  11.66 m/s^2 
+Gyro:         X:   0.24, Y:   0.08, Z:  -0.33 rad/s 
+T: 41.04
+Acceleration: X:   0.43, Y:  -1.16, Z:  11.87 m/s^2 
+Gyro:         X:   0.41, Y:   0.42, Z:   0.00 rad/s 
+T: 41.151
+Acceleration: X:   1.12, Y:  -0.24, Z:   9.97 m/s^2 
+Gyro:         X:  -0.19, Y:   0.11, Z:  -0.14 rad/s 
+T: 41.261
+Acceleration: X:   0.14, Y:   0.50, Z:   9.16 m/s^2 
+Gyro:         X:  -0.14, Y:   0.03, Z:   0.19 rad/s 
+T: 41.371
+Acceleration: X:   0.75, Y:   0.66, Z:   8.17 m/s^2 
+Gyro:         X:   0.29, Y:  -0.08, Z:   0.35 rad/s 
+T: 41.482
+Acceleration: X:   0.85, Y:   0.81, Z:   9.32 m/s^2 
+Gyro:         X:   0.01, Y:  -0.27, Z:   0.28 rad/s 
+T: 41.592
+Acceleration: X:   0.41, Y:  -0.53, Z:  10.87 m/s^2 
+Gyro:         X:   0.08, Y:  -0.32, Z:   0.18 rad/s 
+T: 41.702
+Acceleration: X:  -1.67, Y:   0.61, Z:  11.04 m/s^2 
+Gyro:         X:   0.56, Y:   0.41, Z:   0.54 rad/s 
+T: 41.812
+Acceleration: X:   0.62, Y:   2.33, Z:   9.32 m/s^2 
+Gyro:         X:   0.24, Y:  -0.05, Z:   0.84 rad/s 
+T: 41.922
+Acceleration: X:  -0.85, Y:   0.10, Z:   9.92 m/s^2 
+Gyro:         X:  -0.12, Y:   0.19, Z:   0.62 rad/s 
+T: 42.033
+Acceleration: X:   1.48, Y:   1.02, Z:   9.66 m/s^2 
+Gyro:         X:  -1.19, Y:   0.36, Z:   0.16 rad/s 
+T: 42.143
+Acceleration: X:   0.42, Y:   0.66, Z:  10.44 m/s^2 
+Gyro:         X:  -0.13, Y:   0.08, Z:  -0.81 rad/s 
+T: 42.253
+Acceleration: X:   1.43, Y:   0.01, Z:  10.30 m/s^2 
+Gyro:         X:   0.54, Y:   0.37, Z:  -0.16 rad/s 
+T: 42.363
+Acceleration: X:   0.14, Y:  -0.49, Z:   9.94 m/s^2 
+Gyro:         X:  -0.34, Y:   0.13, Z:  -0.36 rad/s 
+T: 42.473
+Acceleration: X:   1.26, Y:  -0.02, Z:   9.62 m/s^2 
+Gyro:         X:   0.29, Y:   0.09, Z:   0.35 rad/s 
+T: 42.583
+Acceleration: X:   0.73, Y:   0.82, Z:   9.05 m/s^2 
+Gyro:         X:   0.21, Y:   0.10, Z:   0.59 rad/s 
+T: 42.694
+Acceleration: X:  -1.53, Y:  -0.15, Z:  10.87 m/s^2 
+Gyro:         X:   1.04, Y:  -0.09, Z:   1.76 rad/s 
+T: 42.804
+Acceleration: X:   1.38, Y:   1.21, Z:  10.24 m/s^2 
+Gyro:         X:  -0.51, Y:   0.26, Z:   1.00 rad/s 
+T: 43.012
+Acceleration: X:  -1.24, Y:   1.57, Z:  11.04 m/s^2 
+Gyro:         X:   0.13, Y:   0.58, Z:   2.06 rad/s 
+T: 43.125
+Acceleration: X:  -0.82, Y:   0.13, Z:   9.11 m/s^2 
+Gyro:         X:   0.08, Y:  -0.09, Z:  -1.95 rad/s 
+T: 43.235
+Acceleration: X:  -0.47, Y:   0.14, Z:   9.39 m/s^2 
+Gyro:         X:  -0.19, Y:  -0.67, Z:   0.90 rad/s 
+T: 43.345
+Acceleration: X:  -1.68, Y:  -0.20, Z:  10.18 m/s^2 
+Gyro:         X:   1.00, Y:  -0.21, Z:   3.21 rad/s 
+T: 43.455
+Acceleration: X:  -1.08, Y:  -3.43, Z:   8.52 m/s^2 
+Gyro:         X:  -1.03, Y:  -0.51, Z:   0.11 rad/s 
+T: 43.566
+Acceleration: X:  -0.42, Y:  -1.60, Z:  10.45 m/s^2 
+Gyro:         X:   0.05, Y:  -1.25, Z:   0.64 rad/s 
+T: 43.677
+Acceleration: X:   2.20, Y:   1.24, Z:   9.64 m/s^2 
+Gyro:         X:   0.40, Y:  -0.67, Z:   0.77 rad/s 
+T: 43.787
+Acceleration: X:   3.54, Y:   0.41, Z:   9.48 m/s^2 
+Gyro:         X:   1.03, Y:  -0.85, Z:   0.74 rad/s 
+T: 43.898
+Acceleration: X:   6.54, Y:   3.49, Z:   8.33 m/s^2 
+Gyro:         X:   4.65, Y:  -1.99, Z:   2.76 rad/s 
+T: 44.008
+Acceleration: X:   9.93, Y:   0.44, Z:   4.32 m/s^2 
+Gyro:         X:  -0.55, Y:  -1.48, Z:   3.88 rad/s 
+T: 44.119
+Acceleration: X:   9.39, Y:   0.52, Z:   4.31 m/s^2 
+Gyro:         X:   2.61, Y:   0.21, Z:   2.28 rad/s 
+T: 44.23
+Acceleration: X:   9.13, Y:  -0.81, Z:   3.72 m/s^2 
+Gyro:         X:   2.03, Y:   0.22, Z:   1.62 rad/s 
+T: 44.34
+Acceleration: X:   8.92, Y:  -0.77, Z:   2.83 m/s^2 
+Gyro:         X:   4.40, Y:   0.88, Z:   1.58 rad/s 
+T: 44.451
+Acceleration: X:   7.50, Y:   2.90, Z:   9.62 m/s^2 
+Gyro:         X:   2.19, Y:  -0.73, Z:  -2.77 rad/s 
+T: 44.561
+Acceleration: X:   8.35, Y:   5.54, Z:   1.43 m/s^2 
+Gyro:         X:  -1.26, Y:   0.97, Z:   1.42 rad/s 
+T: 44.672
+Acceleration: X:   8.26, Y:   3.10, Z:   5.84 m/s^2 
+Gyro:         X:   1.78, Y:   1.95, Z:   0.78 rad/s 
