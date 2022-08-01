@@ -57,7 +57,7 @@ public class RocketGraphing {
         JFrame frame = new JFrame();
         frame.setSize(600,600);
         frame.add(myChartPanel);
-        //frame.setDefaultCloseOperation();
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setVisible(true);
         System.out.println(xAxis.getRange());
         System.out.println(yAxis.getRange());

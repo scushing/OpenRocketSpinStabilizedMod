@@ -15,7 +15,7 @@ public class PredictedRocketGraphing {
         StabilitySim sim = new StabilitySim(0.5, 0.13, 0.023, 200, 1.33, 0.2,
                 0.3, 0.0016, 0.000075, 0.07, 0.08, 44, 1, 0.001);
         Queue<Gust> gusts = new LinkedList<>();
-        gusts.add(new Gust(new Vector(5, 2, 0), 100, 200));
+        gusts.add(new Gust(new Vector(20, 10, 0), 100, 200));
         ArrayList<Vector> data = stabilitySim(gusts);
 
         RocketGraphing.addPositionToSeries(data);

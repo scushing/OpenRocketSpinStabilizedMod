@@ -81,7 +81,6 @@ public class StabilitySim {
             vectors.add(step ,(new Vector(rocket.getPosition().getI(), rocket.getPosition().getJ(),rocket.getPosition().getK())));
             step++;
             currentAlt = rocket.getPosition().getK();
-            System.out.println(rocket.getPosition());
         }
 
         return vectors;
