@@ -25,7 +25,7 @@ public class StabilitySim {
 
     public static void main(String args[]) {
         StabilitySim sim = new StabilitySim(0.5, 0.13, 0.023, 200, 1.33,0.2,
-                0.3, 0.0016, 0.000075, 0.07, 0.08, 44, 8, 1000);
+                0.3, 0.0016, 0.001, 0.07, 0.08, 44, 8, 1000);
         int[] startAlt = new int[1];
         startAlt[0] = 100;
         int[] endAlt = new int[1];

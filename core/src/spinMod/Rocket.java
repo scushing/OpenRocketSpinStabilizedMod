@@ -84,8 +84,8 @@ public class Rocket {
         windCPArm.setMagnitude(this.cgArm - this.windCPArm);
         gravity.crossProduct(Grav, cgArm);
         spin.setMagnitudeS(xSpin, ySpin, zSpin);
-        wind.crossProduct(Wind, windCPArm);
-        drag.crossProduct(Drag, dragCPArm);
+        wind.crossProduct(windCPArm, Wind);
+        drag.crossProduct(dragCPArm, Drag);
         netTorqueCalculator.findNet();
 
         //Calculating angular momentum
@@ -106,6 +106,7 @@ public class Rocket {
         System.out.println("New Iteration");
         System.out.println();
         System.out.println("Thrust: " + Thrust);
+        System.out.println("Gravity " + Grav);
         System.out.println("Drag: " + Drag);
         System.out.println("Net Force: " + NetForce);
         System.out.println();
