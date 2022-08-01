@@ -102,24 +102,24 @@ public class Rocket {
         updateVelocity(NetForce, stepTime);
         updatePosition(stepTime);
 
-        /*
-        System.out.println();
-        System.out.println("New Iteration");
-        System.out.println();
-        System.out.println("Thrust: " + Thrust);
-        System.out.println("Gravity " + Grav);
-        System.out.println("Drag: " + Drag);
-        System.out.println("Net Force: " + NetForce);
-        System.out.println();
-        System.out.println("Drag Torque: " + drag);
-        System.out.println("Wind Torque: " + wind);
-        System.out.println("Spin Torque: " + spin);
-        System.out.println("Net Torque: " + netTorqueCalculator.getNet());
-        System.out.println();
-        System.out.println("Velocity: " + velocity);
-        System.out.println("Orientation: " + orientation);
-        System.out.println();
-        */
+
+//        System.out.println();
+//        System.out.println("New Iteration");
+//        System.out.println();
+//        System.out.println("Thrust: " + Thrust);
+//        System.out.println("Gravity " + Grav);
+//        System.out.println("Drag: " + Drag);
+//        System.out.println("Net Force: " + NetForce);
+//        System.out.println();
+//        System.out.println("Drag Torque: " + drag);
+//        System.out.println("Wind Torque: " + wind);
+//        System.out.println("Spin Torque: " + spin);
+//        System.out.println("Net Torque: " + netTorqueCalculator.getNet());
+//        System.out.println();
+//        System.out.println("Velocity: " + velocity);
+//        System.out.println("Orientation: " + orientation);
+//        System.out.println();
+
     }
 
 

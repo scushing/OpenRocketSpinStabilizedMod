@@ -1,7 +1,12 @@
 package spinMod;
 
 import net.sf.openrocket.util.ArrayList;
+import spinMod.Vectors.OrientationVector;
 import spinMod.Vectors.Vector;
+
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
 
 public class StabilitySim {
 
@@ -18,28 +23,23 @@ public class StabilitySim {
     static double windCPArm;
 
     static double thrust;
+    static double burnTime;
 
-    static double maxTime;
-    static int stepMax;
+    static double incrementSize;
 
 
     public static void main(String args[]) {
-        StabilitySim sim = new StabilitySim(0.5, 0.13, 0.023, 200, 1.33,0.2,
-                0.3, 0.0016, 0.001, 0.07, 0.08, 44, 8, 1000);
-        int[] startAlt = new int[1];
-        startAlt[0] = 100;
-        int[] endAlt = new int[1];
-        endAlt[0] = 200;
-        Vector[] v = new Vector[1];
-        v[0] = new Vector(1, 0, 0);
-        ArrayList<Vector> data = stabilitySim(startAlt, endAlt, v);
-        //System.out.println(data);
+        StabilitySim sim = new StabilitySim(1, 0.13, 0.023, 0, 1.33, 0.2,
+                0.3, 0.0016, 0.000075, 0.07, 0.08, 44, 1, 0.001);
+        Queue<Gust> gusts = new LinkedList<>();
+        gusts.add(new Gust(new Vector(1, 1, 0), 100, 200));
+        java.util.ArrayList<Vector> data = stabilitySim(gusts);
     }
 
 
     public StabilitySim(double mass, double cgArm, double radius, double baseSpin, double airDensity, double topDragCoefficient,
                         double sideDragCoefficient, double sideArea, double topArea, double dragCPArm, double windCPArm,
-                        double thrust, double maxTime, int stepMax) {
+                        double thrust, double burnTime, double incrementSize) {
         this.mass = mass;
         this.cgArm = cgArm;
         this.radius = radius;
@@ -50,61 +50,58 @@ public class StabilitySim {
         this.dragCPArm = dragCPArm;
         this.windCPArm = windCPArm;
         this.thrust = thrust;
+        this.burnTime = burnTime;
 
         this.baseSpin = baseSpin;
         this.airDensity = airDensity;
-        this.maxTime = maxTime;
-        this.stepMax = stepMax;
+
+        this.incrementSize = incrementSize;
     }
 
 
-    public static ArrayList<Vector> stabilitySim(int[] startAlt, int[] endAlt, Vector[] v) {
-        ArrayList<Vector> vectors = new ArrayList<>(stepMax);
+    public static ArrayList<Vector> stabilitySim(Queue<Gust> risingWinds) {
+        ArrayList<Vector> vectors = new ArrayList<>();
         Rocket rocket = new Rocket(mass, cgArm, radius, rpmToRad(baseSpin), airDensity, topDragCoefficient, sideDragCoefficient, sideArea,
                 topArea, dragCPArm, windCPArm);
 
-        double inc = maxTime/stepMax;
         double time = 0;
-
-        ArrayList<Gust> gusts = windVelocities(startAlt, endAlt, v);
         int step = 0;
-        int index = 0;
+        Gust currentGust = risingWinds.peek();
+        Stack<Gust> fallingWinds = new Stack<>();
 
-        while (time < maxTime) {
-            Vector wind = new Vector();
-            //TODO: FIND BETTER WAY OF ADDING GUSTS
-//            if (index < gusts.size()) {
-//                if (gusts.get(index).getStartAlt() < rocket.getPosition().getK() && gusts.get(index).getEndAlt() > rocket.getPosition().getK()) {
-//                    wind = gusts.get(index).getWind();
-//                }else if (gusts.get(index).getEndAlt() < rocket.getPosition().getK()) {
-//                    wind.setAll(0, 0, 0);
-//                    index++;
-//                }
-//            }
-            if (time > 1) {
+        double currentAlt = 0;
+        while (currentAlt >= 0) {
+            currentGust = updateCurrent(risingWinds, fallingWinds, currentGust, currentAlt);
+            Vector wind = currentGust.getWind();
+            if (time > burnTime) {
                 thrust = 0;
             }
-            wind.setAll(1.5, 0, 0);
-            rocket.update(wind, inc, thrust);
-            System.out.println(rocket.getPosition());
-            //System.out.println(time);
-            time += inc;
+            rocket.update(wind, incrementSize, thrust);
+            time += incrementSize;
             vectors.add(step ,(new Vector(rocket.getPosition().getI(), rocket.getPosition().getJ(),rocket.getPosition().getK())));
             step++;
+            currentAlt = rocket.getPosition().getK();
+            System.out.println(rocket.getPosition());
         }
-        System.out.println(rocket.getPosition());
-        System.out.println(rocket.getVelocity());
 
         return vectors;
     }
 
 
-    private static ArrayList<Gust> windVelocities(int[] startAlt, int[] endAlt, Vector[] v) {
-        ArrayList<Gust> list = new ArrayList<Gust>(v.length);
-        for (int i = 0; i < v.length; i++) {
-            list.add(new Gust(v[i], startAlt[i], endAlt[i]));
+    private static Gust updateCurrent(Queue<Gust> risingWinds, Stack<Gust> fallingWinds, Gust currentGust, double currentAlt) {
+        if (currentGust.getStartAlt() <= currentAlt && currentGust.getEndAlt() >= currentAlt) {
+            return currentGust;
+        } else if (currentGust.getEndAlt() < currentAlt && risingWinds.iterator().hasNext()) {
+            currentGust = risingWinds.peek();
+            fallingWinds.push(risingWinds.poll());
+            return updateCurrent(risingWinds, fallingWinds, currentGust, currentAlt);
+        } else if (currentGust.getStartAlt() > currentAlt && fallingWinds.iterator().hasNext()) {
+            currentGust = fallingWinds.peek();
+            risingWinds.offer(fallingWinds.pop());
+            return updateCurrent(risingWinds, fallingWinds, currentGust, currentAlt);
+        } else {
+            return new Gust(new Vector(0.00001, 0, 0), 0, 0);
         }
-        return list;
     }
 
 
