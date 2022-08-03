@@ -6,10 +6,13 @@ public class AngularMomentum {
     private double inertialMoment;
     private double angularVelocity;
 
+    private double modifier;
+
     public AngularMomentum(double angularVelocity, double mass, double radius) {
         this.angularVelocity = angularVelocity;
         setZInertialMoment(mass, radius);
         this.magnitude = this.angularVelocity * this.inertialMoment;
+        modifier = 0;
     }
 
 
@@ -17,6 +20,7 @@ public class AngularMomentum {
         this.angularVelocity = angularVelocity;
         setXYInertialMoment(mass, radius, arm);
         this.magnitude = this.angularVelocity * this.inertialMoment;
+        modifier = 0;
     }
 
 
@@ -31,7 +35,8 @@ public class AngularMomentum {
 
 
     public void updateMagnitude(double torque, double time) {
-        magnitude = magnitude + (torque * time);
+        modifier = torque * time;
+        magnitude += modifier;
         updateAngularVelocity();
     }
 
@@ -53,6 +58,10 @@ public class AngularMomentum {
 
     public double getAngularVelocity() {
         return angularVelocity;
+    }
+
+    public double getModifier() {
+        return modifier;
     }
 
 
