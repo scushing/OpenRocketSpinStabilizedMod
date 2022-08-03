@@ -13,10 +13,14 @@ import net.sf.openrocket.rocketcomponent.RocketComponent;
 import net.sf.openrocket.rocketcomponent.SymmetricComponent;
 import net.sf.openrocket.util.Coordinate;
 import net.sf.openrocket.util.MathUtil;
+import spinMod.Gust;
 import spinMod.StabilitySim;
 import spinMod.Vectors.Vector;
 import net.sf.openrocket.masscalc.MassCalculator;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
+
 import net.sf.openrocket.unit.UnitGroup;
 
 import static spinMod.StabilitySim.stabilitySim;
@@ -35,8 +39,8 @@ public class PredictedRocketGraphing {
     static double dragCPArm = 0;
     static double windCPArm = 0;
     static double thrust = 0;
-    static double maxTime = 0;
-    static int stepMax = 0;
+    static double burnTime = 0;
+    static double incrementSize = 0;
 
     private static void setMass(FlightConfiguration flightConfiguration){
         Coordinate cg = MassCalculator.calculateLaunch(flightConfiguration).getCM();
@@ -88,11 +92,11 @@ public class PredictedRocketGraphing {
     private static void setThrust(double value){
         thrust = value;
     }
-    private static void setMaxTime(double value){
-        maxTime = value;
+    private static void setBurnTime(double value){
+        burnTime = value;
     }
-    private static void setStepMax(int value){
-        stepMax = value;
+    private static void setIncrementSize(double value){
+        incrementSize = value;
     }
     private static void retrieveData(Simulation sim) {
 
@@ -111,8 +115,8 @@ public class PredictedRocketGraphing {
         setDragCPArm(0.07);
         setWindCPArm(0.08);
         setThrust(44);
-        setMaxTime(8);
-        setStepMax(1000);
+        setBurnTime(1);
+        setIncrementSize(0.001);
 
 
         /*
@@ -130,14 +134,10 @@ public class PredictedRocketGraphing {
         retrieveData(sim);
 
         StabilitySim stabilitySim = new StabilitySim(mass, cgArm, radius, baseSpin, airDensity, topDragCoefficient,
-                sideDragCoefficient, sideArea, topArea, dragCPArm, windCPArm, thrust, maxTime, stepMax);
-        int[] startAlt = new int[1];
-        startAlt[0] = 100;
-        int[] endAlt = new int[1];
-        endAlt[0] = 200;
-        Vector[] v = new Vector[1];
-        v[0] = new Vector(1, 0, 0);
-        ArrayList<Vector> data = stabilitySim(startAlt, endAlt, v);
+                sideDragCoefficient, sideArea, topArea, dragCPArm, windCPArm, thrust, burnTime, incrementSize);
+        Queue<Gust> gusts = new LinkedList<>();
+        gusts.add(new Gust(new Vector(20, 10, 0), 100, 200));
+        ArrayList<Vector> data = stabilitySim(gusts);
 
         RocketGraphing.addPositionToSeries(data);
         RocketGraphing.setUpGraph();
