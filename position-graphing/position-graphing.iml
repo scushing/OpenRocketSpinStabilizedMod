@@ -62,5 +62,6 @@
       </library>
     </orderEntry>
     <orderEntry type="module" module-name="OpenRocket Core" />
+    <orderEntry type="module" module-name="OpenRocket Swing" />
   </component>
 </module>
