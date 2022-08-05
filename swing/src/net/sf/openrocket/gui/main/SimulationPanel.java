@@ -75,6 +75,9 @@ import net.sf.openrocket.unit.UnitGroup;
 import net.sf.openrocket.util.AlphanumComparator;
 import net.sf.openrocket.gui.widgets.SelectColorButton;
 
+import spinMod.SpinSimulation.PredictedRocketGraphing;
+import spinMod.SpinSimulation.PredictedRocketGraphing.*;
+
 @SuppressWarnings("serial")
 public class SimulationPanel extends JPanel {
 
@@ -101,6 +104,7 @@ public class SimulationPanel extends JPanel {
 	private final JButton runButton;
 	private final JButton deleteButton;
 	private final JButton plotButton;
+	private final JButton spinButton;
 	private final JPopupMenu pm;
 
 	public SimulationPanel(OpenRocketDocument doc) {
@@ -134,6 +138,31 @@ public class SimulationPanel extends JPanel {
 			});
 			this.add(button, "skip 1, gapright para");
 		}
+
+		//// Spin Simulation Button
+		spinButton = new SelectColorButton(trans.get("simpanel.but.spinsimulations"));
+		//		button = new SelectColorButton("Plot flight");
+		spinButton.setToolTipText(trans.get("simpanel.but.ttip.spinsimulations"));
+		spinButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int[] selection = simulationTable.getSelectedRows();
+				if (selection.length != 1) {
+					System.out.println("You need to select a single simulation.");
+					return;
+				}
+
+				Simulation[] sims = new Simulation[selection.length];
+				for (int i = 0; i < selection.length; i++) {
+					selection[i] = simulationTable.convertRowIndexToModel(selection[i]);
+					sims[i] = document.getSimulation(selection[i]);
+				}
+
+				System.out.println("Spin Simulation has been run");
+				PredictedRocketGraphing.runSpinSimulation(document.getSimulation(selection[0]));
+			}
+		});
+		this.add(spinButton, "gapright para");
 
 		//// Edit simulation button
 		editButton = new SelectColorButton(trans.get("simpanel.but.editsimulation"));
@@ -267,8 +296,6 @@ public class SimulationPanel extends JPanel {
 			}
 		});
 		this.add(plotButton, "wrap para");
-
-
 
 		////////  The simulation table
 
@@ -619,11 +646,14 @@ public class SimulationPanel extends JPanel {
 			runButton.setEnabled(false);
 			deleteButton.setEnabled(false);
 			plotButton.setEnabled(false);
+			spinButton.setEnabled(false);
 		} else {
 			if (selection.length > 1) {
 				plotButton.setEnabled(false);
+				spinButton.setEnabled(false);
 			} else {
 				plotButton.setEnabled(true);
+				spinButton.setEnabled(true);
 			}
 			editButton.setEnabled(true);
 			runButton.setEnabled(true);

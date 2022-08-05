@@ -1,3 +1,5 @@
+package spinMod.SpinSimulation;
+
 import com.orsoncharts.*;
 import com.orsoncharts.axis.NumberAxis3D;
 import com.orsoncharts.data.xyz.XYZSeries;
