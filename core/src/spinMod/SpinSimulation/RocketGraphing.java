@@ -1,3 +1,5 @@
+package spinMod.SpinSimulation;
+
 import com.orsoncharts.*;
 import com.orsoncharts.axis.NumberAxis3D;
 import com.orsoncharts.data.xyz.XYZSeries;
@@ -57,6 +59,7 @@ public class RocketGraphing {
         JFrame frame = new JFrame();
         frame.setSize(600,600);
         frame.add(myChartPanel);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setVisible(true);
         System.out.println(xAxis.getRange());
         System.out.println(yAxis.getRange());

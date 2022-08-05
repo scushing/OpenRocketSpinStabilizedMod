@@ -1,10 +1,4 @@
-import javax.swing.*;
-import spinMod.StabilitySim;
-import spinMod.Vectors.Vector;
-
-import java.util.ArrayList;
-
-import static spinMod.StabilitySim.stabilitySim;
+package spinMod.SpinSimulation;
 
 public class GraphingFrame {
     public static void main(String [] args){
