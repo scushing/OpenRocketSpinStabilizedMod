@@ -68,10 +68,11 @@ public class StabilitySim {
         int step = 0;
         Gust currentGust = risingWinds.peek();
         Stack<Gust> fallingWinds = new Stack<>();
+        int countMax = risingWinds.size();
 
         double currentAlt = 0;
         while (currentAlt >= 0) {
-            currentGust = updateCurrent(risingWinds, fallingWinds, currentGust, currentAlt);
+            currentGust = updateCurrent(risingWinds, fallingWinds, currentGust, currentAlt, countMax, 0);
             Vector wind = currentGust.getWind();
             if (time > burnTime) {
                 thrust = 0;
@@ -87,17 +88,22 @@ public class StabilitySim {
     }
 
 
-    private static Gust updateCurrent(Queue<Gust> risingWinds, Stack<Gust> fallingWinds, Gust currentGust, double currentAlt) {
+    private static Gust updateCurrent(Queue<Gust> risingWinds, Stack<Gust> fallingWinds, Gust currentGust, double currentAlt, int countMax, int counter) {
+        if (counter >= countMax) {
+            return new Gust(new Vector(0.00001, 0, 0), 0, 0);
+        }
         if (currentGust.getStartAlt() <= currentAlt && currentGust.getEndAlt() >= currentAlt) {
             return currentGust;
         } else if (currentGust.getEndAlt() < currentAlt && risingWinds.iterator().hasNext()) {
+            counter++;
             currentGust = risingWinds.peek();
             fallingWinds.push(risingWinds.poll());
-            return updateCurrent(risingWinds, fallingWinds, currentGust, currentAlt);
+            return updateCurrent(risingWinds, fallingWinds, currentGust, currentAlt, countMax, counter);
         } else if (currentGust.getStartAlt() > currentAlt && fallingWinds.iterator().hasNext()) {
+            counter++;
             currentGust = fallingWinds.peek();
             risingWinds.offer(fallingWinds.pop());
-            return updateCurrent(risingWinds, fallingWinds, currentGust, currentAlt);
+            return updateCurrent(risingWinds, fallingWinds, currentGust, currentAlt, countMax, counter);
         } else {
             return new Gust(new Vector(0.00001, 0, 0), 0, 0);
         }
