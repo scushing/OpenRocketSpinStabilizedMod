@@ -2,10 +2,12 @@ package spinMod.SpinSimulation;
 
 import com.orsoncharts.*;
 import com.orsoncharts.axis.NumberAxis3D;
+import com.orsoncharts.data.Dataset3DChangeEvent;
 import com.orsoncharts.data.xyz.XYZSeries;
 import com.orsoncharts.data.xyz.XYZSeriesCollection;
 import com.orsoncharts.plot.XYZPlot;
 import com.orsoncharts.renderer.xyz.LineXYZRenderer;
+import spinMod.Rocket;
 import spinMod.Vectors.Vector;
 
 import javax.swing.*;
@@ -15,58 +17,133 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 
-public class RocketGraphing {
+public class RocketGraphing{
 
     private static final ArrayList<double[]> timeAccelerationXYZ = new ArrayList<>();
 
-    public static XYZSeries mySeries = new XYZSeries("v");
+    private XYZSeries xyzSeries;
+    private XYZSeriesCollection xyzSeriesCollection;
+    private NumberAxis3D xAxis, yAxis, zAxis;
+    private XYZPlot xyzPlot;
+    private Chart3D chart3D;
+    private Chart3DPanel chart3DPanel;
 
-    public static XYZSeriesCollection myData = new XYZSeriesCollection();
+    private double[] maxPositionValues;
+    private double[] minPositionValues;
 
-    public static NumberAxis3D xAxis = new NumberAxis3D("x");
-    public static NumberAxis3D yAxis = new NumberAxis3D("y");
-    public static NumberAxis3D zAxis = new NumberAxis3D("z");
+    public RocketGraphing(){
+        //Series Init
+        //xyzSeries = new XYZSeries("default");
+        xyzSeriesCollection = new XYZSeriesCollection();
+        //xyzSeriesCollection.add(xyzSeries);
 
-    public static double[] maxPositionValues = {1,1,1};
-    public static double[] minPositionValues = {-1,-1,-1};
+        //Axis Init
+        xAxis = new NumberAxis3D("x");
+        yAxis = new NumberAxis3D("y");
+        zAxis = new NumberAxis3D("z");
 
-    public static XYZPlot xyzPlot;
+        //Plot and Chart Init
+        xyzPlot = new XYZPlot(xyzSeriesCollection, new LineXYZRenderer(), xAxis, yAxis, zAxis);
+        chart3D = new Chart3D("Position Test Data", "", xyzPlot);
+        chart3DPanel = new Chart3DPanel(chart3D);
 
-    public static Chart3D myChart;
-
-    public static Chart3DPanel myChartPanel;
-
-    public static void setUpGraph(){
-        xAxis.setRange(new Range(Math.floor(minPositionValues[0]), Math.ceil(maxPositionValues[0])));
-        yAxis.setRange(new Range(Math.floor(minPositionValues[1]), Math.ceil(maxPositionValues[1])));
-        zAxis.setRange(new Range(Math.floor(minPositionValues[2]), Math.ceil(maxPositionValues[2])));
-
-        xyzPlot = new XYZPlot(myData, new LineXYZRenderer(), xAxis, yAxis, zAxis);
-
-        myChart = new Chart3D("Position Test Data", "", xyzPlot);
-
-        myChartPanel = new Chart3DPanel(myChart);
-
-
+        //Axes Defined
         xAxis.configureAsXAxis(xyzPlot);
         yAxis.configureAsYAxis(xyzPlot);
         zAxis.configureAsZAxis(xyzPlot);
+
+        //Min & Max Init
+        maxPositionValues = new double[] {1,1,1};
+        minPositionValues = new double [] {-1,-1,-1};
     }
 
-    public static void setUpFrame(){
-
-        myData.add(mySeries);
-        JFrame frame = new JFrame();
-        frame.setSize(600,600);
-        frame.add(myChartPanel);
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.setVisible(true);
-        System.out.println(xAxis.getRange());
-        System.out.println(yAxis.getRange());
-        System.out.println(zAxis.getRange());
+    public XYZSeries getXyzSeries() {
+        return xyzSeries;
     }
 
-    public static String [] removeLabels(String item){
+    public void setXyzSeries(XYZSeries xyzSeries) {
+        this.xyzSeries = xyzSeries;
+    }
+
+    public XYZSeriesCollection getXyzSeriesCollection() {
+        return xyzSeriesCollection;
+    }
+
+    public void setXyzSeriesCollection(XYZSeriesCollection xyzSeriesCollection) {
+        this.xyzSeriesCollection = xyzSeriesCollection;
+    }
+
+    public NumberAxis3D getxAxis() {
+        return xAxis;
+    }
+
+    public void setxAxis(NumberAxis3D xAxis) {
+        this.xAxis = xAxis;
+    }
+
+    public NumberAxis3D getyAxis() {
+        return yAxis;
+    }
+
+    public void setyAxis(NumberAxis3D yAxis) {
+        this.yAxis = yAxis;
+    }
+
+    public NumberAxis3D getzAxis() {
+        return zAxis;
+    }
+
+    public void setzAxis(NumberAxis3D zAxis) {
+        this.zAxis = zAxis;
+    }
+
+    public XYZPlot getXyzPlot() {
+        return xyzPlot;
+    }
+
+    public void setXyzPlot(XYZPlot xyzPlot) {
+        this.xyzPlot = xyzPlot;
+    }
+
+    public Chart3D getChart3D() {
+        return chart3D;
+    }
+
+    public void setChart3D(Chart3D chart3D) {
+        this.chart3D = chart3D;
+    }
+
+    public Chart3DPanel getChart3DPanel() {
+        return chart3DPanel;
+    }
+
+    public void setChart3DPanel(Chart3DPanel chart3DPanel) {
+        this.chart3DPanel = chart3DPanel;
+    }
+
+    public double[] getMaxPositionValues() {
+        return maxPositionValues;
+    }
+
+    public void setMaxPositionValues(double[] maxPositionValues) {
+        this.maxPositionValues = maxPositionValues;
+    }
+
+    public double[] getMinPositionValues() {
+        return minPositionValues;
+    }
+
+    public void setMinPositionValues(double[] minPositionValues) {
+        this.minPositionValues = minPositionValues;
+    }
+
+    public void updateGraphRange(){
+        xAxis.setRange(new Range(Math.floor(minPositionValues[0]), Math.ceil(maxPositionValues[0])));
+        yAxis.setRange(new Range(Math.floor(minPositionValues[1]), Math.ceil(maxPositionValues[1])));
+        zAxis.setRange(new Range(Math.floor(minPositionValues[2]), Math.ceil(maxPositionValues[2])));
+    }
+
+    private String [] removeLabels(String item){
         item = item.replace("Acceleration:", "");
         item = item.replace("X:", "");
         item = item.replace("Y:", "");
@@ -77,9 +154,7 @@ public class RocketGraphing {
 
     }
 
-
-
-    public static void readTimeAccelerationXYZData(String fileName) {
+    public void readTimeAccelerationXYZData(String fileName) {
         timeAccelerationXYZ.clear();
 
         try(BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName))) {
@@ -112,25 +187,25 @@ public class RocketGraphing {
         }
     }
 
-    public static double newPosition(double currentPosition, double currentVelocity, double timeDifference,
+    public double newPosition(double currentPosition, double currentVelocity, double timeDifference,
                               double currentAcceleration){
         currentPosition = currentPosition + (currentVelocity * timeDifference) +
                 ((0.5) * (currentAcceleration * Math.pow(timeDifference, 2)));
         return currentPosition;
     }
 
-    public static double newVelocity(double startingVelocity, double currentAcceleration, double timeDifference){
+    public double newVelocity(double startingVelocity, double currentAcceleration, double timeDifference){
         return (startingVelocity + currentAcceleration * timeDifference);
     }
 
-    public static void addPositionToSeries() {
+    private void addPositionToSeries() {
         double [] currentPosition = {0,0,0};
         double [] currentVelocity = {0,0,0};
         double [] currentAcceleration;
         double currentTime;
         double startingTime = 0.0;
         double timeDifference;
-        mySeries.add(currentPosition[0], currentPosition[1], currentPosition[2]);
+        xyzSeries.add(currentPosition[0], currentPosition[1], currentPosition[2]);
 
         for (double [] set : timeAccelerationXYZ) {
             currentTime = set[0];
@@ -170,13 +245,13 @@ public class RocketGraphing {
                 maxPositionValues[2] = currentPosition[2];
             }
 
-            mySeries.add(currentPosition[0], currentPosition[1], currentPosition[2]);
+            xyzSeries.add(currentPosition[0], currentPosition[1], currentPosition[2]);
         }
 
 
     }
 
-    public static void addPositionToSeries(ArrayList<Vector> positionVectors){
+    private void addPositionToSeries(ArrayList<Vector> positionVectors){
         for (int i = positionVectors.size() - 1; i >= 0; --i) {
             if (minPositionValues[0] > positionVectors.get(i).getI()) {
                 minPositionValues[0] = positionVectors.get(i).getI();
@@ -198,7 +273,21 @@ public class RocketGraphing {
                 maxPositionValues[2] = positionVectors.get(i).getK();
             }
 
-            mySeries.add(positionVectors.get(i).getI(), positionVectors.get(i).getJ(), positionVectors.get(i).getK());
+            xyzSeries.add(positionVectors.get(i).getI(), positionVectors.get(i).getJ(), positionVectors.get(i).getK());
         }
+    }
+
+    public void updatePositionSeries(){
+        xyzSeries = new XYZSeries("default");
+        addPositionToSeries();
+        xyzSeriesCollection.add(xyzSeries);
+        updateGraphRange();
+    }
+
+    public void updatePositionSeries(ArrayList<Vector> positionVectors){
+        xyzSeries = new XYZSeries("default");
+        addPositionToSeries(positionVectors);
+        xyzSeriesCollection.add(xyzSeries);
+        updateGraphRange();
     }
 }

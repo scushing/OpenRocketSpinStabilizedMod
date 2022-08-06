@@ -158,8 +158,9 @@ public class SimulationPanel extends JPanel {
 					sims[i] = document.getSimulation(selection[i]);
 				}
 
+				PredictedRocketGraphing predictedRocketGraphing = new PredictedRocketGraphing();
+				predictedRocketGraphing.runSpinSimulation(document.getSimulation(selection[0]));
 				System.out.println("Spin Simulation has been run");
-				PredictedRocketGraphing.runSpinSimulation(document.getSimulation(selection[0]));
 			}
 		});
 		this.add(spinButton, "gapright para");

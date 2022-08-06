@@ -48,8 +48,6 @@ public class AerodynamicForces implements Cloneable, Monitorable {
 	/** Roll moment forcing coefficient */
 	private double CrollForce = Double.NaN;
 	
-
-	
 	/** Axial drag coefficient, CA */
 	private double CDaxial = Double.NaN;
 	
