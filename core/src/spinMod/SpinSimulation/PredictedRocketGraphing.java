@@ -279,7 +279,7 @@ public class PredictedRocketGraphing {
                 }
             }
         }
-        sideArea = (MathUtil.pow2(largestRadius) * Math.PI) + finArea;
+        topArea = (MathUtil.pow2(largestRadius) * Math.PI) + finArea;
     }
 
     private void setDragCPArm(FlightConfiguration flightConfiguration){
