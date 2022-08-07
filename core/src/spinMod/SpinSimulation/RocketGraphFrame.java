@@ -15,6 +15,7 @@ public class RocketGraphFrame extends JFrame {
 
         RocketGraphing rocketGraphing = new RocketGraphing();
         rocketGraphing.updatePositionSeries(data);
+        //rocketGraphing.updateGraphRange();
         add(rocketGraphing.getChart3DPanel());
         setSize(600,600);
         //setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

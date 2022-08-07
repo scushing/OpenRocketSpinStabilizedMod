@@ -197,6 +197,18 @@ public class PredictedRocketGraphing {
         sideDragCoefficient = aerodynamicCalculator.getAerodynamicForces(flightConfiguration, conditions,warnings).getCDaxial();
     }
 
+    private static void retrieveDragCPArm(FlightConfiguration flightConfiguration){
+        double rocketLength = flightConfiguration.getLength();
+        WarningSet warnings = new WarningSet();
+        FlightConditions conditions = new FlightConditions(flightConfiguration);
+        AerodynamicCalculator aerodynamicCalculator = new BarrowmanCalculator();
+        //aerodynamicCalculator.getAerodynamicForces(curConfig, conditions, warnings);
+
+        Coordinate cp = aerodynamicCalculator.getWorstCP(flightConfiguration, conditions, warnings);
+        double cpx = cp.x;
+        dragCPArm = rocketLength - cpx;
+        System.out.println();
+    }
     private static void retrieveThrust(FlightConfiguration flightConfiguration){
         MotorConfiguration motorConfiguration = flightConfiguration.getAllMotors().iterator().next();
         thrust = motorConfiguration.getMotor().getAverageThrustEstimate();
@@ -216,13 +228,14 @@ public class PredictedRocketGraphing {
         retrieveRadius(curConfig);
         setBaseSpin(0);
         setAirDensity(1.33);
-        retrieveTopDragCoefficient(curConfig);
-        retrieveSideDragCoefficient(curConfig);
-        //setTopDragCoefficient(0.2);
-        //setSideDragCoefficient(0.3);
+        //retrieveTopDragCoefficient(curConfig);
+        //retrieveSideDragCoefficient(curConfig);
+        setTopDragCoefficient(0.2);
+        setSideDragCoefficient(0.3);
         setSideArea(0.0016); // Cross Sectional Area
         setTopArea(0.000075); // Biggest Diameter + Fin top area * fin amount
-        setDragCPArm(0.07); // Bottom to Center of pressure
+        retrieveDragCPArm(curConfig);
+        //setDragCPArm(0.07); // Bottom to Center of pressure
         setWindCPArm(0.08); // Cross Sectional Area - Integrate & Find midpoint
         retrieveThrust(curConfig);
         retrieveBurnTime(curConfig);
@@ -250,7 +263,7 @@ public class PredictedRocketGraphing {
         StabilitySim stabilitySim = new StabilitySim(mass, cgArm, radius, baseSpin, airDensity, topDragCoefficient,
                 sideDragCoefficient, sideArea, topArea, dragCPArm, windCPArm, thrust, burnTime, incrementSize);
         Queue<Gust> gusts = new LinkedList<>();
-        gusts.add(new Gust(new Vector(20, 10, 0), 100, 200));
+        //gusts.add(new Gust(new Vector(20, 10, 0), 100, 200));
         ArrayList<Vector> data = stabilitySim(gusts);
 
         RocketGraphFrame rocketGraphFrame = new RocketGraphFrame(data);
