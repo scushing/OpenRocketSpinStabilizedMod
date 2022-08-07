@@ -19,6 +19,7 @@ import spinMod.StabilitySim;
 import spinMod.Vectors.Vector;
 import net.sf.openrocket.masscalc.MassCalculator;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -28,20 +29,20 @@ import static spinMod.StabilitySim.stabilitySim;
 import spinMod.SpinSimulation.RocketGraphing.*;
 public class PredictedRocketGraphing {
 
-    static double mass = 0;
-    static double cgArm = 0;
-    static double radius = 0;
-    static double baseSpin = 0;
-    static double airDensity = 0;
-    static double topDragCoefficient = 0;
-    static double sideDragCoefficient = 0;
-    static double sideArea = 0;
-    static double topArea = 0;
-    static double dragCPArm = 0;
-    static double windCPArm = 0;
-    static double thrust = 0;
-    static double burnTime = 0;
-    static double incrementSize = 0;
+    private double mass = 0;
+    private double cgArm = 0;
+    private double radius = 0;
+    private double baseSpin = 0;
+    private double airDensity = 0;
+    private double topDragCoefficient = 0;
+    private double sideDragCoefficient = 0;
+    private double sideArea = 0;
+    private double topArea = 0;
+    private double dragCPArm = 0;
+    private double windCPArm = 0;
+    private double thrust = 0;
+    private double burnTime = 0;
+    private double incrementSize = 0;
 
 
 
@@ -103,69 +104,69 @@ public class PredictedRocketGraphing {
         return incrementSize;
     }
 
-    public static void setMass(double value) {
-        mass = value;
+    public void setMass(double value) {
+        this.mass = value;
     }
 
-    public static void setCgArm(double value) {
+    public void setCgArm(double value) {
         cgArm = value;
     }
 
-    public static void setRadius(double value) {
+    public void setRadius(double value) {
         radius = value;
     }
 
-    private static void setBaseSpin(double value){
+    public void setBaseSpin(double value){
         baseSpin = value;
     }
 
-    private static void setAirDensity(double value){
+    public void setAirDensity(double value){
         airDensity = value;
     }
 
-    private static void setTopDragCoefficient(double value){
+    public void setTopDragCoefficient(double value){
         topDragCoefficient = value;
     }
 
-    private static void setSideDragCoefficient(double value){
+    public void setSideDragCoefficient(double value){
         sideDragCoefficient = value;
     }
 
-    private static void setSideArea(double value){
+    public void setSideArea(double value){
         sideArea = value;
     }
 
-    private static void setTopArea(double value){
+    public void setTopArea(double value){
         topArea = value;
     }
 
-    private static void setDragCPArm(double value){
+    public void setDragCPArm(double value){
         dragCPArm = value;
     }
 
-    private static void setWindCPArm(double value){
+    public void setWindCPArm(double value){
         windCPArm = value;
     }
 
-    private static void setThrust(double value){
+    public void setThrust(double value){
         thrust = value;
     }
 
-    private static void setBurnTime(double value){
+    public void setBurnTime(double value){
         burnTime = value;
     }
 
-    private static void setIncrementSize(double value){
+    public void setIncrementSize(double value){
         incrementSize = value;
     }
 
-    private static void retrieveMass(FlightConfiguration flightConfiguration){
+    private void retrieveMass(FlightConfiguration flightConfiguration){
         Coordinate cg = MassCalculator.calculateLaunch(flightConfiguration).getCM();
         mass = cg.weight;
     }
 
 
-    private static void retrieveCgArm(FlightConfiguration flightConfiguration){
+    private void retrieveCgArm(FlightConfiguration flightConfiguration){
         double rocketLength = flightConfiguration.getLength();
         Coordinate cg = MassCalculator.calculateLaunch(flightConfiguration).getCM();
         double cgx = cg.x;
@@ -173,7 +174,7 @@ public class PredictedRocketGraphing {
     }
 
 
-    private static void retrieveRadius(FlightConfiguration flightConfiguration){
+    private void retrieveRadius(FlightConfiguration flightConfiguration){
         for (RocketComponent c : flightConfiguration.getCoreComponents()) {
             if (c instanceof SymmetricComponent) {
                 double d1 = ((SymmetricComponent) c).getForeRadius() * 2;
@@ -183,21 +184,21 @@ public class PredictedRocketGraphing {
         }
     }
 
-    private static void retrieveTopDragCoefficient(FlightConfiguration flightConfiguration){
+    private void retrieveTopDragCoefficient(FlightConfiguration flightConfiguration){
         WarningSet warnings = new WarningSet();
         FlightConditions conditions = new FlightConditions(flightConfiguration);
         AerodynamicCalculator aerodynamicCalculator = new BarrowmanCalculator();
         topDragCoefficient = aerodynamicCalculator.getAerodynamicForces(flightConfiguration, conditions,warnings).getCD();
     }
 
-    private static void retrieveSideDragCoefficient(FlightConfiguration flightConfiguration){
+    private void retrieveSideDragCoefficient(FlightConfiguration flightConfiguration){
         WarningSet warnings = new WarningSet();
         FlightConditions conditions = new FlightConditions(flightConfiguration);
         AerodynamicCalculator aerodynamicCalculator = new BarrowmanCalculator();
         sideDragCoefficient = aerodynamicCalculator.getAerodynamicForces(flightConfiguration, conditions,warnings).getCDaxial();
     }
 
-    private static void retrieveDragCPArm(FlightConfiguration flightConfiguration){
+    private void retrieveDragCPArm(FlightConfiguration flightConfiguration){
         double rocketLength = flightConfiguration.getLength();
         WarningSet warnings = new WarningSet();
         FlightConditions conditions = new FlightConditions(flightConfiguration);
@@ -209,27 +210,52 @@ public class PredictedRocketGraphing {
         dragCPArm = rocketLength - cpx;
         System.out.println();
     }
-    private static void retrieveThrust(FlightConfiguration flightConfiguration){
+
+    private void retrieveSideArea(FlightConfiguration flightConfiguration){
+
+    }
+
+    private void retrieveTopArea(FlightConfiguration flightConfiguration){
+        ArrayList<RocketComponent> rocketComponents = flightConfiguration.getCoreComponents();
+        for(RocketComponent component : rocketComponents){
+            if (component instanceof SymmetricComponent) {
+                double d1 = ((SymmetricComponent) component).getForeRadius() * 2;
+                double d2 = ((SymmetricComponent) component).getAftRadius() * 2;
+                radius = MathUtil.max(radius, d1, d2) / 2;
+            }
+        }
+    }
+
+    private void retrieveDragCPArm(){
+
+    }
+
+    private void retrieveWindCPArm(){
+
+    }
+
+    private void retrieveThrust(FlightConfiguration flightConfiguration){
         MotorConfiguration motorConfiguration = flightConfiguration.getAllMotors().iterator().next();
         thrust = motorConfiguration.getMotor().getAverageThrustEstimate();
     }
 
-    private static void retrieveBurnTime(FlightConfiguration flightConfiguration){
+    private void retrieveBurnTime(FlightConfiguration flightConfiguration){
         MotorConfiguration motorConfiguration = flightConfiguration.getAllMotors().iterator().next();
         burnTime = motorConfiguration.getMotor().getBurnTimeEstimate();
     }
-    private static void retrieveData(Simulation sim) {
+
+    private void retrieveData(Simulation sim) {
 
         FlightConfiguration curConfig = sim.getActiveConfiguration();
 
-
+        // Use for application
         retrieveMass(curConfig);
         retrieveCgArm(curConfig);
         retrieveRadius(curConfig);
         setBaseSpin(0);
         setAirDensity(1.33);
-        //retrieveTopDragCoefficient(curConfig);
-        //retrieveSideDragCoefficient(curConfig);
+        retrieveTopDragCoefficient(curConfig);
+        retrieveSideDragCoefficient(curConfig);
         setTopDragCoefficient(0.2);
         setSideDragCoefficient(0.3);
         setSideArea(0.0016); // Cross Sectional Area
@@ -242,16 +268,22 @@ public class PredictedRocketGraphing {
         setIncrementSize(0.001);
 
 
-
-        //Code for getting cp
+        // Use for manual testing
         /*
-        WarningSet warnings = new WarningSet();
-        FlightConditions conditions = new FlightConditions(curConfig);
-        AerodynamicCalculator aerodynamicCalculator = new BarrowmanCalculator();
-        //aerodynamicCalculator.getAerodynamicForces(curConfig, conditions, warnings);
-
-        Coordinate cp = aerodynamicCalculator.getWorstCP(curConfig, conditions, warnings);
-        double cpx = cp.y;
+        setMass(3.35);
+        setCgArm(1.61);
+        setRadius(0.25);
+        setBaseSpin(0);
+        setAirDensity(1.33);
+        setTopDragCoefficient(0.2);
+        setSideDragCoefficient(0.3);
+        setSideArea(0.0016);
+        setTopArea(0.000075);
+        setDragCPArm(0.07);
+        setWindCPArm(0.08);
+        setThrust(44);
+        setBurnTime(1);
+        setIncrementSize(0.001);
         */
 
     }
@@ -260,10 +292,17 @@ public class PredictedRocketGraphing {
 
         retrieveData(sim);
 
-        StabilitySim stabilitySim = new StabilitySim(mass, cgArm, radius, baseSpin, airDensity, topDragCoefficient,
+        StabilitySim stabilitySim = new StabilitySim(this.mass, cgArm, radius, baseSpin, airDensity, topDragCoefficient,
                 sideDragCoefficient, sideArea, topArea, dragCPArm, windCPArm, thrust, burnTime, incrementSize);
+
+        //Use for manual testing
+        /*
+        StabilitySim stabilitySim = new StabilitySim(0.5, 0.13, 0.023, 200, 1.33, 0.2,
+                0.3, 0.0016, 0.000075, 0.07, 0.08, 44, 1, 0.001);
+        */
+
         Queue<Gust> gusts = new LinkedList<>();
-        //gusts.add(new Gust(new Vector(20, 10, 0), 100, 200));
+        gusts.add(new Gust(new Vector(40, 10, 0), 100, 200));
         ArrayList<Vector> data = stabilitySim(gusts);
 
         RocketGraphFrame rocketGraphFrame = new RocketGraphFrame(data);
