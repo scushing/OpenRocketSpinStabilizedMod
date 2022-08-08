@@ -31,7 +31,7 @@ public class RocketGraphing{
     private double[] maxPositionValues;
     private double[] minPositionValues;
 
-    public RocketGraphing(){
+    public RocketGraphing(String graphName, String graphSubtitle){
         //Series Init
         //xyzSeries = new XYZSeries("default");
         xyzSeriesCollection = new XYZSeriesCollection();
@@ -44,7 +44,7 @@ public class RocketGraphing{
 
         //Plot and Chart Init
         xyzPlot = new XYZPlot(xyzSeriesCollection, new LineXYZRenderer(), xAxis, yAxis, zAxis);
-        chart3D = new Chart3D("Position Test Data", "", xyzPlot);
+        chart3D = new Chart3D(graphName, graphSubtitle, xyzPlot);
         chart3DPanel = new Chart3DPanel(chart3D);
 
         //Axes Defined
@@ -284,8 +284,8 @@ public class RocketGraphing{
         updateGraphRange();
     }
 
-    public void updatePositionSeries(ArrayList<Vector> positionVectors){
-        xyzSeries = new XYZSeries("default");
+    public void updatePositionSeries(ArrayList<Vector> positionVectors, String SeriesName){
+        xyzSeries = new XYZSeries(SeriesName);
         addPositionToSeries(positionVectors);
         xyzSeriesCollection.add(xyzSeries);
         updateGraphRange();

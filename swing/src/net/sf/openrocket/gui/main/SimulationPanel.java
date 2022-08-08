@@ -77,6 +77,7 @@ import net.sf.openrocket.gui.widgets.SelectColorButton;
 
 import spinMod.SpinSimulation.PredictedRocketGraphing;
 import spinMod.SpinSimulation.PredictedRocketGraphing.*;
+import spinMod.SpinSimulation.RocketGraphFrame;
 
 @SuppressWarnings("serial")
 public class SimulationPanel extends JPanel {
@@ -158,8 +159,8 @@ public class SimulationPanel extends JPanel {
 					sims[i] = document.getSimulation(selection[i]);
 				}
 
-				PredictedRocketGraphing predictedRocketGraphing = new PredictedRocketGraphing();
-				predictedRocketGraphing.runSpinSimulation(document.getSimulation(selection[0]));
+				RocketGraphFrame spinFrame = new RocketGraphFrame(document.getSimulation(selection[0]));
+
 				System.out.println("Spin Simulation has been run");
 			}
 		});

@@ -432,7 +432,7 @@ public class PredictedRocketGraphing {
 
     }
 
-    public void runSpinSimulation(Simulation sim) {
+    public ArrayList<Vector> runSpinSimulation(Simulation sim) {
 
         retrieveData(sim);
 
@@ -448,9 +448,8 @@ public class PredictedRocketGraphing {
 
         Queue<Gust> gusts = new LinkedList<>();
         gusts.add(new Gust(new Vector(40, 10, 0), 100, 200));
-        ArrayList<Vector> data = stabilitySim(gusts);
 
-        RocketGraphFrame rocketGraphFrame = new RocketGraphFrame(data);
+        return stabilitySim(gusts);
     }
 
 }
