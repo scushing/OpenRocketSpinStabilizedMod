@@ -11,7 +11,7 @@ import com.orsoncharts.data.xyz.XYZSeries;
 import com.orsoncharts.data.xyz.XYZSeriesCollection;
 import com.orsoncharts.plot.XYZPlot;
 import com.orsoncharts.renderer.xyz.LineXYZRenderer;
-import javafx.scene.chart.Chart;
+//import javafx.scene.chart.Chart;
 import spinMod.Rocket;
 import spinMod.Vectors.Vector;
 

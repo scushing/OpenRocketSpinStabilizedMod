@@ -10,22 +10,22 @@ import java.util.Stack;
 
 public class StabilitySim {
 
-    static double mass;
-    static double cgArm;
-    static double radius;
-    static double baseSpin;
-    static double airDensity;
-    static double topDragCoefficient;
-    static double sideDragCoefficient;
-    static double sideArea;
-    static double topArea;
-    static double dragCPArm;
-    static double windCPArm;
+    double mass;
+    double cgArm;
+    double radius;
+    double baseSpin;
+    double airDensity;
+    double topDragCoefficient;
+    double sideDragCoefficient;
+    double sideArea;
+    double topArea;
+    double dragCPArm;
+    double windCPArm;
 
-    static double thrust;
-    static double burnTime;
+    double thrust;
+    double burnTime;
 
-    static double incrementSize;
+    double incrementSize;
 
 
 //    public static void main(String args[]) {
