@@ -12,7 +12,6 @@ import net.sf.openrocket.util.Coordinate;
 import net.sf.openrocket.util.MathUtil;
 import spinMod.Gust;
 import spinMod.StabilitySim;
-import spinMod.StabilitySim.*;
 import spinMod.Vectors.Vector;
 
 import java.util.ArrayList;
@@ -46,7 +45,7 @@ public class PredictedRocketGraphing {
 
         retrieveData(sim);
 
-        StabilitySim stabilitySim = new StabilitySim(this.mass, this.cgArm, this.radius, this.baseSpin,
+        stabilitySim = new StabilitySim(this.mass, this.cgArm, this.radius, this.baseSpin,
                 this.airDensity, this.topDragCoefficient, this.sideDragCoefficient, this.sideArea,
                 this.topArea, this.dragCPArm, this.windCPArm, this.thrust, this.burnTime, this.incrementSize);
 
