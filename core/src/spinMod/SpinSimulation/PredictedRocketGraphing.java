@@ -4,9 +4,7 @@ import net.sf.openrocket.aerodynamics.AerodynamicCalculator;
 import net.sf.openrocket.aerodynamics.BarrowmanCalculator;
 import net.sf.openrocket.aerodynamics.FlightConditions;
 import net.sf.openrocket.aerodynamics.WarningSet;
-import net.sf.openrocket.document.OpenRocketDocument;
 import net.sf.openrocket.document.Simulation;
-import net.sf.openrocket.masscalc.MassCalculation;
 import net.sf.openrocket.motor.MotorConfiguration;
 import net.sf.openrocket.rocketcomponent.*;
 import net.sf.openrocket.util.Coordinate;
@@ -16,30 +14,52 @@ import spinMod.StabilitySim;
 import spinMod.Vectors.Vector;
 import net.sf.openrocket.masscalc.MassCalculator;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import net.sf.openrocket.unit.UnitGroup;
-
 import static spinMod.StabilitySim.stabilitySim;
-import spinMod.SpinSimulation.RocketGraphing.*;
+
 public class PredictedRocketGraphing {
 
-    private double mass = 0;
-    private double cgArm = 0;
-    private double radius = 0;
-    private double baseSpin = 0;
-    private double airDensity = 0;
-    private double topDragCoefficient = 0;
-    private double sideDragCoefficient = 0;
-    private double sideArea = 0;
-    private double topArea = 0;
-    private double dragCPArm = 0;
-    private double windCPArm = 0;
-    private double thrust = 0;
-    private double burnTime = 0;
-    private double incrementSize = 0;
+    StabilitySim stabilitySim;
+    Queue<Gust> gusts = new LinkedList<>();
+
+    private double mass;
+    private double cgArm;
+    private double radius;
+    private double baseSpin;
+    private double airDensity;
+    private double topDragCoefficient;
+    private double sideDragCoefficient;
+    private double sideArea;
+    private double topArea;
+    private double dragCPArm;
+    private double windCPArm;
+    private double thrust;
+    private double burnTime;
+    private double incrementSize;
+
+    public PredictedRocketGraphing(Simulation sim){
+        this.baseSpin = 0;
+        this.airDensity = 1.33;
+        this.incrementSize = 0.001;
+
+        retrieveData(sim);
+
+        StabilitySim stabilitySim = new StabilitySim(this.mass, this.cgArm, this.radius, this.baseSpin,
+                this.airDensity, this.topDragCoefficient, this.sideDragCoefficient, this.sideArea,
+                this.topArea, this.dragCPArm, this.windCPArm, this.thrust, this.burnTime, this.incrementSize);
+
+        //Use for manual testing
+        /*
+        StabilitySim stabilitySim = new StabilitySim(0.5, 0.13, 0.023, 200, 1.33, 0.2,
+                0.3, 0.0016, 0.000075, 0.07, 0.08, 44, 1, 0.001);
+        */
+    }
+
+    public void addGust(){
+        gusts.add(new Gust(new Vector(400, 100, 0), 100, 200));
+    }
 
     public double getMass() {
         return mass;
@@ -97,18 +117,7 @@ public class PredictedRocketGraphing {
         return incrementSize;
     }
 
-    public void setMass(double value) {
-        this.mass = value;
-    }
-
-    public void setCgArm(double value) {
-        cgArm = value;
-    }
-
-    public void setRadius(double value) {
-        radius = value;
-    }
-
+    //Methods that allow us to make adjustments to data
     public void setBaseSpin(double value){
         baseSpin = value;
     }
@@ -117,41 +126,10 @@ public class PredictedRocketGraphing {
         airDensity = value;
     }
 
-    public void setTopDragCoefficient(double value){
-        topDragCoefficient = value;
-    }
-
-    public void setSideDragCoefficient(double value){
-        sideDragCoefficient = value;
-    }
-
-    public void setSideArea(double value){
-        sideArea = value;
-    }
-
-    public void setTopArea(double value){
-        topArea = value;
-    }
-
-    public void setDragCPArm(double value){
-        dragCPArm = value;
-    }
-
-    public void setWindCPArm(double value){
-        windCPArm = value;
-    }
-
-    public void setThrust(double value){
-        thrust = value;
-    }
-
-    public void setBurnTime(double value){
-        burnTime = value;
-    }
-
     public void setIncrementSize(double value){
         incrementSize = value;
     }
+    //
 
     private void setMass(FlightConfiguration flightConfiguration){
         Coordinate cg = MassCalculator.calculateLaunch(flightConfiguration).getCM();
@@ -389,8 +367,6 @@ public class PredictedRocketGraphing {
         setMass(curConfig);
         setCgArm(curConfig);
         setRadius(curConfig);
-        setBaseSpin(0);
-        setAirDensity(1.33);
         setTopDragCoefficient(curConfig);
         setSideDragCoefficient(curConfig);
         setTopDragCoefficient(curConfig);
@@ -409,46 +385,30 @@ public class PredictedRocketGraphing {
         //setWindCPArm(0.08);
         setThrust(curConfig);
         setBurnTime(curConfig);
-        setIncrementSize(0.001);
+//        setIncrementSize(0.001);
 
 
         // Use for manual testing
         /*
-        setMass(3.35);
-        setCgArm(1.61);
-        setRadius(0.25);
-        setBaseSpin(0);
-        setAirDensity(1.33);
-        setTopDragCoefficient(0.2);
-        setSideDragCoefficient(0.3);
-        setSideArea(0.0016);
-        setTopArea(0.000075);
-        setDragCPArm(0.07);
-        setWindCPArm(0.08);
-        setThrust(44);
-        setBurnTime(1);
-        setIncrementSize(0.001);
+        this.mass = 3.35;
+        this.cgArm = 1.61;
+        this.radius = 0.25;
+        //this.baseSpin = 0;
+        //this.airDensity = 1.33;
+        this.topDragCoefficient = 0.2;
+        this.sideDragCoefficient = 0.3;
+        this.sideArea = 0.0016;
+        this.topArea = 0.000075;
+        this.dragCPArm = 0.07;
+        this.windCPArm = 0.08;
+        this.thrust = 44;
+        this.burnTime = 1;
+        //this.incrementSize = 0.001;
         */
 
     }
 
-    public ArrayList<Vector> runSpinSimulation(Simulation sim) {
-
-        retrieveData(sim);
-
-        StabilitySim stabilitySim = new StabilitySim(getMass(), getCgArm(), getRadius(), getBaseSpin(),
-                getAirDensity(), getTopDragCoefficient(), getSideDragCoefficient(), getSideArea(),
-                getTopArea(), getDragCPArm(), getWindCPArm(), getThrust(), getBurnTime(), getIncrementSize());
-        //Use for manual testing
-
-        /*
-        StabilitySim stabilitySim = new StabilitySim(0.5, 0.13, 0.023, 200, 1.33, 0.2,
-                0.3, 0.0016, 0.000075, 0.07, 0.08, 44, 1, 0.001);
-        */
-
-        Queue<Gust> gusts = new LinkedList<>();
-        gusts.add(new Gust(new Vector(40, 10, 0), 100, 200));
-
+    public ArrayList<Vector> runSpinSimulation() {
         return stabilitySim(gusts);
     }
 

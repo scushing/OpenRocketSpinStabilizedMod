@@ -1,6 +1,9 @@
 package spinMod.SpinSimulation;
 
-import com.orsoncharts.*;
+//import com.orsoncharts.*;
+import com.orsoncharts.Chart3D;
+import com.orsoncharts.Chart3DPanel;
+import com.orsoncharts.Range;
 import com.orsoncharts.axis.NumberAxis3D;
 import com.orsoncharts.data.Dataset3DChangeEvent;
 import com.orsoncharts.data.xyz.XYZSeries;
@@ -17,7 +20,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 
-public class RocketGraphing{
+public class RocketGraphingOld {
 
     private static final ArrayList<double[]> timeAccelerationXYZ = new ArrayList<>();
 
@@ -31,11 +34,9 @@ public class RocketGraphing{
     private double[] maxPositionValues;
     private double[] minPositionValues;
 
-    public RocketGraphing(String graphName, String graphSubtitle){
+    public RocketGraphingOld(String graphName, String graphSubtitle){
         //Series Init
-        //xyzSeries = new XYZSeries("default");
         xyzSeriesCollection = new XYZSeriesCollection();
-        //xyzSeriesCollection.add(xyzSeries);
 
         //Axis Init
         xAxis = new NumberAxis3D("x");
@@ -151,7 +152,6 @@ public class RocketGraphing{
         item = item.replace("m/s^2", "");
         item = item.replace(" ", "");
         return item.split(",");
-
     }
 
     public void readTimeAccelerationXYZData(String fileName) {
@@ -251,7 +251,8 @@ public class RocketGraphing{
 
     }
 
-    private void addPositionToSeries(ArrayList<Vector> positionVectors){
+    public XYZSeries addPositionToSeries(ArrayList<Vector> positionVectors, String SeriesName){
+        XYZSeries tempSeries = new XYZSeries(SeriesName);
         for (int i = positionVectors.size() - 1; i >= 0; --i) {
             if (minPositionValues[0] > positionVectors.get(i).getI()) {
                 minPositionValues[0] = positionVectors.get(i).getI();
@@ -273,8 +274,9 @@ public class RocketGraphing{
                 maxPositionValues[2] = positionVectors.get(i).getK();
             }
 
-            xyzSeries.add(positionVectors.get(i).getI(), positionVectors.get(i).getJ(), positionVectors.get(i).getK());
+            tempSeries.add(positionVectors.get(i).getI(), positionVectors.get(i).getJ(), positionVectors.get(i).getK());
         }
+        return tempSeries;
     }
 
     public void updatePositionSeries(){
@@ -284,10 +286,14 @@ public class RocketGraphing{
         updateGraphRange();
     }
 
-    public void updatePositionSeries(ArrayList<Vector> positionVectors, String SeriesName){
-        xyzSeries = new XYZSeries(SeriesName);
-        addPositionToSeries(positionVectors);
-        xyzSeriesCollection.add(xyzSeries);
+    public void updatePositionSeries(ArrayList<Vector> positionVectors, String seriesName){
+        XYZSeries tempSeries = addPositionToSeries(positionVectors, seriesName);
+        XYZSeries oldSeries = xyzSeriesCollection.getSeries(seriesName);
+        if(oldSeries == null) {
+            xyzSeriesCollection.add(tempSeries);
+        } else {
+            oldSeries = addPositionToSeries(positionVectors,seriesName);
+        }
         updateGraphRange();
     }
 }
