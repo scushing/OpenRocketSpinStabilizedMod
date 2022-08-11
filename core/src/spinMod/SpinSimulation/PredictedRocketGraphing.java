@@ -5,19 +5,19 @@ import net.sf.openrocket.aerodynamics.BarrowmanCalculator;
 import net.sf.openrocket.aerodynamics.FlightConditions;
 import net.sf.openrocket.aerodynamics.WarningSet;
 import net.sf.openrocket.document.Simulation;
+import net.sf.openrocket.masscalc.MassCalculator;
 import net.sf.openrocket.motor.MotorConfiguration;
 import net.sf.openrocket.rocketcomponent.*;
 import net.sf.openrocket.util.Coordinate;
 import net.sf.openrocket.util.MathUtil;
 import spinMod.Gust;
 import spinMod.StabilitySim;
+import spinMod.StabilitySim.*;
 import spinMod.Vectors.Vector;
-import net.sf.openrocket.masscalc.MassCalculator;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
-
-import static spinMod.StabilitySim.stabilitySim;
 
 public class PredictedRocketGraphing {
 
@@ -409,7 +409,7 @@ public class PredictedRocketGraphing {
     }
 
     public ArrayList<Vector> runSpinSimulation() {
-        return stabilitySim(gusts);
+        return stabilitySim.stabilitySim(gusts);
     }
 
 }
