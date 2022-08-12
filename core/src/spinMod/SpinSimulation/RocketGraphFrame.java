@@ -136,7 +136,7 @@ public class RocketGraphFrame extends JFrame {
         gbc.fill = GridBagConstraints.HORIZONTAL;
         bottomPanel.add(spinLabel,gbc);
 
-        JLabel airDensityLabel = new JLabel("Air Density (?)");
+        JLabel airDensityLabel = new JLabel("Air Density (g/cm^3)");
         gbc.gridx = 4;
         gbc.gridy = 1;
         gbc.fill = GridBagConstraints.HORIZONTAL;
