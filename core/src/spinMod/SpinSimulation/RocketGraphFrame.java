@@ -28,6 +28,8 @@ public class RocketGraphFrame extends JFrame {
     private JPanel middlePanel = new JPanel();
     private JPanel rightPanel = new JPanel();
     private JPanel bottomPanel = new JPanel();
+
+    private CardLayout rightPanelCardLayout = new CardLayout();
     GridBagConstraints frameGbc = new GridBagConstraints();
 
     boolean testValue = true;
@@ -66,7 +68,7 @@ public class RocketGraphFrame extends JFrame {
         addInputsToFrame();
         pack();
         setVisible(true);
-        openTestDataFrame();
+        //openTestDataFrame();
     }
 
     public void addGraphsToFrame(){
@@ -75,8 +77,8 @@ public class RocketGraphFrame extends JFrame {
         defaultAndSpinGraph.setVisible(true);
 
         leftPanel = new JPanel();
-        leftPanel.setLayout(new BorderLayout());
-        leftPanel.add(defaultAndSpinGraph);
+        leftPanel.setLayout(new CardLayout());
+        leftPanel.add("defaultAndSpinGraph", defaultAndSpinGraph);
         leftPanel.setPreferredSize(new Dimension(500,500));
         leftPanel.setVisible(true);
         frameGbc.gridx = 0;
@@ -89,8 +91,8 @@ public class RocketGraphFrame extends JFrame {
         defaultGraph.setVisible(true);
 
         middlePanel = new JPanel();
-        middlePanel.setLayout(new BorderLayout());
-        middlePanel.add(defaultGraph);
+        middlePanel.setLayout(new CardLayout());
+        middlePanel.add("defaultGraph", defaultGraph);
         middlePanel.setPreferredSize(new Dimension(500,500));
         middlePanel.setVisible(true);
         frameGbc.gridx = 1;
@@ -103,8 +105,8 @@ public class RocketGraphFrame extends JFrame {
         spinGraph.setVisible(true);
 
         rightPanel = new JPanel();
-        rightPanel.setLayout(new BorderLayout());
-        rightPanel.add(spinGraph);
+        rightPanel.setLayout(new CardLayout());
+        rightPanel.add("spinGraph", spinGraph);
         rightPanel.setPreferredSize(new Dimension(500,500));
         rightPanel.setVisible(true);
         frameGbc.gridx = 2;
@@ -147,6 +149,24 @@ public class RocketGraphFrame extends JFrame {
         gbc.gridy = 2;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         bottomPanel.add(incrementLabel,gbc);
+
+        JLabel xWindSpeed = new JLabel("X Wind Speed");
+        gbc.gridx = 4;
+        gbc.gridy = 3;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        bottomPanel.add(xWindSpeed,gbc);
+
+        JLabel yWindSpeed = new JLabel("Y Wind Speed");
+        gbc.gridx = 4;
+        gbc.gridy = 4;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        bottomPanel.add(yWindSpeed,gbc);
+
+        JLabel zWindSpeed = new JLabel("Z Wind Speed");
+        gbc.gridx = 4;
+        gbc.gridy = 5;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        bottomPanel.add(zWindSpeed,gbc);
         //
 
         //Input Fields
@@ -167,13 +187,31 @@ public class RocketGraphFrame extends JFrame {
         gbc.gridy = 2;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         bottomPanel.add(incrementField,gbc);
+
+        JTextField xWindField = new JFormattedTextField(Double.toString(predictedDefault.getWindX()));
+        gbc.gridx = 5;
+        gbc.gridy = 3;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        bottomPanel.add(xWindField, gbc);
+
+        JTextField yWindField = new JFormattedTextField(Double.toString(predictedDefault.getWindY()));
+        gbc.gridx = 5;
+        gbc.gridy = 4;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        bottomPanel.add(yWindField, gbc);
+
+        JTextField zWindField = new JFormattedTextField(Double.toString(predictedDefault.getWindZ()));
+        gbc.gridx = 5;
+        gbc.gridy = 5;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        bottomPanel.add(zWindField, gbc);
         //
 
         //Update Button
         JButton updateButton = new JButton("Update Graphs");
         gbc.gridx = 6;
         gbc.gridy = 0;
-        gbc.gridheight = 3;
+        gbc.gridheight = 6;
         gbc.fill = GridBagConstraints.VERTICAL;
         bottomPanel.add(updateButton,gbc);
         if (testValue) {
@@ -182,23 +220,32 @@ public class RocketGraphFrame extends JFrame {
                 double spinVal = Double.parseDouble(spinField.getText());
                 double airDensityVal = Double.parseDouble(airDensityField.getText());
                 double incrementVal = Double.parseDouble(incrementField.getText());
-
-                updateSimulationGraphs(spinVal, airDensityVal, incrementVal);
+                double xVal = Double.parseDouble(xWindField.getText());
+                double yVal = Double.parseDouble(yWindField.getText());
+                double zVal = Double.parseDouble(zWindField.getText());
+                updateSimulationGraphs(spinVal, airDensityVal, incrementVal, xVal, yVal, zVal);
             });
         }
         //
     }
 
-    public void updateSimulationGraphs(double spinVal, double airDensityVal, double incrementVal){
+    public void updateSimulationGraphs(double spinVal, double airDensityVal, double incrementVal, double xWindSpeed,
+                                       double yWindSpeed, double zWindSpeed){
 
         //Sets new data variables for default data
         predictedDefault.setAirDensity(airDensityVal);
         predictedDefault.setIncrementSize(incrementVal);
+        predictedDefault.setWindX(xWindSpeed);
+        predictedDefault.setWindY(yWindSpeed);
+        predictedDefault.setWindZ(zWindSpeed);
 
         //Sets new data variables for spin data
         predictedSpin.setBaseSpin(spinVal);
         predictedSpin.setAirDensity(airDensityVal);
         predictedSpin.setIncrementSize(incrementVal);
+        predictedSpin.setWindX(xWindSpeed);
+        predictedSpin.setWindY(yWindSpeed);
+        predictedSpin.setWindZ(zWindSpeed);
 
         //Runs new simulations for default and spin
         defaultData = predictedDefault.runSpinSimulation();
@@ -215,24 +262,30 @@ public class RocketGraphFrame extends JFrame {
         openRocketGraphs.addGraphPanel(defaultHashTable, "Default Data", "");
         openRocketGraphs.addGraphPanel(spinHashTable, "Spin Data", "");
 
+        //Removing Graphs
+        leftPanel.remove(0);
+        middlePanel.remove(0);
+        rightPanel.remove(0);
+
         //Replaces graphs
         defaultAndSpinGraph = openRocketGraphs.getGraphPanel("Default and Spin Data");
         defaultGraph = openRocketGraphs.getGraphPanel("Default Data");
         spinGraph = openRocketGraphs.getGraphPanel("Spin Data");
 
-        //revalidate();
+        //Adding Graphs
+        leftPanel.add("defaultAndSpin", defaultAndSpinGraph);
+        middlePanel.add("defaultGraph", defaultGraph);
+        rightPanel.add("spinGraph", spinGraph);
 
-        removeAll();
-        validate();
+        leftPanel.validate();
+        leftPanel.repaint();
 
-        setLayout(new GridBagLayout());
-        addGraphsToFrame();
-        addInputsToFrame();
-        //getContentPane().update(getGraphics());
-        validate();
-        repaint();
-        pack();
+        middlePanel.validate();
+        middlePanel.repaint();
 
+        rightPanel.validate();
+        rightPanel.repaint();
+        //pack();
     }
 
     public void openTestDataFrame(){

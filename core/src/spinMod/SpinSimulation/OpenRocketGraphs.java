@@ -8,8 +8,10 @@ import com.orsoncharts.data.xyz.XYZSeries;
 import com.orsoncharts.data.xyz.XYZSeriesCollection;
 import com.orsoncharts.plot.XYZPlot;
 import com.orsoncharts.renderer.xyz.LineXYZRenderer;
+import com.orsoncharts.util.Orientation;
 import spinMod.Vectors.Vector;
 
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -49,11 +51,27 @@ public class OpenRocketGraphs extends RocketGraphs{
 
     private Chart3D createGraph(Hashtable<String, ArrayList<Vector>> dataAndName, String graphName,
                                 String graphSubtitle){
-        return (new Chart3D(graphName, graphSubtitle, createXYZPlot(dataAndName)));
+        Chart3D chart3D = new Chart3D(graphName, graphSubtitle, createXYZPlot(dataAndName));
+
+        //Chart Settings
+        chart3D.setLegendOrientation(Orientation.VERTICAL);
+        chart3D.getViewPoint().moveUpDown(-(1.9 * Math.PI)/5);
+        chart3D.getViewPoint().panLeftRight(-(1.3 * Math.PI)/5);
+        chart3D.setChartBoxColor(Color.DARK_GRAY);
+
+        return chart3D;
     }
 
     private Chart3D createGraph(String [][] dataAndName, String graphName, String graphSubtitle){
-        return (new Chart3D(graphName, graphSubtitle, createXYZPlot(dataAndName)));
+        Chart3D chart3D = new Chart3D(graphName, graphSubtitle, createXYZPlot(dataAndName));
+
+        //Charts Settings
+        chart3D.setLegendOrientation(Orientation.VERTICAL);
+        chart3D.getViewPoint().moveUpDown(-(1.9 * Math.PI)/5);
+        chart3D.getViewPoint().panLeftRight(-(1.3 * Math.PI)/5);
+        chart3D.setChartBoxColor(Color.DARK_GRAY);
+
+        return chart3D;
     }
 
     private XYZSeries createSeries(ArrayList<Vector> data, String name){
@@ -137,7 +155,9 @@ public class OpenRocketGraphs extends RocketGraphs{
         yAxis.setRange(new Range(Math.floor(minMaxAxisValues[1][0]), Math.ceil(minMaxAxisValues[1][1])));
         zAxis.setRange(new Range(Math.floor(minMaxAxisValues[2][0]), Math.ceil(minMaxAxisValues[2][1])));
 
-        XYZPlot xyzPlot = new XYZPlot(xyzSeriesCollection, new LineXYZRenderer(), xAxis, yAxis, zAxis);
+        LineXYZRenderer lineXYZRenderer = new LineXYZRenderer();
+
+        XYZPlot xyzPlot = new XYZPlot(xyzSeriesCollection, lineXYZRenderer, xAxis, yAxis, zAxis);
 
         xAxis.configureAsXAxis(xyzPlot);
         xAxis.configureAsYAxis(xyzPlot);

@@ -21,7 +21,7 @@ import java.util.Queue;
 public class PredictedRocketGraphing {
 
     StabilitySim stabilitySim;
-    Queue<Gust> gusts = new LinkedList<>();
+    Vector wind;
 
     private double mass;
     private double cgArm;
@@ -42,12 +42,8 @@ public class PredictedRocketGraphing {
         this.baseSpin = 0;
         this.airDensity = 1.33;
         this.incrementSize = 0.001;
-
+        this.wind = new Vector(2,0,0);
         retrieveData(sim);
-
-        stabilitySim = new StabilitySim(this.mass, this.cgArm, this.radius, this.baseSpin,
-                this.airDensity, this.topDragCoefficient, this.sideDragCoefficient, this.sideArea,
-                this.topArea, this.dragCPArm, this.windCPArm, this.thrust, this.burnTime, this.incrementSize);
 
         //Use for manual testing
 
@@ -57,8 +53,8 @@ public class PredictedRocketGraphing {
 
     }
 
-    public void addGust(){
-        gusts.add(new Gust(new Vector(5, 0, 0), 1, 500));
+    public void addWind(double x, double y, double z){
+        wind = new Vector(x,y,z);
     }
 
     public double getMass() {
@@ -117,6 +113,17 @@ public class PredictedRocketGraphing {
         return incrementSize;
     }
 
+    public double getWindX(){
+        return wind.getI();
+    }
+
+    public double getWindY(){
+        return wind.getJ();
+    }
+
+    public double getWindZ(){
+        return wind.getK();
+    }
     //Methods that allow us to make adjustments to data
     public void setBaseSpin(double value){
         baseSpin = value;
@@ -128,6 +135,18 @@ public class PredictedRocketGraphing {
 
     public void setIncrementSize(double value){
         incrementSize = value;
+    }
+
+    public void setWindX(double windSpeed){
+        wind.setI(windSpeed);
+    }
+
+    public void setWindY(double windSpeed){
+        wind.setJ(windSpeed);
+    }
+
+    public void setWindZ(double windSpeed){
+        wind.setK(windSpeed);
     }
     //
 
@@ -157,7 +176,9 @@ public class PredictedRocketGraphing {
         WarningSet warnings = new WarningSet();
         FlightConditions conditions = new FlightConditions(flightConfiguration);
         AerodynamicCalculator aerodynamicCalculator = new BarrowmanCalculator();
-        topDragCoefficient = aerodynamicCalculator.getAerodynamicForces(flightConfiguration, conditions,warnings).getCD();
+        double frictionCD = aerodynamicCalculator.getAerodynamicForces(flightConfiguration, conditions,warnings).getFrictionCD();
+        double pressureCD = aerodynamicCalculator.getAerodynamicForces(flightConfiguration, conditions,warnings).getPressureCD();
+        topDragCoefficient = frictionCD * pressureCD;
     }
 
     private void setSideDragCoefficient(FlightConfiguration flightConfiguration){
@@ -409,7 +430,11 @@ public class PredictedRocketGraphing {
     }
 
     public ArrayList<Vector> runSpinSimulation() {
-        return stabilitySim.stabilitySim(new Vector(2, 0, 0));
+        stabilitySim = new StabilitySim(this.mass, this.cgArm, this.radius, this.baseSpin,
+                this.airDensity, this.topDragCoefficient, this.sideDragCoefficient, this.sideArea,
+                this.topArea, this.dragCPArm, this.windCPArm, this.thrust, this.burnTime, this.incrementSize);
+
+        return stabilitySim.stabilitySim(wind);
     }
 
 }
