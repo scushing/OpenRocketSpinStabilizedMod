@@ -68,7 +68,7 @@ public class RocketGraphFrame extends JFrame {
         addInputsToFrame();
         pack();
         setVisible(true);
-        //openTestDataFrame();
+        openTestDataFrame();
     }
 
     public void addGraphsToFrame(){

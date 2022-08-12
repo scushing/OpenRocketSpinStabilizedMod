@@ -185,7 +185,10 @@ public class PredictedRocketGraphing {
         WarningSet warnings = new WarningSet();
         FlightConditions conditions = new FlightConditions(flightConfiguration);
         AerodynamicCalculator aerodynamicCalculator = new BarrowmanCalculator();
-        sideDragCoefficient = aerodynamicCalculator.getAerodynamicForces(flightConfiguration, conditions,warnings).getCDaxial();
+//        sideDragCoefficient = aerodynamicCalculator.getAerodynamicForces(flightConfiguration, conditions,warnings).getCDaxial();
+        double frictionCD = aerodynamicCalculator.getAerodynamicForces(flightConfiguration, conditions,warnings).getFrictionCD();
+        double pressureCD = aerodynamicCalculator.getAerodynamicForces(flightConfiguration, conditions,warnings).getPressureCD();
+        sideDragCoefficient = frictionCD * pressureCD;
     }
 
     //Does not currently adjust for overlapping SETS of fins
