@@ -116,13 +116,12 @@ public class RocketGraphFrame extends JFrame {
     }
 
     public void addInputsToFrame(){
-        //Adding panel with data input fields to the right of the frame
+
         bottomPanel = new JPanel();
         bottomPanel.setVisible(true);
         frameGbc.gridx = 0;
         frameGbc.gridy = 1;
         frameGbc.gridwidth = 3;
-        //frameGbc.fill = GridBagConstraints.HORIZONTAL;
         add(bottomPanel, frameGbc);
 
 
@@ -150,19 +149,19 @@ public class RocketGraphFrame extends JFrame {
         gbc.fill = GridBagConstraints.HORIZONTAL;
         bottomPanel.add(incrementLabel,gbc);
 
-        JLabel xWindSpeed = new JLabel("X Wind Speed");
+        JLabel xWindSpeed = new JLabel("X Wind Speed (m/s)");
         gbc.gridx = 4;
         gbc.gridy = 3;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         bottomPanel.add(xWindSpeed,gbc);
 
-        JLabel yWindSpeed = new JLabel("Y Wind Speed");
+        JLabel yWindSpeed = new JLabel("Y Wind Speed (m/s)");
         gbc.gridx = 4;
         gbc.gridy = 4;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         bottomPanel.add(yWindSpeed,gbc);
 
-        JLabel zWindSpeed = new JLabel("Z Wind Speed");
+        JLabel zWindSpeed = new JLabel("Z Wind Speed (m/s)");
         gbc.gridx = 4;
         gbc.gridy = 5;
         gbc.fill = GridBagConstraints.HORIZONTAL;
@@ -285,7 +284,6 @@ public class RocketGraphFrame extends JFrame {
 
         rightPanel.validate();
         rightPanel.repaint();
-        //pack();
     }
 
     public void openTestDataFrame(){
