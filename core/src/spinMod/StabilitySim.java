@@ -59,21 +59,21 @@ public class StabilitySim {
     }
 
 
-    public ArrayList<Vector> stabilitySim(Queue<Gust> risingWinds) {
+    public ArrayList<Vector> stabilitySim(Vector wind) {
         ArrayList<Vector> vectors = new ArrayList<>();
         Rocket rocket = new Rocket(mass, cgArm, radius, rpmToRad(baseSpin), airDensity, topDragCoefficient, sideDragCoefficient, sideArea,
                 topArea, dragCPArm, windCPArm);
 
         double time = 0;
         int step = 0;
-        Gust currentGust = risingWinds.peek();
-        Stack<Gust> fallingWinds = new Stack<>();
-        int countMax = risingWinds.size();
+//        Gust currentGust = risingWinds.peek();
+//        Stack<Gust> fallingWinds = new Stack<>();
+//        int countMax = risingWinds.size();
 
         double currentAlt = 0;
         while (currentAlt >= 0) {
-            currentGust = updateCurrent(risingWinds, fallingWinds, currentGust, currentAlt, countMax, 0);
-            Vector wind = currentGust.getWind();
+//            currentGust = updateCurrent(risingWinds, fallingWinds, currentGust, currentAlt, countMax, 0);
+//            Vector wind = currentGust.getWind();
             if (time > burnTime) {
                 thrust = 0;
             }

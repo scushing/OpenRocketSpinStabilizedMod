@@ -50,14 +50,15 @@ public class PredictedRocketGraphing {
                 this.topArea, this.dragCPArm, this.windCPArm, this.thrust, this.burnTime, this.incrementSize);
 
         //Use for manual testing
-        /*
-        StabilitySim stabilitySim = new StabilitySim(0.5, 0.13, 0.023, 200, 1.33, 0.2,
-                0.3, 0.0016, 0.000075, 0.07, 0.08, 44, 1, 0.001);
-        */
+
+//        stabilitySim = new StabilitySim(0.5, 0.13, 0.023, 200, 1.33, 0.2,
+//                0.3, 0.0016, 0.000075, 0.07, 0.08, 44, 1, 0.001);
+
+
     }
 
     public void addGust(){
-        gusts.add(new Gust(new Vector(400, 100, 0), 100, 200));
+        gusts.add(new Gust(new Vector(5, 0, 0), 1, 500));
     }
 
     public double getMass() {
@@ -408,7 +409,7 @@ public class PredictedRocketGraphing {
     }
 
     public ArrayList<Vector> runSpinSimulation() {
-        return stabilitySim.stabilitySim(gusts);
+        return stabilitySim.stabilitySim(new Vector(2, 0, 0));
     }
 
 }
